@@ -1,0 +1,2306 @@
+ 
+ 
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--CSS FILES-->
+    <link href="../css/global2.css" rel="stylesheet" type="text/css">
+    <link href="../css/rub.new.css" rel="stylesheet" type="text/css">
+    <!--/CSS FILES-->
+
+    <!--JS FILES-->
+
+    <script src='../jquery.js' type='text/javascript'></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/jquery.highlight.js"></script>
+    <!--/JS FILES-->
+
+    <!--JS Script-->
+    <script type="text/javascript">
+        // Tabs script
+        $(function() {
+            $("#tabs").tabs({
+                cookie: { expires: 7, name: "startTab" }
+            });
+        });
+
+        $('document').ready(function () {
+
+            var sBtn = "Искать";
+            var optText = $('#hide-opt').text();
+
+            if (sBtn != "") {
+                $('#stbl').hide();
+                $('#hide-opt').text(optText == "Скрыть параметры поиска" ? "Показать параметры поиска" : "Скрыть параметры поиска");
+            }
+
+            $('#hide-opt').click(function () {
+                var optTextc = $('#hide-opt').text();
+                $('#stbl').toggle();
+                $(this).text(optTextc == "Скрыть параметры поиска" ? "Показать параметры поиска" : "Скрыть параметры поиска");
+            });
+
+            $('#regions').mouseover(function () {
+                $('#regions-list').show();
+            });
+
+            $('#regions').mouseout(function () {
+                $('#regions-list').hide();
+            });
+
+            var rubID = "101";
+
+            var aText = "";
+
+            if (aText !== "") {
+                $('#jquery-highlight').each(function() {
+                    $('div#jquery-highlight').highlight(aText);
+                });
+            }
+
+            $('.a-rubs').each(function (index) {
+                if ($(this).attr('data') === rubID) {
+                    $(this).addClass('selected');
+                }
+            });
+
+            $('.in-rooms').each(function(index) {
+                var idVal = "#rooms" + $(this).attr('value') + "";
+
+                $(idVal).removeClass('rooms');
+                $(idVal).addClass('rooms-selected');
+            });
+
+            $("a.rooms").click(function() { // все ссылки с классом .rooms
+                var roomsID = ($(this).attr("value"));
+                if ($(this).hasClass('rooms-selected') == false) {
+                    $(this).removeClass('rooms');
+                    $(this).addClass('rooms-selected');
+                    $("#in-rooms" + roomsID + "").val(roomsID);
+                } else {
+                    $(this).removeClass('rooms-selected');
+                    $(this).addClass('rooms');
+                    $("#in-rooms" + roomsID + "").val('');
+                }
+                //$(this).parents("form").submit();
+                return false;
+            });
+
+            $("a.rooms-selected").click(function() { // все ссылки с классом после _GET .rooms-selected
+                var roomsID = ($(this).attr("value"));
+                if ($(this).hasClass('rooms-selected') == false) {
+                    $(this).removeClass('rooms');
+                    $(this).addClass('rooms-selected');
+                    $("#in-rooms" + roomsID + "").val(roomsID);
+                } else {
+                    $(this).removeClass('rooms-selected');
+                    $(this).addClass('rooms');
+                    $("#in-rooms" + roomsID + "").val('');
+                }
+                //$(this).parents("form").submit();
+                return false;
+            });
+
+            $('#plus-option').click(function () {
+                var text = $(this).text();
+                $(this).text(text == "больше опций" ? "меньше параметров" : "больше параметров");
+                $('.plus-in-opt').toggle();
+
+                return false;
+            });
+
+            $('.plus-in-val').each(function(index) {
+                if ($(this).attr('value') !== '') {
+                    $('#plus-option').text('меньше опций');
+                    $('.plus-in-opt').show();
+                }
+            });
+
+            $(function() {
+                $("a.poster").click(function() { // все ссылки с классом .poster
+                    $(".for_send_value").val($(this).attr("value"));
+                    $(this).parents("form").submit();
+                    return false;
+                });
+            });
+
+            var request = "#";
+            if (request == "#НН") {
+                $('#НН').css({"font-weight":"bold", "font-size":"16px", "text-decoration":"underline", "color":"#FF9000"});
+            }
+            $(request).css({"font-weight":"bold", "font-size":"16px", "text-decoration":"underline", "color":"#FF9000"});
+        });
+    </script>
+    <!--/JS Script-->
+
+    <title>
+        Квартиры         |         Квартиры и комнаты. Продам. | Недвижимость        |
+        Киев и область        |
+        online.aviso.ua
+    </title>
+</head>
+<body>
+
+<div id="content">
+<div id="top-banner">
+
+                
+    <iframe id='a713103c' name='a713103c' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=39&amp;target=_blank&amp;cb=353240306' frameborder='0' scrolling='no' width='730' height='90'>
+        <a href='http://banner.ool.ua/www/delivery/ck.php?n=a0d544ed&amp;cb=353240306' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=39&amp;cb=353240306&amp;n=a0d544ed' border='0' alt=''/></a>
+    </iframe></div>
+<hr>
+<div id="top">
+    <div class="cfix">
+        <div class="logo">
+            <a href="index.php">
+                <img src="../images/logo.jpg" alt="AVISO" title="AVISO"/>
+            </a>
+        </div>
+
+        <div class="city-name">
+            Киев и область            <span>(434018 объявлений)</span>
+        </div>
+        <div class="search-block">
+    <div id="tabs" style="height: 110px;">
+        <ul class="tabs">
+            <div id="tabs-header-text">Поиск по:</div>
+
+            <li><a href="saleFlat.html#tabs-1">тексту</a></li>
+            <li><a href="saleFlat.html#tabs-2">телефону</a></li>
+            <li><a href="saleFlat.html#tabs-3">ID</a></li>
+        </ul>
+        <div style="clear: both;"></div>
+    </div>    </div>
+</div>
+
+<br>
+
+<div id="navigation">
+    <ul class="cfix">
+        <li class="clipboard">
+            <a href="http://adpay.aviso.ua" target="_blank" class="nav-1">
+                Подать объявление
+                <span class="n-bl"><!-- --></span>
+                <span class="n-br"><!-- --></span>
+            </a>
+        </li>
+
+        <li>
+            <a href="../java" class="nav-2">
+                Блокнот
+                <span id="clipboardCount">(-)</span>
+                <span class="n-bl"><!-- --></span>
+                <span class="n-br"><!-- --></span>
+            </a>
+        </li>
+        <li id="regions">
+
+            <a href="saleFlat.html#" class="nav-3">
+                Выбрать регион
+            </a>
+
+            <div id="regions-list" style="display: none;">
+                <a href="/kiev" class="nav-list">Киев и область</a>
+                <a href="/odessa" class="nav-list">Одесса и область</a>
+                <a href="/dnepropetrovsk" class="nav-list">Днепропетровск и область</a>
+
+                <a href="/lviv" class="nav-list">Львов и область</a>
+                <a href="/zhitomir" class="nav-list">Житомир и область</a>
+                <a href="/rovno" class="nav-list">Ровно и область</a>
+            </div>
+        </li>
+        <li style="float: right; background: #EDEDED; border: 1px solid #CCCCCC; padding: 2px; color: #000; font-weight: normal">
+            <!-- Search block form .panes -->
+
+            <div class="panes">
+    <div id="tabs-1">
+        <form name="search-form" method="POST" action="searchtext.php">
+            <input type="hidden" name="rub" value="101"/>
+            <input type="hidden" name="rid" value="100"/>
+            <input type="hidden" name="redirect"
+                   value="http://online.aviso.ua/kiev/rubrics_new.php?rid=100&rub=101"/>
+
+            <!--
+
+            
+                <input type="hidden" name="rubs[]" value=""/>
+
+                
+            -->
+            <p>
+
+                Текст:&nbsp;
+                <input type="text" name="adtext" value="" style="width: 300px;"/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+    <div id="tabs-2">
+
+        <form name="search-form" method="POST" action="searchphone.php">
+            <input type="hidden" name="redirect" value="http://online.aviso.ua/kiev/rubrics_new.php?rid=100&rub=101"/>
+
+            <p align="center">
+                код:&nbsp;
+                <input type="text" name="adcode" maxlength="2" style="width: 20px;" value=""/>
+                &nbsp;номер:&nbsp;
+                <input type="text" name="adphone" maxlength="7" style="width: 70px;" value=""/>
+
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+    <div id="tabs-3">
+        <form name="search-form" method="POST" action="view.php">
+            <input type="hidden" name="arid" value=""/>
+
+            <p align="center">
+                ID:&nbsp;
+                <input type="text" name="adid" value=""/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+
+</div>
+</div>            <!-- /Search block form .panes -->
+        </li>
+    </ul>
+</div>
+<br>
+
+<div id="left-col">
+    <!-- bn and stats -->
+    <div style="position: absolute; top: 0px;">
+                        
+        
+	<iframe id='afdf0543' name='afdf0543' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=40&amp;target=_blank&amp;cb=1849708895' frameborder='0' scrolling='no' width='240' height='350'>
+		<a href='http://banner.ool.ua/www/delivery/ck.php?n=ab948c7d&amp;cb=1849708895' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=40&amp;cb=1849708895&amp;n=ab948c7d' border='0' alt=''/></a>
+	</iframe><br>
+
+<iframe id='txAd1' name='txAd1' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=28' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd2' name='txAd2' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=35' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd3' name='txAd3' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=92' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>                <hr style="border: 1px solid #FF9933">                        
+	<iframe id='a6ee7f6c' name='a6ee7f6c' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=45&amp;target=_blank&amp;cb=1849708895' frameborder='0' scrolling='no' width='240' height='90'>
+		<a href='http://banner.ool.ua/www/delivery/ck.php?n=a8710372&amp;cb=1849708895' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=45&amp;cb=1849708895&amp;n=a8710372' border='0' alt='' /></a>
+	</iframe>                        <hr style="border: 1px solid #FF9933">        
+	<iframe id='a3ec4d00' name='a3ec4d00' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=44&amp;target=_blank&amp;cb=1849708895' frameborder='0' scrolling='no' width='240' height='350'>
+		<a href='http://banner.ool.ua/www/delivery/ck.php?n=aef010ce&amp;cb=1849708895' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=44&amp;cb=1849708895&amp;n=aef010ce' border='0' alt='' /></a>
+	</iframe>
+<iframe id='txAd4' name='txAd4' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=93' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd5' name='txAd5' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=111' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd6' name='txAd6' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=112' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe>    </div>
+
+    <!-- /bn and stats -->
+</div>
+
+<div id="right-col">
+<div id="choice-section">
+    <a style="text-decoration: none; position: absolute; left: 10px;" href="../java" title="Перейти на главную страницу сайта, Киев и область">
+        <img src="../images/home_16.png" width="16px" height="16px">
+    </a>
+
+    <div style="position: relative; left: 20px;">
+        »
+        <a href="rubrics_new.php?rid=1">Недвижимость</a> » <a href="rubrics_new.php?rid=100">Квартиры и комнаты. Продам.</a>                »
+                <span style="color: #FF9000;">Квартиры</span>
+
+    </div>
+</div>
+<div id="content-ads">
+<div id="rubs">
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=100&rub=101" data="101">
+        <span class='a-rubs-txt'>
+            Квартиры        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=100&rub=106" data="106">
+        <span class='a-rubs-txt'>
+
+            Комнаты        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=100&rub=107" data="107">
+        <span class='a-rubs-txt'>
+            Прочие варианты        </span>
+    </a>
+        <div style="clear: left;"></div>
+
+    
+    <div style="width: 100%; border: 1px solid #ccc;"></div>
+<form class="rubs-filters" action="/kiev/rubrics_new.php" method="GET">
+<input type="hidden" name="rid" value="100">
+<input type="hidden" name="rub" value="101">
+<input type="hidden" name="page" value="">
+<input type="hidden" name="sbtn" value="Искать">
+<!--<input type="hidden" name="rooms1" value="">
+<input type="hidden" name="rooms2" value="">
+<input type="hidden" name="rooms3" value="">
+<input type="hidden" name="rooms4" value="">
+<input type="hidden" name="rooms5" value="">
+<input type="hidden" name="adistr" value="">
+<input type="hidden" name="apricemin" value="">
+<input type="hidden" name="apricemax" value="">
+<input type="hidden" name="aspacemin" value="">
+<input type="hidden" name="aspacemax" value="">
+<input type="hidden" name="aspacelivemin" value="">
+<input type="hidden" name="aspacelivemax" value="">
+<input type="hidden" name="aspacekitchmin" value="">
+<input type="hidden" name="aspacekitchmax" value="">
+<input type="hidden" name="aflrmin" value="">
+<input type="hidden" name="aflrmax" value="">
+<input type="hidden" name="aflrsmin" value="">
+<input type="hidden" name="aflrsmax" value="">-->
+<!--<input type="hidden" name="fonly" value="">-->
+<!--<input type="hidden" name="sortby" value="">-->
+<input type="hidden" name="sortedby" class="for_send_value" value=""/>
+
+<p class="search-result" align="center">
+    По вашемо запросу
+    найдено 291 объявление</p>
+
+<div style="position: relative;">
+    <p id="sortby" align="center">
+        <a id="НН" class="poster" value="НН" href="saleFlat.html#">
+            0..9
+        </a>&nbsp;&mdash;&nbsp;
+        <a id="А" class="poster" value="А" href="saleFlat.html#">А</a>
+        -
+        <a id="Б" class="poster" value="Б" href="saleFlat.html#">Б</a>
+        -
+        <a id="В" class="poster" value="В" href="saleFlat.html#">В</a>
+
+        -
+        <a id="Г" class="poster" value="Г" href="saleFlat.html#">Г</a>
+        -
+        <a id="Д" class="poster" value="Д" href="saleFlat.html#">Д</a>
+        -
+        <a id="Е" class="poster" value="Е" href="saleFlat.html#">Е</a>
+        -
+        <a id="Ё" class="poster" value="Ё" href="saleFlat.html#">Ё</a>
+        -
+        <a id="Ж" class="poster" value="Ж" href="saleFlat.html#">Ж</a>
+
+        -
+        <a id="З" class="poster" value="З" href="saleFlat.html#">З</a>
+        -
+        <a id="И" class="poster" value="И" href="saleFlat.html#">И/І</a>
+        -
+        <a id="Й" class="poster" value="Й" href="saleFlat.html#">Й</a>
+        -
+        <a id="К" class="poster" value="К" href="saleFlat.html#">К</a>
+        -
+        <a id="Л" class="poster" value="Л" href="saleFlat.html#">Л</a>
+
+        -
+        <a id="М" class="poster" value="М" href="saleFlat.html#">М</a>
+        -
+        <a id="Н" class="poster" value="Н" href="saleFlat.html#">Н</a>
+        -
+        <a id="О" class="poster" value="О" href="saleFlat.html#">О</a>
+        -
+        <a id="П" class="poster" value="П" href="saleFlat.html#">П</a>
+        -
+        <a id="Р" class="poster" value="Р" href="saleFlat.html#">Р</a>
+
+        -
+        <a id="С" class="poster" value="С" href="saleFlat.html#">С</a>
+        -
+        <a id="Т" class="poster" value="Т" href="saleFlat.html#">Т</a>
+        -
+        <a id="У" class="poster" value="У" href="saleFlat.html#">У</a>
+        -
+        <a id="Ф" class="poster" value="Ф" href="saleFlat.html#">Ф</a>
+        -
+        <a id="Х" class="poster" value="Х" href="saleFlat.html#">Х</a>
+
+        -
+        <a id="Ц" class="poster" value="Ц" href="saleFlat.html#">Ц</a>
+        -
+        <a id="Ч" class="poster" value="Ч" href="saleFlat.html#">Ч</a>
+        -
+        <a id="Ш" class="poster" value="Ш" href="saleFlat.html#">Ш</a>
+        -
+        <a id="Щ" class="poster" value="Щ" href="saleFlat.html#">Щ</a>
+        -
+        <a id="Ъ" class="poster" value="Ъ" href="saleFlat.html#">Ъ</a>
+
+        -
+        <a id="Ы" class="poster" value="Ы" href="saleFlat.html#">Ы</a>
+        -
+        <a id="Ь" class="poster" value="Ь" href="saleFlat.html#">Ь</a>
+        -
+        <a id="Э" class="poster" value="Э" href="saleFlat.html#">Э</a>
+        -
+        <a id="Є" class="poster" value="Є" href="saleFlat.html#">Є</a>
+        -
+        <a id="Ю" class="poster" value="Ю" href="saleFlat.html#">Ю</a>
+
+        -
+        <a id="Я" class="poster" value="Я" href="saleFlat.html#">Я</a>
+        &nbsp;&mdash;&nbsp;
+        <a class="poster" href="saleFlat.html#" value="">
+            Сбросить фильтр
+        </a>
+    </p>
+    <br>
+
+    <p align="center">
+
+        <label for="sortby">Сортировать:</label>
+        <select name="sortby" onchange="javascript:this.form.submit();">
+                                <option value="1">по дате - сначала новые</option>
+                                        <option value="2">по дате - сначала старые</option>
+                                        <option value="3">по цене - по возрастанию</option>
+                                        <option value="4">по цене - по убыванию</option>
+
+                                        <option value="5" selected>по тексту - А-Я</option>
+                                        <option value="6">по тексту - Я-А</option>
+                            </select>
+    </p>
+</div>
+<br>
+
+<p align="center"><a id="hide-opt" href="saleFlat.html#">Скрыть параметры поиска</a></p>
+
+<table width="100%" id="stbl">
+
+    <tr>
+        <td valign="top" width="50%">
+            <fieldset>
+                <legend>Район</legend>
+                <p class="form-element">
+                    <select name="adistr">
+                                                                            <option value="0">Не имеет значения</option>
+                                                                                                        <option value="1" selected>Голосеевский</option>
+
+                                                                                                        <option value="2">Дарницкий</option>
+                                                                                                        <option value="3">Деснянский</option>
+                                                                                                        <option value="4">Днепровский</option>
+                                                                                                        <option value="5">Оболонский</option>
+                                                                                                        <option value="6">Печерский</option>
+                                                                                                        <option value="7">Подольский</option>
+
+                                                                                                        <option value="8">Святошинский</option>
+                                                                                                        <option value="9">Соломенский</option>
+                                                                                                        <option value="10">Шевченковский</option>
+                                                                                                        <option value="11">Киевская обл.</option>
+                                                                                                        <option value="12">Другие города</option>
+                                                                                                        <option value="13">За рубежом</option>
+
+                                                                        </select>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Кол-во комнат</legend>
+                <p class="form-element">
+                    <a href="saleFlat.html#" id="rooms1" class="rooms" value="1">одна</a>
+                    <input type="hidden" name="rooms1" id="in-rooms1" class="in-rooms" value="1">
+
+                    <a href="saleFlat.html#" id="rooms2" class="rooms" value="2">две</a>
+                    <input type="hidden" name="rooms2" id="in-rooms2" class="in-rooms" value="">
+                    <a href="saleFlat.html#" id="rooms3" class="rooms" value="3">три</a>
+                    <input type="hidden" name="rooms3" id="in-rooms3" class="in-rooms" value="">
+                    <a href="saleFlat.html#" id="rooms4" class="rooms" value="4">четыре</a>
+                    <input type="hidden" name="rooms4" id="in-rooms4" class="in-rooms" value="">
+                    <a href="saleFlat.html#" id="rooms5" class="rooms" value="5">больше</a>
+
+                    <input type="hidden" name="rooms5" id="in-rooms5" class="in-rooms" value="">
+                </p>
+            </fieldset>
+        </td>
+        <td valign="top">
+            <fieldset>
+                <legend>Цена, за объект</legend>
+                <p class="form-element">
+
+                    <input type="text" name="apricemin" maxlength="7" value=""> -
+                    <input type="text" name="apricemax" maxlength="7" value="">
+                    <select name="apricecur">
+                        <option value="5" selected>
+                            у.е.
+                        </option>
+                        <option value="4" >
+                            евро
+                        </option>
+                        <option value="3" >
+
+                            грн.
+                        </option>
+                    </select>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Площадь общая, м2</legend>
+                <p class="form-element">
+
+                    <input type="text" name="aspacemin" maxlength="7" value=""> -
+                    <input type="text" name="aspacemax" maxlength="7" value="">
+                </p>
+            </fieldset>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="fonly" id="fonly" checked>
+
+            <label for="fonly">только с фото</label>
+        </td>
+        <td>
+            <p align="right" id="plus-option">больше опций</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="plus-in-opt">
+
+            <fieldset>
+                <legend>Площадь жилая, м2</legend>
+                <p class="form-element">
+                    <input class="plus-in-val" type="text" name="aspacelivemin" maxlength="7" value="">
+                    -
+                    <input class="plus-in-val" type="text" name="aspacelivemax" maxlength="7" value="">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Площадь кухни, м2</legend>
+                <p class="form-element">
+                    <input class="plus-in-val" type="text" name="aspacekitchmin" maxlength="7" value="">
+                    -
+                    <input class="plus-in-val" type="text" name="aspacekitchmax" maxlength="7" value="">
+                </p>
+            </fieldset>
+        </td>
+
+        <td class="plus-in-opt">
+            <fieldset>
+                <legend>Этаж</legend>
+                <p class="form-element">
+                    <input class="plus-in-val" type="text" name="aflrmin" maxlength="3" value="">
+                    -
+                    <input class="plus-in-val" type="text" name="aflrmax" maxlength="3" value="">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Этажность</legend>
+                <p class="form-element">
+                    <input class="plus-in-val" type="text" name="aflrsmin" maxlength="3" value="">
+                    -
+                    <input class="plus-in-val" type="text" name="aflrsmax" maxlength="3" value="">
+                </p>
+            </fieldset>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="plus-in-opt">
+            <fieldset>
+                <legend>Поиск по тексту</legend>
+                <p class="form-element">
+                    <input style="width: 200px;" class="plus-in-val" type="text" name="atext" value="">
+
+                </p>
+            </fieldset>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <p align="left"><input type="submit" id="sbtn" name="sbtn" value="Искать"></p>
+        </td>
+
+        <td></td>
+    </tr>
+</table>
+
+</form>
+    
+</div>
+<br>
+        <p align="center">
+        <a style="text-decoration: none; cursor: pointer;" onclick="window.open('http://online.aviso.ua/go_to_izumrud.php?uri=http://www.izumrudniy.com.ua/','_blank');" href="saleFlat.html#">
+            <img src="../images/izumrud/image2.jpg">
+        </a>
+
+    </p>
+        <br>
+<p class="pagination" align="center">
+    <span class="pagination-txt"></span>&nbsp;Страниц:&nbsp;<b>1</b> | <a href='/kiev/rubrics_new.php?page=2&rid=100&rub=101&adistr=1&rooms1=1&rooms2=&rooms3=&rooms4=&rooms5=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&aspacelivemin=&aspacelivemax=&aspacekitchmin=&aspacekitchmax=&fonly=on&sortedby=&sortby=5'>2</a> | <a href='/kiev/rubrics_new.php?page=3&rid=100&rub=101&adistr=1&rooms1=1&rooms2=&rooms3=&rooms4=&rooms5=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&aspacelivemin=&aspacelivemax=&aspacekitchmin=&aspacekitchmax=&fonly=on&sortedby=&sortby=5'>3</a> &rarr; <a title='Последняя страница' href='/kiev/rubrics_new.php?page=6&rid=100&rub=101&adistr=1&rooms1=1&rooms2=&rooms3=&rooms4=&rooms5=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&aspacelivemin=&aspacelivemax=&aspacekitchmin=&aspacekitchmax=&fonly=on&sortedby=&sortby=5'>6</a></p>
+
+    <br>
+
+<div id="ads-name">
+    <h3 id="ads-name-hot">Горячие предложения</h3>
+</div>
+<div id="ads">
+    <div class="ads-list">
+        <table border="0" width="100%">
+            <tr>
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://www.acropol-group.com.ua/" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/168.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://www.acropol-group.com.ua/" target="_blank">
+                                                        <b>Ворзель</b>
+
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    дом сдан в эксплуатацию, лифт, 2к.кв., 3 эт., шикарная гостиная и кухня, 84/50/10кв.м, красивая природа, до электрички 500м, школа, детсад, гипермаркет, магазин, маршрутка. Тел: (93)6767679, Евгений
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    <b><span style="color:#1B38A5">Цена:&nbsp;</span>75 000у.е.</b>
+
+                                                </p>
+                                            </div>
+                                        </td >
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://www.samson.com.ua" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/155.jpg" alt="" >
+                                                </a>
+                                            </div>
+
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://www.samson.com.ua" target="_blank">
+                                                        <b>Компания «САМСОН»</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+
+                                                    Квалифицированная надежная оценка любой сложности. Недвижимость, земля, бизнес-активы. Сертификат ФГИУ №11621/11. Лицензия ГАЗРУ АВ №442292. тел. (044)235-12-43, 235-27-57.
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    </b>
+                                                </p>
+                                            </div>
+                                        </td ></tr><tr>
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://www.skywards.com.ua/aboutas.html" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/103.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://www.skywards.com.ua/aboutas.html" target="_blank">
+                                                        <b>Ипотека. Акционные условия</b>
+
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    Заполни анкету и получи скидку -1% от стандартной ставки банка! Решение по кредиту за 24 часа.  Тел: (44) 3839022, (44) 3839011
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    </b>
+
+                                                </p>
+                                            </div>
+                                        </td >
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://www.ukrdom2010.com.ua/" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/194.jpg" alt="" >
+                                                </a>
+                                            </div>
+
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://www.ukrdom2010.com.ua/" target="_blank">
+                                                        <b>1-кімнатні, Бориспільський р-н,</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+
+                                                    від 9000.у.о. за квартиру. Будинок заселений! (097) 419-19-19,
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    <b><span style="color:#1B38A5">Цена:&nbsp;</span>від 90000у.о.</b>
+                                                </p>
+                                            </div>
+                                        </td ></tr>        </table>
+
+    </div>
+</div>
+    <br>
+
+<div id="ads">
+            
+                                                    <div id="ads-name">
+                    <h3 id="ads-name-usual">
+                        Объявления
+                            <span style="position: absolute; right: 5px;">
+                                Всего:&nbsp;291                            </span>
+
+                    </h3>
+                </div>
+                    <div class="ads-list">
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3282231">
+                    <img src="../pics/1/003/282/231/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3282231">
+
+                    <b style="font-size: 16px;">Продам  квартиру, 58000.00 грн.</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Никольско Слободская. Никольско –Слободская 4б, 30\\14\\8, 2\\9. м\\п окна, бронедверь, утеплена, косметичиский ремонт 60000у.е. торг Яна 0631017704
+                 Тел: (50) 2330139
+                                <span class="price" style="color: red;">
+                            58 000&nbsp;грн.                                            </span>
+                
+                                <span class="date">2011-12-08 02:31:31</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3282444">
+                    <img src="../pics/1/003/282/444/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3282444">
+                    <b style="font-size: 16px;">Продам  квартиру, 76000.00 грн.</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Григоренко. Продам 1-к.квартиру, пр-т Григоренко, 24, 7/16эт., кирпичный спецпроект 2004г.п., 46/18/8,7, коридор 9кв.м, строительный ремонт, с/у разд., балкон, лоджия застеклена, консьерж, рядом метро, супермаркеты, садики, школы, парк, первичная чистая продажа, срочно, 76000у.е., 0994568421, 0635782609 Татьяна
+                 Тел: (99) 4568421
+                                <span class="price" style="color: red;">
+                            76 000&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-07 17:15:35</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3282295">
+                    <img src="../pics/1/003/282/295/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3282295">
+                    <b style="font-size: 16px;">Продам  квартиру, 85000.00 $</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. пр-т Краснозвездный, 150-162, ж/д 1. Введен в экспл. входные двери - металлические, противоударные
+внутренние двери -не устанавливаются
+окна - металлопластиковые
+в комнатах, коридорах, кухнях - выполняются штукатурные работы
+в туалетах и ванных комнатах - подготовка под отделку, штукатурка, отделочные работы стен выполняются под заказ и средства инвестора
+                 Тел: (50) 2371517
+                                <span class="price" style="color: red;">
+                            85 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-07 12:06:13</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3282280">
+                    <img src="../pics/1/003/282/280/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3282280">
+                    <b style="font-size: 16px;">Продам  квартиру, 85000.00 $</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. пр-т Краснозвездный, 150-162, ж/д 1. Жилой комплекс \\ Ново-Демеевский\\ 
+
+Каркасно-монолитный дом
+Ввод в эксплуатацию - 30.09.2012 г.
+Отделка квартир:
+
+входные двери - металлические, противоударные
+внутренние двери -не устанавливаются
+окна - металлопластиковые
+в комнатах, коридорах, кухнях - выполняются штукатурные работы
+в туалетах и ванных комнатах - подготовка под отделку, штукатурка, отделочные работы стен выполняются под заказ и средства инвестора
+                 Тел: (50) 2371517
+                                <span class="price" style="color: red;">
+                            85 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-06 15:30:53</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3282257">
+                    <img src="../pics/1/003/282/257/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3282257">
+                    <b style="font-size: 16px;">Продам  квартиру, 54500.00 $</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. пл.деревянко. 7/9 34/18/9 Современный капитальный ремонт. Металлопластиковое остекление-, обшита вагонкой, на полу плитка, кухня- рабочая стенка современно облицована, новые обои, пол- плитка, комната- современные обои, по- ламинат, идеально ровные потолки, сан. узел. раздельный, современно облицован, новые трубы и сан. фаянс, поменяна вся электропроводка, бойлер на 80л., бронированная дверь, домофон. приятная цветовая гамма, хорошее расположение дома, рядом супермаркеты, школы, дет. сады, удобная транспортная развязка. 54500 у.е. 7711227 Александр Михайлович 771-12-25 067-483-22-77 Татьяна Николаевна
+                 Тел: (67) 4832277
+                                <span class="price" style="color: red;">
+                            54 500&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-06 14:41:00</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3173014">
+                    <img src="../pics/1/003/173/014/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3173014">
+                    <b style="font-size: 16px;">40-летия Октября 60</b>
+                </a>
+                <br><br>
+
+                115/19/58, 21-23 этаж, ЖК "Park Avenue", метро, закрытая территория, высококачественные материалы, детские и спортплощадки, собственная котельная, колясочная, подземный паркинг. Сдача - лето 2012г., 2985у.е./ кв.м. Тел: (44) 5015014
+                
+                                <span class="price" style="color: red;">
+                            2 985&nbsp;у.е.                                        <br>
+
+                    <small>за кв.м.</small>
+                                            </span>
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3173015">
+                    <img src="../pics/1/003/173/015/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3173015">
+                    <b style="font-size: 16px;">40-летия Октября 60</b>
+                </a>
+                <br><br>
+
+                58/20/23, 2-13 этаж, ЖК "Park Avenue", метро, закрытая территория, высококачественные материалы, детские и спортплощадки, собственная котельная, колясочная, подземный паркинг. Сдача - лето 2012г., 2140у.е./кв.м. Тел: (44) 5015014
+                
+                                <span class="price" style="color: red;">
+                            2 140&nbsp;у.е.                                        <br>
+                    <small>за кв.м.</small>
+                                            </span>
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3173016">
+                    <img src="../pics/1/003/173/016/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3173016">
+                    <b style="font-size: 16px;">40-летия Октября 60</b>
+                </a>
+                <br><br>
+
+                65/20/27, 17-20 этаж, ЖК "Park Avenue", метро, закрытая территория, высококачественные материалы, детские и спортплощадки, собственная котельная, колясочная, подземный паркинг. Сдача - лето 2012г., 2410у.е./кв.м. Тел: (44) 5015014
+                
+                                <span class="price" style="color: red;">
+                            2 410&nbsp;у.е.                                        <br>
+
+                    <small>за кв.м.</small>
+                                            </span>
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3173017">
+                    <img src="../pics/1/003/173/017/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3173017">
+                    <b style="font-size: 16px;">40-летия Октября 60</b>
+                </a>
+                <br><br>
+
+                66/20/28, 17-20 этаж, ЖК "Park Avenue", метро, закрытая территория, высококачественные материалы, детские и спортплощадки, собственная котельная, колясочная, подземный паркинг. Сдача - лето 2012г., 2370у.е./кв.м. Тел: (44) 5015014
+                
+                                <span class="price" style="color: red;">
+                            2 370&nbsp;у.е.                                        <br>
+                    <small>за кв.м.</small>
+                                            </span>
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243195">
+                    <img src="../pics/1/003/243/195/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3243195">
+                    <b style="font-size: 16px;">Автовокзал</b>
+                </a>
+                <br><br>
+
+                Науки просп. 20, 1/9-эт. кирп. дома, 28/13/3 кв.м, хорошее состояние, балкон застеклен, решетки, видовая во двор, сантехника/трубы новые, ст.м.Демиевская-8мин.пешком, 45000у.е. Тел: (96) 3240592, (44) 5876359
+                
+                                <span class="price" style="color: red;">
+                            45 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243202">
+                    <img src="../pics/1/003/243/202/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243202">
+                    <b style="font-size: 16px;">Автовокзал</b>
+                </a>
+                <br><br>
+
+                Науки просп. 9, 12/13-эт. дома, 40/21/7.2 кв.м, отличное состояние, просторно и уютно, встроенная кухня, кирпичній дом, улучшенная планировка, развитая инфраструктура, 74000у.е. Тел: (44) 5904455, (98) 2242606
+                
+                                <span class="price" style="color: red;">
+                            74 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243196">
+                    <img src="../pics/1/003/243/196/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243196">
+                    <b style="font-size: 16px;">Ак.Вильямса 5</b>
+                </a>
+                <br><br>
+
+                10/18-эт. дома, 48/21/12 кв.м, после строителей, окна во двор, отличное месторасположение с развитой инфраструктурой и транспортной развязкой, 81000у.е. Тел: (44) 5990871, (98) 7029081
+                
+                                <span class="price" style="color: red;">
+                            81 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243205">
+                    <img src="../pics/1/003/243/205/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243205">
+                    <b style="font-size: 16px;">Академика</b>
+                </a>
+                <br><br>
+
+                Заболотного 78, 11/21-эт. дома, 35/18/9 кв.м, аккуратная квартира в новостройке, развитая инфраструктура, рядом ТЦ Магелан, детсад, рынок, 57000у.е. Тел: (44) 5904455, (98) 2242606
+                
+                                <span class="price" style="color: red;">
+                            57 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3077440">
+                    <img src="../pics/1/003/077/440/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3077440">
+                    <b style="font-size: 16px;">В.Китаївська</b>
+                </a>
+                <br><br>
+
+                51/16.6/15.3, престижна новобудова, ремонт з використанням дорогих матеріалів, панорамний вид, ст.м. "Деміївська", 127000у.о., код 44998 Тел: (44) 4959595, (97) 1084724, Ольга Степанівна  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            127 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243234">
+                    <img src="../pics/1/003/243/234/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243234">
+                    <b style="font-size: 16px;">В.Китаївська 57</b>
+                </a>
+                <br><br>
+
+                19/23пов., 43/18/10.5, двостороння, Н=2.85м, без оздоблення, лічильники, видова, консьєрж, 88000у.о., код 64145. Тел: (44) 4940454, (50) 3139426, (96) 3805641, Діля  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            88 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3187107">
+                    <img src="../pics/1/003/187/107/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3187107">
+                    <b style="font-size: 16px;">Вільямса 5</b>
+                </a>
+                <br><br>
+
+                14/18цег, 48/21.8/12.5, новобудова, євроремонт 2011 року, якісна столярка, ламінат, кондиціонер, 105000у.о., код 63043 Тел: (44) 4959595, (93) 9746514, моб., Андрій Холод  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            105 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243229">
+                    <img src="../pics/1/003/243/229/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243229">
+                    <b style="font-size: 16px;">Вильямса ул. 3а</b>
+                </a>
+                <br><br>
+
+                7/15-эт, 54/19/17 кв.м, двусторонняя, отличная планировка, лоджия 5 кв.м, коридор 12кв.м, после строителей, 80000у.е. Тел: (44) 2294189, (50) 5512634, АН "София+"
+                
+                                <span class="price" style="color: red;">
+                            80 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243236">
+                    <img src="../pics/1/003/243/236/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243236">
+                    <b style="font-size: 16px;">Вокзальная</b>
+                </a>
+                <br><br>
+
+                Льва Толстого ул. 49, 7/9-эт. дома, 31/17/6 кв.м, кирп.спецпроект, жилое состояние, паркет, кафель, с/у раздельный, "чистая" продажа. Развитая инфраструктура, ст.м.Вокзальная 7 минут, 79000у.е. Тел: (44) 5021197, (63) 2330169
+                
+                                <span class="price" style="color: red;">
+                            79 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243278">
+                    <img src="../pics/1/003/243/278/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243278">
+                    <b style="font-size: 16px;">Голосіївська 13а</b>
+                </a>
+                <br><br>
+
+                19/22 цег, дизайнерский ремонт, вбудована кухня з побутовою технікою, мебльована. 165000у.о., код 76943. Тел: (44) 3922222, (99) 7244805, Давид  , АН "Park Lane"
+                
+                                <span class="price" style="color: red;">
+                            165 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243279">
+                    <img src="../pics/1/003/243/279/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243279">
+                    <b style="font-size: 16px;">Голосіївська 13а</b>
+                </a>
+                <br><br>
+
+                19/24 цег, 59.1/25.2/13.7, ЖК"Голосієво". Є варіанти на 3 та 20 поверхах! , код 77372. Тел: (44) 3922222, (93) 9815618, Олеся Григорівна  , АН "Park Lane"
+                
+                                <span class="price" style="color: red;">договорная</span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243298">
+                    <img src="../pics/1/003/243/298/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243298">
+                    <b style="font-size: 16px;">Голосіївський просп</b>
+                </a>
+                <br><br>
+
+                5/9цегяний сучасний "спецпроект", прекрасна простора квартира з ремонтом, балкон засклений, паркет. Парк і метро-5хв! , 65000у.о., торг, код 76346. Тел: (44) 4959595, Ян  , АН"Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            65 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243245">
+                    <img src="../pics/1/003/243/245/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243245">
+                    <b style="font-size: 16px;">Голосеево</b>
+                </a>
+                <br><br>
+
+                Голосеевская ул. 5, 1/9-эт. дома, 38/22/8 кв.м Кирпич отличный ремонт. 5 мин до метро Чистая продажа., 65000у.е., торг. Тел: (44) 3608242, (67) 5421905, Евгений
+                
+                                <span class="price" style="color: red;">
+                            65 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243249">
+                    <img src="../pics/1/003/243/249/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243249">
+                    <b style="font-size: 16px;">Голосеево</b>
+                </a>
+                <br><br>
+
+                Дубинина ул. 6, 2/5-эт. дома, 40/18/12 кв.м, дом после реконструкции, тихо, окна во двор, есть 2 лифта, полный фарш, шикарное парадное, домофон, 83000у.е. Тел: (44) 5904455, (98) 2242606
+                
+                                <span class="price" style="color: red;">
+                            83 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243250">
+                    <img src="../pics/1/003/243/250/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243250">
+                    <b style="font-size: 16px;">Голосеево</b>
+                </a>
+                <br><br>
+
+                Жуковского пер. 13/16, 30/17/6 кв.м, аккуратная квартира, окна во двор, чистое парадное, домофон, развита инфраструктура, рядом магазины, удобная транспортная развязка, 53000у.е. Тел: (44) 3937353, (67) 1842411
+                
+                                <span class="price" style="color: red;">
+                            53 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243255">
+                    <img src="../pics/1/003/243/255/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243255">
+                    <b style="font-size: 16px;">Голосеево</b>
+                </a>
+                <br><br>
+
+                Крейсера "Аврора" ул. 1Б, 8/9-эт. кирп. дома, 28/14/5.5 кв.м, хорошее жилое состояние, прекрасная видовая, дерев.столярка, полноценная ванна, БТИ-заказана. Эксклюзив! , 49000у.е. Тел: (96) 3240592, (44) 5876359
+                
+                                <span class="price" style="color: red;">
+                            49 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243268">
+                    <img src="../pics/1/003/243/268/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243268">
+                    <b style="font-size: 16px;">Голосеевский просп</b>
+                </a>
+                <br><br>
+
+                6/8-эт. кирп. дома, 30/17/6 кв.м, хорошее состояние, стеклопакеты, паркет, кафель, домофон, рядом супермаркет, парк, метро, помощь в кредитовании, 59000у.е., торг. Тел: (44) 5857727
+                
+                                <span class="price" style="color: red;">
+                            59 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243310">
+                    <img src="../pics/1/003/243/310/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243310">
+                    <b style="font-size: 16px;">Горького</b>
+                </a>
+                <br><br>
+
+                6/12 цегляний сучасний будинок, 33/17.5/8, ремонт, меблі i техніка. Центр КИЄВА, 79000у.о., код 76337. Тел: (44) 4959595, Ян  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            79 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243302">
+                    <img src="../pics/1/003/243/302/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243302">
+                    <b style="font-size: 16px;">Горького 156</b>
+                </a>
+                <br><br>
+
+                4/11 цег, 37/18/9, світла простора квартира, жилий стан, склопакети, паркет, . код 75686. Тел: (44) 4940454, (50) 7154217, (67) 6489597, Наталія Крячок  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">договорная</span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243303">
+                    <img src="../pics/1/003/243/303/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243303">
+                    <b style="font-size: 16px;">Горького 34</b>
+                </a>
+                <br><br>
+
+                3/4 цег, 59/22/9, Н=4м, гараж, закритий двір, 132000у.о., код 67689. Тел: (44) 4955959, (50) 6683310, (97) 4352575, Микола Володимирович  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            132 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243307">
+                    <img src="../pics/1/003/243/307/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243307">
+                    <b style="font-size: 16px;">Горького ул</b>
+                </a>
+                <br><br>
+
+                8/12-эт. дома, 36/18/8 кв.м, хорошее состояние, стеклопакеты, паркет, кафель, домофон, рядом супермаркет, парк, метро, помощь в кредитовании, 85000у.е., торг. Тел: (44) 5857727
+                
+                                <span class="price" style="color: red;">
+                            85 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243332">
+                    <img src="../pics/1/003/243/332/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243332">
+                    <b style="font-size: 16px;">Жилянская ул. 59</b>
+                </a>
+                <br><br>
+
+                Дипломат Хол 9/17 этаж 65/30/14 дизайнерский ремонт, меблирована, паркет, подогрев полов, 1 паркоместо. БЕЗ КОМИССИИ , 300000у.е., торг. Тел: (44) 3907979, (50) 4779970, Вячеслав  IDGROUP.UA
+                
+                                <span class="price" style="color: red;">
+                            300 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243338">
+                    <img src="../pics/1/003/243/338/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243338">
+                    <b style="font-size: 16px;">Жилянська</b>
+                </a>
+                <br><br>
+
+                ексклюзивна пропозиція! "Сталінка", 39/19/6.4, ремонт, паркет, вбудована кухня, меблі/частково., 83000у.о., код 76253. Тел: (44) 5370656, (50) 4137689, (44) 4992440, Сергій Федоров
+                
+                                <span class="price" style="color: red;">
+                            83 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243355">
+                    <img src="../pics/1/003/243/355/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243355">
+                    <b style="font-size: 16px;">Заболотного ул</b>
+                </a>
+                <br><br>
+
+                2/16-эт. дома, 40/18/9 кв.м, аккуратное парадное, окна во двор, серия КТ, хорошее состояние, ТЦ "Магеллан", станция метро, эксклюзив, 58000у.е. Тел: (44) 2892735, (67) 5372047
+                
+                                <span class="price" style="color: red;">
+                            58 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243346">
+                    <img src="../pics/1/003/243/346/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243346">
+                    <b style="font-size: 16px;">Заболотного ул. 110</b>
+                </a>
+                <br><br>
+
+                2/16-эт. дома, 40/18/9 кв.м, аккуратная, чистая квартира, тихий двор, отличная транспортная развязка, рядом ТЦ"Магелан", м.Васильковская 10мин, 58000у.е. Тел: (44) 2237373, (96) 8126058
+                
+                                <span class="price" style="color: red;">
+                            58 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243347">
+                    <img src="../pics/1/003/243/347/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243347">
+                    <b style="font-size: 16px;">Заболотного ул. 156</b>
+                </a>
+                <br><br>
+
+                3/5-эт. дома, 31/18/6 кв.м Капитальный ремонт, сантехника-трубы новые, двойная бронедверь, ламинат, металлопластиковые окна, шкаф-купе, встроенная кухня, 54000у.е., торг. Тел: (44) 5990871, (98) 7029081
+                
+                                <span class="price" style="color: red;">
+                            54 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243351">
+                    <img src="../pics/1/003/243/351/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243351">
+                    <b style="font-size: 16px;">Заболотного ул. 78</b>
+                </a>
+                <br><br>
+
+                13/21-эт. дома, 35/18/9 кв.м, аккуратная квартира, косметический ремонт, чистое парадное, развитая инфраструктура, недалеко ТЦ Магеллан, 57000у.е. Тел: (44) 3937353, (67) 1842411
+                
+                                <span class="price" style="color: red;">
+                            57 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243352">
+                    <img src="../pics/1/003/243/352/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243352">
+                    <b style="font-size: 16px;">Заболотного ул. 78</b>
+                </a>
+                <br><br>
+
+                13/21-эт. дома, КТ, 35/18/9 кв.м, жилое состояние, стеклопакеты, лоджия застеклена, транспортная развязка, метро, 61000у.е., торг. Тел: (44) 5857727, (44) 2232172, (97) 8869749, "Золотые Ворота"
+                
+                                <span class="price" style="color: red;">
+                            61 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243379">
+                    <img src="../pics/1/003/243/379/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243379">
+                    <b style="font-size: 16px;">Ломоносова 83а</b>
+                </a>
+                <br><br>
+
+                11/16пов., 43/18/10, євроремонт, вбудована кухня, шафа-купе, 90000у.о., торг, код 73858. Тел: (44) 3922222, (63) 2972788, (95) 7908776, Ольга Матвійчук  , АН "Park Lane"
+                
+                                <span class="price" style="color: red;">
+                            90 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243404">
+                    <img src="../pics/1/003/243/404/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243404">
+                    <b style="font-size: 16px;">Саксаганського 60а</b>
+                </a>
+                <br><br>
+
+                "сталінка", 37/19.3/9, жилий стан, закритий зелений двір, ремонт у парадному, 85000у.о., код 53521. Тел: (44) 4940454, (63) 4726550, Владислав Миколайович  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            85 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243406">
+                    <img src="../pics/1/003/243/406/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243406">
+                    <b style="font-size: 16px;">Саперна Слобідка</b>
+                </a>
+                <br><br>
+
+                Феодосійський пров, 13/22 цег, 42/22/12, балкон, євроремонт, вбудовані меблі, побуттехніка, кондиціонер, 118000у.о., код 74343. Тел: (44) 4955959, (67) 9593845, Олена Анатоліївна
+                
+                                <span class="price" style="color: red;">
+                            118 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243457">
+                    <img src="../pics/1/003/243/457/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243457">
+                    <b style="font-size: 16px;">Трутенко ул. 3</b>
+                </a>
+                <br><br>
+
+                5/24-эт. кирп. дома, 52.4/23.2/14.2 кв.м, дом N1, секция "А", 3 минуты до ст. метро "Васильковская", стоимость с оформлением 84000у.е., торг. Тел: (44) 5857727, (67) 4977749, "Золотые Ворота"
+                
+                                <span class="price" style="color: red;">
+                            84 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3131532">
+                    <img src="../pics/1/003/131/532/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3131532">
+                    <b style="font-size: 16px;">Феодосійський пров</b>
+                </a>
+                <br><br>
+
+                12/24цег, 41/20/11.5, ремонт, вбудовані меблі, вікна у тихий двір, ст.м. "Деміївська" - 12хв, 104900у.о., торг, код 53626. Тел: (44) 4959595, (97) 2754998, моб., Юрій Романович  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            104 900&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243462">
+                    <img src="../pics/1/003/243/462/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243462">
+                    <b style="font-size: 16px;">Центр</b>
+                </a>
+                <br><br>
+
+                Жилянська, 6/22 цег, 65.4/34/12.9, "Дипломат Холл", євроремонт, Н=3м, 350000у.о., торг, код 76246. Тел: (44) 5370656, (96) 7777720, Олексій Олександрович  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            350 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243464">
+                    <img src="../pics/1/003/243/464/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243464">
+                    <b style="font-size: 16px;">Центр</b>
+                </a>
+                <br><br>
+
+                Саксаганського, 2/5 цег, 43.1/21.7/8.2, відмінний стан, балкон засклений, 149000у.о, торг, код 74319. Тел: (44) 4619595, (97) 0876326, Тамара Всеволодівна  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            149 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243465">
+                    <img src="../pics/1/003/243/465/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243465">
+                    <b style="font-size: 16px;">Центр</b>
+                </a>
+                <br><br>
+
+                Саксаганського, 35/16/8, гарна квартира з ремонтом у центрі міста поруч з метро. 98000у.о., код 76027. Тел: (44) 3922222, (93) 2703971, Олена Леонідівна  , АН "Park Lane"
+                
+                                <span class="price" style="color: red;">
+                            98 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3243469">
+                    <img src="../pics/1/003/243/469/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3243469">
+                    <b style="font-size: 16px;">Яна В. ул. 16</b>
+                </a>
+                <br><br>
+
+                7/9-эт. кирп. дома, 22/12.5/3.5 кв.м, хорошее состояние, паркет/кафель, видовая во двор, м, ст.м.Олимпийская-10мин.пешком, отличное месторасположение с развитой инфраструктурой, 48000у.е., торг. Тел: (96) 3240592, (44) 5876359
+                
+                                <span class="price" style="color: red;">
+                            48 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3228394">
+                    <img src="../pics/1/003/228/394/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3228394">
+                    <b style="font-size: 16px;">Автовокзал</b>
+                </a>
+                <br><br>
+
+                Науки просп. 17/15, 4/5-эт. дома, 19/11/4 кв.м Евро ремонт 2011г. студио 10 мин м Демеевское, 45000у.е. Тел: (44) 3608242, (67) 5421905, Евгений
+                
+                                <span class="price" style="color: red;">
+                            45 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-01 15:36:05</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3228398">
+                    <img src="../pics/1/003/228/398/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3228398">
+                    <b style="font-size: 16px;">Автовокзал</b>
+                </a>
+                <br><br>
+
+                Науки просп. 9, 12/13-эт. дома, 40/21/7.2 кв.м, отличное состояние, просторно и уютно, встроенная кухня, кирпичній дом, улучшенная планировка, развитая инфраструктура, 74000у.е. Тел: (44) 5904455, (98) 2242606
+                
+                                <span class="price" style="color: red;">
+                            74 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-01 15:36:05</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3228396">
+                    <img src="../pics/1/003/228/396/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3228396">
+                    <b style="font-size: 16px;">Ак.Вильямса 5</b>
+                </a>
+                <br><br>
+
+                10/18-эт. дома, 48/21/12 кв.м, после строителей, окна во двор, отличное месторасположение с развитой инфраструктурой и транспортной развязкой, 82000у.е. Тел: (44) 5990871, (98) 7029081
+                
+                                <span class="price" style="color: red;">
+                            82 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-01 15:36:05</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3228407">
+                    <img src="../pics/1/003/228/407/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3228407">
+                    <b style="font-size: 16px;">В.Китаївська</b>
+                </a>
+                <br><br>
+
+                51/16.6/15.3, престижна новобудова, відмінний ремонт, панорамний вид, охорона, паркінг, ст.М"Деміївська"! , 120000у.о., код 71918. Тел: (44) 4959595, (97) 1084724, Ольга Степанівна  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            120 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-01 15:36:05</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+                            </div>
+                
+                                </div>
+<br>
+    
+
+<p class="pagination" align="center">
+    <span class="pagination-txt"></span>&nbsp;Страниц:&nbsp;<b>1</b> | <a href='/kiev/rubrics_new.php?page=2&rid=100&rub=101&adistr=1&rooms1=1&rooms2=&rooms3=&rooms4=&rooms5=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&aspacelivemin=&aspacelivemax=&aspacekitchmin=&aspacekitchmax=&fonly=on&sortedby=&sortby=5'>2</a> | <a href='/kiev/rubrics_new.php?page=3&rid=100&rub=101&adistr=1&rooms1=1&rooms2=&rooms3=&rooms4=&rooms5=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&aspacelivemin=&aspacelivemax=&aspacekitchmin=&aspacekitchmax=&fonly=on&sortedby=&sortby=5'>3</a> &rarr; <a title='Последняя страница' href='/kiev/rubrics_new.php?page=6&rid=100&rub=101&adistr=1&rooms1=1&rooms2=&rooms3=&rooms4=&rooms5=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&aspacelivemin=&aspacelivemax=&aspacekitchmin=&aspacekitchmax=&fonly=on&sortedby=&sortby=5'>6</a></p>
+    <br>
+<div id="footer">
+
+    <p class="copy">&copy;1997&ndash;2010, Pronto-Kyiv JV. All rights reserved.</p>
+	<p><a href="http://www.aviso.ua" target="_blank"><img src="/images/av-logo.gif" height="50" border="0"></a></p>
+    <p><a target="_blank" href="http://o.aviso.ua">Подать объявление</a> | <a href="http://www.aviso.ua/aviso/editions/" target="_blank">Газеты и Журналы</a> | <a href="http://www.aviso.ua/browse/" target="_blank">Просмотр</a> | <a href="http://www.aviso.ua/aviso/all-agree.asp" target="_blank">Условия</a> | <a href="http://www.aviso.ua/aviso/all-contacts.asp" target="_blank">Контакты</a><br /><a href="http://www.aviso.ua">www.aviso.ua</a> | <a target="_blank" href="http://fn.ua">fn.ua</a> | <a target="_blank" href="http://realt.aviso.ua">realt.aviso.ua</a> | <a target="_blank" href="http://auto.aviso.ua">auto.aviso.ua</a></p>
+
+    <br>
+    <!-- GOOGLE ANALYTICS -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20007511-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- /GOOGLE ANALYTICS -->
+
+    <!--bigmir)net TOP 100-->
+    <div style="position: absolute; right: 10px;">
+        <script type="text/javascript" language="javascript">
+            <!--
+            bmN=navigator,bmD=document,bmD.cookie='b=b',i=0,bs=[],bm={v:1371,s:1371,t:23,c:bmD.cookie?1:0,n:Math.round((Math.random()* 1000000)),w:0};
+            for(f=self;f!=f.parent;f=f.parent)bm.w++;
+            try{if(bmN.plugins&&bmN.mimeTypes.length&&(x=bmN.plugins['Shockwave Flash']))bm.m=parseInt(x.description.replace(/([a-zA-Z]|s)+/,''));
+                else for(f=3;f<20;f++)if(eval('new ActiveXObject("ShockwaveFlash.ShockwaveFlash.'+f+'")'))bm.m=f}catch(e){}
+            try{bm.y=bmN.javaEnabled()?1:0}catch(e){}
+            try{bmS=screen;bm.v^=bm.d=bmS.colorDepth||bmS.pixelDepth;bm.v^=bm.r=bmS.width}catch(e){}
+            r=bmD.referrer.slice(7);if(r&&r.split('/')[0]!=window.location.host){bm.f=escape(r);bm.v^=r.length}
+            bm.v^=window.location.href.length;for(x in bm)bs[i++]=x+bm[x];
+            bmD.write('<a href="http://www.bigmir.net/" target="_blank" onClick=\'img=new Image();img.src="http://www.bigmir.net/?cl=1371";\'><img src="http://c.bigmir.net/?'+bs.join('&')+'"  width="88" height="63" border="0" alt="bigmir)net TOP 100" title="bigmir)net TOP 100"></a>');
+            //--></script>
+
+    </div>
+    <!--bigmir)net TOP 100-->
+
+    <!-- I.UA counter -->
+    <div style="position: absolute; right: 110px;">
+        <a href="http://www.i.ua/" target="_blank" onclick="this.href='http://i.ua/r.php?57';" title="Rated by I.UA">
+            <script type="text/javascript" language="javascript">
+                <!--
+                iS='<img src="http://r.i.ua/s?u57&p65&n'+Math.random();
+                iD=document;iD.cookie="iua=1";if(iD.cookie)iS+='&c1';
+                iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
+                    +"&w"+screen.width+'&h'+screen.height
+                iT=iD.referrer.slice(7);iH=window.location.href.slice(7);
+                ((iI=iT.indexOf('/'))!=-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+                if(iT!=iH.substring(0,iI))iS+='&f'+escape(iD.referrer.slice(7))
+                iS+='&r'+escape(iH);
+                iD.write(iS+'" border="0" width="88" height="31" />');
+                //-->
+            </script>
+        </a>
+    </div>
+
+    <!-- End of I.UA counter -->
+</div></div>
+</div>
+</div>
+</body>
+</html>
+<font color="white">SELECT * FROM 1ads
+                      WHERE astatus > 0
+                      AND adrub=101 and addistr='1' and rooms IN(1) and adphoto>'0' 
+                      ORDER BY
+                      IF(apremium,1,0) DESC,
+                      IF(apushup,1,0) DESC
+                      , adate desc, adtitle asc
+                      LIMIT 0, 50</font>

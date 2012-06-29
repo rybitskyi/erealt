@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../templates/layout.xhtml">
+    <ui:define name="content">
+        <!--todo: it's too wide
+                <h:form>
+                <p:breadCrumb>
+                    <p:menuitem value="Categories" url="#" />
+                    <p:menuitem value="SaleFlat" url="#" />
+                    <p:menuitem value="Kiev" url="#" />
+                    <p:menuitem value="Svytoshinskiy" url="#" />
+                </p:breadCrumb>
+                </h:form>
+        -->
+
+
+        <ui:include src="filter.xhtml"/>
+        <h:form prependId="false" id="dataForm">
+            <p:panel id="data">
+                <f:facet name="header">
+                    <h:outputText value="List page"/>
+                </f:facet>
+
+                <h:outputText value="District=#{filterBean.searchCriteria.district} "/>
+                <h:outputText value="Region=#{filterBean.searchCriteria.region}"/>
+
+                <p:dataTable id="dataTable" var="obj" value="#{filterBean.model}"
+                             paginator="true" rows="10"
+                             paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                             rowsPerPageTemplate="5,10,15" styleClass="noborder">
+                    <p:column>
+                        <p:fieldset>
+                            <f:facet name="legend">
+                                <h:outputText value="#{obj.price}" style="font-weight: bold">
+                                    <f:convertNumber currencySymbol="$" groupingUsed="true"
+                                                     maxFractionDigits="0" type="currency"/>
+                                </h:outputText>
+                                <p:spacer width="30"/>
+                                <a href="#{request.contextPath}/property/#{obj.extId}"
+                                   title="#{messages.label_viewDetails}">
+                                    <h:outputText value="#{obj.fullAddressName}"/>
+                                </a>
+                            </f:facet>
+
+                            <h:panelGrid columns="2" cellpadding="10" styleClass="noborder">
+                                <h:panelGroup rendered="#{obj.thumbnailPhotoUrl != null}" styleClass="mypanelgrid">
+                                    <a href="#{request.contextPath}/property/#{obj.extId}"
+                                       title="#{messages.label_viewDetails}">
+                                        <p:graphicImage value="#{obj.thumbnailPhotoUrl}"/>
+                                    </a>
+                                </h:panelGroup>
+
+                                <h:panelGrid columns="1" styleClass="noborder">
+                                    <ui:repeat var="entry" value="#{obj.quickInfoList}" varStatus="status">
+                                        <h:outputText value="#{entry.value}"/>
+                                        <ui:param name="key" value="#{entry.key}"/>
+                                        <h:outputText value="#{messages[key]}"/>
+                                        <h:outputText value=", " rendered="#{not status.last}"/>
+                                    </ui:repeat>
+
+                                    <h:outputText value="#{obj.accessUser.telephone}"/>
+
+                                    <ui:param name="dtypekey" value="menu_#{obj.systemName}_label"/>
+                                    <h:outputText value="#{messages[dtypekey]}"/>
+                                </h:panelGrid>
+                            </h:panelGrid>
+                            <a href="#{request.contextPath}/property/#{obj.extId}"
+                               title="#{messages.label_viewDetails}" style="text-align: right">
+                                <p:graphicImage value="/static/images/details.png"/>
+                            </a>
+                        </p:fieldset>
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

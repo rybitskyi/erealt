@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="list" name="leaseflat/list">
+        <put-attribute name="body">
+            <definition extends="listPanel">
+                <put-attribute name="searchpanel" value="/WEB-INF/views/leaseflat/submenu.jspx"/>
+                <put-attribute name="list" value="/WEB-INF/views/leaseflat/list.jspx"/>
+            </definition>
+        </put-attribute>
+    </definition>
+    <definition extends="show" name="leaseflat/show">
+        <put-attribute name="body">
+            <definition extends="showProperty">
+                <put-attribute name="objectdetails" value="/WEB-INF/views/leaseflat/show.jspx"/>
+            </definition>
+        </put-attribute>
+    </definition>
+    <definition extends="create" name="leaseflat/create">
+        <put-attribute name="body" value="/WEB-INF/views/leaseflat/create.jspx"/>
+    </definition>
+</tiles-definitions>

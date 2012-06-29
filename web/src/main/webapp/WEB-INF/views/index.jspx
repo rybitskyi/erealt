@@ -1,0 +1,118 @@
+<div xmlns:spring="http://www.springframework.org/tags"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     id="list"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <script type="text/javascript">dojo.require("dijit.TitlePane")</script>
+    <div id="_title_id">
+        <h4 align="center">
+            <spring:message code="welcome.h3"/>
+        </h4>
+        <table class="noborder" cellpadding="10" cellspacing="5">
+            <tr valign="top" class="noborder">
+                <td class="noborder" align="center">
+                    <spring:message code="welcome.text"/>
+                    <table class="noborder">
+                        <!--temporally commented
+                                    <li>
+                                         <spring:url
+                                                 value="/salenewflat"
+                                                 var="web_mvc_jsp_list_salenewflat_menu_item_url"/>
+                                         <a href="${web_mvc_jsp_list_salenewflat_menu_item_url}">
+                                             <spring:message code="menu.category.web_mvc_jsp_salenewflat_category.label"/>
+                                         </a>
+                                     </li>
+                        -->
+                        <tr class="nocolor">
+                            <td class="noborder">
+                                <ul>
+                                    <li>
+                                        <spring:url
+                                                value="/saleflat"
+                                                var="web_mvc_jsp_list_saleflat_menu_item_url"/>
+                                        <a href="${web_mvc_jsp_list_saleflat_menu_item_url}">
+                                            <spring:message code="menu.category.web_mvc_jsp_saleflat_category.label"/>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <spring:url
+                                                value="/salehouse"
+                                                var="web_mvc_jsp_list_salehouse_menu_item_url"/>
+                                        <a href="${web_mvc_jsp_list_salehouse_menu_item_url}">
+                                            <spring:message code="menu.category.web_mvc_jsp_salehouse_category.label"/>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <spring:url
+                                                value="/saleland"
+                                                var="web_mvc_jsp_list_saleland_menu_item_url"/>
+                                        <a href="${web_mvc_jsp_list_saleland_menu_item_url}">
+                                            <spring:message code="menu.category.web_mvc_jsp_saleland_category.label"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="noborder">
+                                <ul>
+                                    <li>
+                                        <spring:url
+                                                value="/leaseflat"
+                                                var="web_mvc_jsp_list_leaseflat_menu_item_url"/>
+                                        <a href="${web_mvc_jsp_list_leaseflat_menu_item_url}">
+                                            <spring:message code="menu.category.web_mvc_jsp_leaseflat_category.label"/>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <spring:url
+                                                value="/leasehouse"
+                                                var="web_mvc_jsp_list_leasehouse_menu_item_url"/>
+                                        <a href="${web_mvc_jsp_list_leasehouse_menu_item_url}">
+                                            <spring:message code="menu.category.web_mvc_jsp_leasehouse_category.label"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+<!--
+                <tr>
+                    <td class="noborder" align="center">
+                        <spring:message code="welcome.text2"/>
+                        <table class="noborder" style="text-align: top;">
+                            <tr class="nocolor">
+                                <td class="noborder">
+                                    <ul>
+                                        <li>
+                                            <spring:url
+                                                    value="/news"
+                                                    var="news_url"/>
+                                            <a href="${news_url}">
+                                                <spring:message code="label.news"/>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="noborder">
+                                    <ul>
+                                        <li>
+                                            <spring:url
+                                                    value="/design"
+                                                    var="design_url"/>
+                                            <a href="${design_url}">
+                                                <spring:message code="label.design"/>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+-->				
+            </tr>
+        </table>
+    </div>
+    <br/>
+    <jsp:include page="recentlist.jspx"/>
+</div>

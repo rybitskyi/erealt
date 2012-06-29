@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="salenewflat/list">
+        <put-attribute name="body" value="/WEB-INF/views/salenewflat/list.jspx"/>
+        <put-attribute name="submenu" value="/WEB-INF/views/salenewflat/submenu.jspx"/>
+        <put-attribute name="news" value="/WEB-INF/views/news/recentlist.jspx" />
+    </definition>
+    <definition extends="default" name="salenewflat/show">
+        <put-attribute name="body" value="/WEB-INF/views/salenewflat/show.jspx"/>
+        <put-attribute name="top-submenu" value="/WEB-INF/views/salenewflat/show-submenu.jspx"/>
+        <put-attribute name="news" value="/WEB-INF/views/news/recentlist.jspx" />
+    </definition>
+    <definition extends="default" name="salenewflat/create">
+        <put-attribute name="body" value="/WEB-INF/views/salenewflat/create.jspx"/>
+        <put-attribute name="submenu" value="/WEB-INF/views/salenewflat/create-submenu.jspx"/>
+        <put-attribute name="news" value="/WEB-INF/views/news/recentlist.jspx" />
+    </definition>
+    <definition extends="default" name="salenewflat/findSaleNewFlatsByRegionAndRoomCount">
+        <put-attribute name="body" value="/WEB-INF/views/salenewflat/findSaleNewFlatsByRegionAndRoomCount.jspx"/>
+        <put-attribute name="submenu" value="/WEB-INF/views/salenewflat/submenu.jspx"/>
+        <put-attribute name="news" value="/WEB-INF/views/news/recentlist.jspx" />
+    </definition>
+</tiles-definitions>

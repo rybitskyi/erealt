@@ -1,0 +1,26 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <script type="text/javascript">dojo.require('dijit.TitlePane');dojo.require('dijit.form.SimpleTextarea');</script>
+    <div id="_title_div">
+        <spring:message code="label.region" var="entity_label"/>
+        <spring:message arguments="${entity_label}" code="entity.create" var="title_msg"/>
+        <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_title_div', widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title_msg}'}})); </script>
+        <spring:url value="/region" var="form_url"/>
+        <form:form action="${form_url}" method="POST" modelAttribute="region">
+            <form:errors cssClass="errors" delimiter="&lt;p/&gt;"/>
+            <div id="roo_region_caption">
+                <label for="_caption_id">Caption:</label>
+                <form:textarea cssStyle="width:250px" id="_caption_id" path="caption"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_caption_id', widgetType: 'dijit.form.SimpleTextarea', widgetAttrs: {}})); </script>
+                <br/>
+                <form:errors cssClass="errors" id="_caption_error_id" path="caption"/>
+            </div>
+            <br/>
+            <div class="submit" id="roo_region_submit">
+                <spring:message code="button.save" var="save_button"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
+                <input id="proceed" type="submit" value="${save_button}"/>
+            </div>
+        </form:form>
+    </div>
+</div>

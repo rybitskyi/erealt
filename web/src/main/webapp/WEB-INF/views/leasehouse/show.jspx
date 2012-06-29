@@ -1,0 +1,14 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags"
+     class="objectdetails"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <div id="roo_leaseHouse_plottage" class="box">
+        <label for="_plottage_id"><spring:message code="field.label.plottage"/>:</label>
+
+        <b>
+            <c:out value="${object.plottage}"/>
+        </b>
+    </div>
+</div>

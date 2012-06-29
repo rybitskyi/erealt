@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataModel targetNamespace="http://rageintegro.biz/erealt/aviso" outputMask="XML" inputMask="XML" hibernateIDGeneratorMethodDefault="native" encrypted="false" encoding="UTF-8" elementFormDefault="Qualified" attributeFormDefault="Unqualified" IOversion="3.1.0" version="0.0.14" name="aviso.rdm">
+    <element identifier="false" min="1" max="1" name="root">
+        <type>
+            <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="root">
+                <element identifier="false" typeRef="#string" min="1" max="1" name="title"/>
+                <element identifier="false" ref="div" min="1" max="-1" name="div"/>
+                <attribute typeRef="#number_int" min="1" max="1" name="adistr"/>
+                <attribute typeRef="#number_int" min="0" max="1" name="aroom"/>
+                <attribute typeRef="#number_long" min="0" max="1" name="regionId"/>
+            </complexType>
+        </type>
+    </element>
+    <element identifier="false" min="1" max="1" name="div">
+        <type>
+            <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="div">
+                <facet facetType="mixed">
+                    <value>true</value>
+                </facet>
+                <element identifier="false" ref="a" min="0" max="-1" name="a"/>
+                <element identifier="false" ref="span" min="0" max="-1" name="span"/>
+                <element identifier="false" ref="div" min="0" max="-1" name="div"/>
+                <element identifier="false" ref="b" min="0" max="-1" name="b"/>
+                <element identifier="false" ref="a" min="0" max="-1" name="a"/>
+                <attribute typeRef="#simple" min="1" max="1" name="class"/>
+            </complexType>
+        </type>
+    </element>
+    <element identifier="false" min="1" max="1" name="a">
+        <type>
+            <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="a">
+                <facet facetType="mixed">
+                    <value>true</value>
+                </facet>
+                <element identifier="false" ref="img" min="0" max="-1" name="img"/>
+                <attribute typeRef="#string" min="0" max="1" name="class"/>
+                <attribute typeRef="#string" min="1" max="1" name="href"/>
+                <attribute typeRef="#simple" min="0" max="1" name="style"/>
+                <attribute typeRef="#string" min="0" max="1" name="target"/>
+            </complexType>
+        </type>
+    </element>
+    <element identifier="false" min="1" max="1" name="img">
+        <type>
+            <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="img">
+                <attribute typeRef="#simple" min="1" max="1" name="alt"/>
+                <attribute typeRef="#simple" min="1" max="1" name="src"/>
+                <attribute typeRef="#simple" min="1" max="1" name="title"/>
+            </complexType>
+        </type>
+    </element>
+    <element identifier="false" min="1" max="1" name="b">
+        <type>
+            <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" derivationMethod="Extension" contentModel="Sequence" abstract="false" baseType="#string" name="b">
+                <attribute typeRef="#simple" min="1" max="1" name="style"/>
+            </complexType>
+        </type>
+    </element>
+    <element identifier="false" min="1" max="1" name="span">
+        <type>
+            <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="span">
+                <facet facetType="mixed">
+                    <value>true</value>
+                </facet>
+                <element identifier="false" ref="img" min="0" max="1" name="img"/>
+                <attribute typeRef="#string" min="1" max="1" name="class"/>
+            </complexType>
+        </type>
+    </element>
+    <namespace uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
+    <namespace uri="http://rageintegro.biz/erealt/aviso" prefix=""/>
+</dataModel>

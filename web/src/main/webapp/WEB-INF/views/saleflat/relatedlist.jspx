@@ -1,0 +1,7 @@
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:tags="urn:jsptagdir:/WEB-INF/tags"
+     xmlns:spring="http://www.springframework.org/tags"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <tags:realatedlist list="${relatedObjects}"/>
+</div>

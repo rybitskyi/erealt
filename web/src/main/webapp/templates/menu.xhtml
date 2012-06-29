@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:spring="http://www.springframework.org/tags"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition id="menu">
+    <h:panelGrid columns="2" cellpadding="10" width="100%">
+        <h:panelGroup>
+            <a href="#{request.contextPath}/">
+                <p:graphicImage value="/static/images/erealt-medium.jpg"/>
+            </a>
+        </h:panelGroup>
+
+        <p:toolbar>
+            <p:toolbarGroup align="left">
+                <p:menuButton value="#{messages.menu_forsale_label}">
+                    <p:menuitem value="#{messages.label_flat}" url="/saleflat"/>
+                    <p:menuitem value="#{messages.label_house}" url="/salehouse"/>
+                    <p:menuitem value="#{messages.label_land}" url="/saleland"/>
+                </p:menuButton>
+            </p:toolbarGroup>
+            <p:toolbarGroup align="left">
+                <p:menuButton value="#{messages.menu_forlease_label}">
+                    <p:menuitem value="#{messages.label_flat}" url="/leaseflat"/>
+                    <p:menuitem value="#{messages.label_house}" url="/leasehouse"/>
+                </p:menuButton>
+            </p:toolbarGroup>
+
+            <p:toolbarGroup align="right">
+                <p:button outcome="create" value="#{messages.label_addNew}" title="#{messages.label_addNewAnnouncement}" icon="ui-icon-document"/>
+                <p:menuButton value="#{applicationBean.optionsMenuLabel}">
+                    <p:menuitem value="#{messages.security_login}" url="/login" rendered="#{not p:ifAnyGranted('ROLE_USER, ROLE_ADMIN')}"/>
+                    <p:menuitem value="#{messages.security_register_title2}" url="/register" rendered="#{not p:ifAnyGranted('ROLE_USER, ROLE_ADMIN')}"/>
+                    <p:menuitem value="#{messages.security_logout}" rendered="#{p:ifAnyGranted('ROLE_USER, ROLE_ADMIN')}"
+                            url="/static/j_spring_security_logout"/>
+                </p:menuButton>
+            </p:toolbarGroup>
+        </p:toolbar>
+    </h:panelGrid>
+</ui:composition>
+</html>

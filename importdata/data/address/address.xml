@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<address>
+	<district name="Киевская">
+		<region name="Белоцерковский"></region>
+		<region name="Барышевский"></region>
+		<region name="Богуславский"></region>
+		<region name="Бориспольский"></region>
+		<region name="Бородянский"></region>
+		<region name="Броварской"></region>
+		<region name="Васильковский"></region>
+		<region name="Вышгородский"></region>
+		<region name="Володарский"></region>
+		<region name="Згуровский"></region>
+		<region name="Иванковский"></region>
+		<region name="Кагарлыкский"></region>
+		<region name="Киево-Святошинский"></region>
+		<region name="Макаровский"></region>
+		<region name="Мироновский"></region>
+		<region name="Обуховский"></region>
+		<region name="Переяслав-Хмельницкий"></region>
+		<region name="Полесский"></region>
+		<region name="Рокитнянский"></region>
+		<region name="Сквирский"></region>
+		<region name="Ставищенский"></region>
+		<region name="Таращанский"></region>
+		<region name="Тетиевский"></region>
+		<region name="Фастовский"></region>
+		<region name="Яготинский"></region>
+	</district>
+</address>

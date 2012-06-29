@@ -1,0 +1,18 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <h1>Import Aviso Result</h1>
+
+    <h1>Result=${result}</h1>
+
+    <h3>serialNo=${serialNo}</h3>
+
+    <c:if test="${exception != null}">
+        <div id="_stacktrace">
+            <c:forEach items="${exception.stackTrace}" var="trace">
+                <c:out value="${trace}"/>
+                <br/>
+            </c:forEach>
+        </div>
+    </c:if>
+</div>

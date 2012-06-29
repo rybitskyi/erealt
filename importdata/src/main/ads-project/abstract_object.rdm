@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataModel targetNamespace="http://rageintegro.biz/erealt" outputMask="XML" inputMask="XML" hibernateIDGeneratorMethodDefault="native" encrypted="false" encoding="UTF-8" elementFormDefault="Qualified" attributeFormDefault="Unqualified" IOversion="3.1.0" version="0.0.11" name="abstract_object.rdm">
+    <type>
+        <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="abstract_object">
+            <element identifier="false" min="1" max="1" name="dtype">
+                <type>
+                    <atomicSimpleType baseType="#string" name="abstract_object_dtype">
+                        <facet facetType="max_length">
+                            <value>31</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+            <element identifier="false" primaryKey="true" min="0" max="1" name="id">
+                <type>
+                    <atomicSimpleType baseType="#number_long" name="abstract_object_id"/>
+                </type>
+            </element>
+            <element identifier="false" typeRef="#number_int" min="0" max="1" name="version"/>
+            <element identifier="false" min="0" max="1" name="client_name">
+                <type>
+                    <atomicSimpleType baseType="#string" name="abstract_object_client_name">
+                        <facet facetType="max_length">
+                            <value>255</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+            <element identifier="false" typeRef="#date_sql_timestamp" min="1" max="1" name="creation_date"/>
+            <element identifier="false" min="1" max="1" name="description">
+                <type>
+                    <atomicSimpleType baseType="#string" name="abstract_object_description">
+                        <facet facetType="max_length">
+                            <value>255</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+            <element identifier="false" min="0" max="1" name="email">
+                <type>
+                    <atomicSimpleType baseType="#string" name="abstract_object_email">
+                        <facet facetType="max_length">
+                            <value>255</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+            <element identifier="false" typeRef="#string" min="0" max="1" name="photo_ext"/>
+            <element identifier="false" typeRef="#number_int" min="1" max="1" name="price"/>
+            <element identifier="false" min="0" max="1" name="street_object_no">
+                <type>
+                    <atomicSimpleType baseType="#string" name="abstract_object_street_object_no">
+                        <facet facetType="max_length">
+                            <value>255</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+            <element identifier="false" min="1" max="1" name="telephone">
+                <type>
+                    <atomicSimpleType baseType="#string" name="abstract_object_telephone">
+                        <facet facetType="max_length">
+                            <value>255</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+            <element identifier="false" typeRef="#number_int" min="0" max="1" name="build_floor"/>
+            <element identifier="false" min="0" max="1" name="flat_area">
+                <type>
+                    <atomicSimpleType baseType="#string" name="abstract_object_flat_area">
+                        <facet facetType="max_length">
+                            <value>255</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+            <element identifier="false" typeRef="#number_int" min="0" max="1" name="flat_floor"/>
+            <element identifier="false" typeRef="#number_int" min="0" max="1" name="room_count"/>
+            <element identifier="false" typeRef="#number_long" min="1" max="1" name="district"/>
+            <element identifier="false" typeRef="#number_long" min="1" max="1" name="region"/>
+            <element identifier="false" typeRef="#number_long" min="1" max="1" name="street"/>
+            <element identifier="false" typeRef="#number_int" min="0" max="1" name="plottage"/>
+            <element identifier="false" typeRef="#string" min="1" max="1" name="source"/>
+            <element identifier="false" typeRef="#string" min="0" max="1" name="web"/>
+            <element identifier="false" typeRef="#number_long" min="0" max="1" name="access_user"/>
+            <element identifier="false" typeRef="#string" min="1" max="1" name="eid"/>
+            <element identifier="false" typeRef="#string" min="0" max="1" name="img"/>
+        </complexType>
+    </type>
+    <namespace uri="http://rageintegro.biz/erealt" prefix=""/>
+</dataModel>

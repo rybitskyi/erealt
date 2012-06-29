@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transform version="0.0.13" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/address/transform/stl" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="Settlement.rtr">
+    <input typeRef="#Settlement" required="false" path="" modelRef="settlement.rdm" endID="0"/>
+    <localTransformRef refId="1" y="80" x="183" id="3"/>
+    <contextPath input="true" endID="0" contextRef="Row" id="4"/>
+    <contextPath input="false" endID="0" contextRef="" id="5"/>
+    <translation outputPort="0" outputID="3" inputPort="0" inputID="4"/>
+    <translation outputPort="0" outputID="5" inputPort="0" inputID="3"/>
+    <nextId>42</nextId>
+    <output typeRef="street" required="false" path="" modelRef="../db.rdm" endID="0"/>
+    <localTransform id="1">
+        <transform version="0.0.13" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/address/transform/stl" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="row">
+            <input typeRef="#Settlement" required="false" path="Row" modelRef="settlement.rdm" endID="0"/>
+            <constant constant="1" id="7"/>
+            <transformMethod name="TRIM" y="108" x="353" id="11"/>
+            <transformMethod name="REPLACECHAR" y="69" x="216" id="12"/>
+            <transformMethod name="CHARFOR" y="75" x="93" id="13"/>
+            <constant constant="160" id="14"/>
+            <constant constant=" " id="15"/>
+            <constant constant="160" id="16"/>
+            <constant constant=" " id="17"/>
+            <transformMethod name="CHARFOR" y="175" x="88" id="18"/>
+            <transformMethod name="REPLACECHAR" y="169" x="214" id="19"/>
+            <constant constant="160" id="20"/>
+            <constant constant=" " id="21"/>
+            <constant constant="160" id="22"/>
+            <constant constant=" " id="23"/>
+            <transformMethod name="TRIM" y="177" x="323" id="25"/>
+            <transformMethod name="TOSTRING" y="247" x="210" id="29"/>
+            <transformMethod type="#number_long" name="FROMSTRING" y="245" x="318" id="30"/>
+            <constant constant="3" id="31"/>
+            <javaMethodRef refId="27" y="186" x="428" id="26"/>
+            <contextPath input="false" endID="0" contextRef="version" id="8"/>
+            <contextPath input="false" endID="0" contextRef="caption" id="10"/>
+            <contextPath input="true" endID="0" contextRef="Name" id="9"/>
+            <contextPath input="true" endID="0" contextRef="Region" id="24"/>
+            <contextPath input="false" endID="0" contextRef="street_regions/regions" id="41"/>
+            <translation outputPort="1" outputID="12" inputPort="0" inputID="13"/>
+            <translation outputPort="0" outputID="13" inputPort="0" inputID="16"/>
+            <translation outputPort="2" outputID="12" inputPort="0" inputID="17"/>
+            <translation outputPort="0" outputID="11" inputPort="0" inputID="12"/>
+            <translation outputPort="0" outputID="18" inputPort="0" inputID="22"/>
+            <translation outputPort="1" outputID="19" inputPort="0" inputID="18"/>
+            <translation outputPort="2" outputID="19" inputPort="0" inputID="23"/>
+            <translation outputPort="0" outputID="25" inputPort="0" inputID="19"/>
+            <translation outputPort="0" outputID="26" inputPort="0" inputID="25"/>
+            <translation outputPort="0" outputID="30" inputPort="0" inputID="29"/>
+            <translation outputPort="1" outputID="26" inputPort="0" inputID="30"/>
+            <translation outputPort="0" outputID="29" inputPort="0" inputID="31"/>
+            <translation outputPort="0" outputID="8" inputPort="0" inputID="7"/>
+            <translation outputPort="0" outputID="10" inputPort="0" inputID="11"/>
+            <translation outputPort="0" outputID="12" inputPort="0" inputID="9"/>
+            <translation outputPort="0" outputID="19" inputPort="0" inputID="24"/>
+            <translation outputPort="0" outputID="41" inputPort="0" inputID="26"/>
+            <nextId>0</nextId>
+            <output typeRef="street" required="false" path="" modelRef="../db.rdm" endID="0"/>
+            <javaMethod id="27">
+                <libraryMethod>false</libraryMethod>
+                <methodName>getRegionId</methodName>
+                <input type="#string" role="region"/>
+                <input type="#number_long" role="district"/>
+                <output type="##number_long"/>
+                <code>org.hibernate.Session session = (org.hibernate.Session) getObjectFactory();&#xD;
+return biz.rageintegro.importdata.aviso.AvisoUtils.getRegionId(region, district, session);</code>
+            </javaMethod>
+        </transform>
+    </localTransform>
+</transform>

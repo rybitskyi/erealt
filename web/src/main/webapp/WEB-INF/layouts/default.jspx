@@ -1,0 +1,120 @@
+<html   xmlns:jsp="http://java.sun.com/JSP/Page"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:tiles="http://tiles.apache.org/tags-tiles"
+        xmlns:spring="http://www.springframework.org/tags">
+
+<jsp:directive.page contentType="text/html;charset=UTF-8"/>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=8"/>
+    <c:choose>
+        <c:when test="${not empty pageDescription and empty propertyPageDescription}">
+            <spring:message code="${pageDescription}" var="pageDescriptionValue"/>
+            <meta name="description" content="${pageDescriptionValue}"/>
+        </c:when>
+        <c:when test="${not empty propertyPageDescription}">
+            <meta name="description" content="${propertyPageDescription}"/>
+        </c:when>
+        <c:otherwise>
+            <meta name="description"
+                  content="Используйте eRealt для поиска недвижимости, квартир, домов для продажи и многого другого. eRealt - бесплатная и независимая поисковая система объектов недвижимости."/>
+        </c:otherwise>
+    </c:choose>
+    <c:choose>
+        <c:when test="${not empty pageKeywordsValue and empty pageKeywords}">
+            <meta name="keywords" content="${pageKeywordsValue}, поиск недвижимости"/>
+        </c:when>
+        <c:when test="${not empty pageKeywords and empty pageKeywordsValue}">
+            <spring:message code="${pageKeywords}" var="pageKeywordsValue"/>
+            <meta name="keywords" content="${pageKeywordsValue}"/>
+        </c:when>
+        <c:otherwise>
+            <meta name="keywords"
+                  content="НЕДВИЖИМОСТЬ Украина Киев нерухомiсть житло жилье новостройки агентство недвижимости дом квартира дача гараж офис склад магазин ресторан земельный участок купля аренда продажа квартир куплю продам сдам сниму жилье житло помещение здание кредит инвестиции примiщення планировка БТИ нотариус риелтор риэлтор realty realestate Kiev Kyiv Ukraine"/>
+        </c:otherwise>
+    </c:choose>
+    <meta name="copyright"
+          content="(c) ООО Рэйдж Интегро. Стиль и содержание является объектом авторских прав и охраняется законом Украины. Использование материалов сайта возможно только с ссылкой на Портал НЕДВИЖИМОСТЬ EREALT.COM.UA, для интернет-ресурсов гиперссылка http://erealt.com.ua - обязательна!"/>
+    <meta name="google-site-verification" content="KtJEWJbauRonAAkSBrh3P2Zkr00FMVkNxfXrOBL9-X4"/>
+    <meta name='yandex-verification' content='5c2e0da96e284d81'/>
+    <META name="y_key" content="38c4da7b143808cb"/>
+    <spring:theme code="styleSheet" var="roo_css"/>
+    <spring:url value="/${roo_css}" var="roo_css_url"/>
+    <spring:url value="/resources/dojo/dojo.js" var="dojo_url"/>
+    <spring:url value="/resources/dijit/themes/tundra/tundra.css" var="tundra_url"/>
+    <spring:url value="/resources/spring/Spring.js" var="spring_url"/>
+    <spring:url value="/resources/spring/Spring-Dojo.js" var="spring_dojo_url"/>
+    <spring:url value="/static/images/favicon.ico" var="favicon"/>
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="${roo_css_url}"><!-- //required for FF3 and Opera --></link>
+    <link rel="stylesheet" type="text/css" href="${tundra_url}"><!-- //required for FF3 and Opera --></link>
+    <link rel="SHORTCUT ICON" href="${favicon}"/>
+    <script type="text/javascript"><![CDATA[
+    function readCookie(name) {
+        var nameEQ = name + '=';
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+    var djConfig = {locale:readCookie('locale')};
+    ]]>
+    </script>
+    <script src="${dojo_url}" type="text/javascript"><!-- //required for FF3 and Opera --></script>
+    <script src="${spring_url}" type="text/javascript"><!-- //required for FF3 and Opera --></script>
+    <script src="${spring_dojo_url}" type="text/javascript"><!-- //required for FF3 and Opera --></script>
+    <spring:url value="/static/js/jquery/jquery-1.2.6.min.js" var="jquery1_url"/>
+    <spring:url value="/static/js/jquery/jquery.form.js" var="jquery2_url"/>
+    <script type="text/javascript" src="${jquery1_url}"><!-- //required for FF3 and Opera --></script>
+    <script type="text/javascript" src="${jquery2_url}"><!-- //required for FF3 and Opera --></script>
+
+    <script language="JavaScript" type="text/javascript">dojo.require("dojo.parser");</script>
+    <c:choose>
+        <c:when test="${not empty pageTitle and empty pageTitleParams}">
+            <spring:message code="${pageTitle}" var="page_name"/>
+            <title>
+                <spring:message code="global.title" arguments="${page_name}"/>
+            </title>
+        </c:when>
+        <c:when test="${not empty pageTitleParams}">
+            <spring:message code="${pageTitle}" var="page_name"/>
+            <title>
+                <spring:message code="global.titleParams" arguments="${page_name}, ${pageTitleParams}"/>
+            </title>
+        </c:when>
+        <c:otherwise>
+            <title>
+                <spring:message code="global.simpletitle"/>
+            </title>
+        </c:otherwise>
+    </c:choose>
+</head>
+
+<body class="tundra spring">
+<div id="wrapper">
+    <tiles:insertAttribute name="header"/>
+    <tiles:insertAttribute name="menu"/>
+
+    <div id="main">
+        <tiles:insertAttribute name="body"/>
+        <tiles:insertAttribute name="rightpanel" ignore="true"/>
+        <tiles:insertAttribute name="footer"/>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-18850873-1");
+        pageTracker._trackPageview();
+    } catch(err) {
+    }
+</script>
+</html>

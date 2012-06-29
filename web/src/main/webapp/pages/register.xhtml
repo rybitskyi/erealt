@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../templates/layout.xhtml">
+
+    <ui:define name="head">
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <p:panel id="panel" header="#{messages.security_register_title}">
+                <p:messages id="messages">
+                    <p:effect type="pulsate" event="load" delay="500">
+                        <f:param name="mode" value="'show'"/>
+                    </p:effect>
+                </p:messages>
+
+                <h:panelGrid columns="3">
+
+                    <h:outputLabel for="caption" value="#{messages.security_login_form_caption}: *" />
+                    <p:inputText id="caption" value="#{registerBean.accessUser.caption}" required="true"/>
+                    <p:message for="caption" display="icon"/>
+
+                    <h:outputLabel for="email" value="#{messages.security_login_form_name}: *" />
+                    <p:inputText id="email" value="#{registerBean.accessUser.name}" required="true"/>
+                    <p:message for="email" display="icon"/>
+
+                    <h:outputLabel for="password1" value="#{messages.security_login_form_password}: *" />
+                    <p:password id="password1" match="password2" value="#{registerBean.accessUser.password}" required="true"/>
+                    <p:message for="password1" display="icon"/>
+
+                    <h:outputLabel for="password2" value="Password Again: *" />
+                    <p:password id="password2" value="#{registerBean.accessUser.password}" />
+                    <p:message for="password2" display="icon"/>
+
+                    <h:outputLabel for="phone" value="#{messages.field_label_telephone}: *" />
+                    <p:inputMask id="phone" value="#{registerBean.phone}" mask="(999) 999-99-99" required="true"/>
+                    <p:message for="phone" display="icon"/>
+
+                    <h:outputLabel for="publicEmail" value="#{messages.security_login_form_is_public_email}" />
+                    <p:selectBooleanCheckbox id="publicEmail" value="#registerBean.accessUser.publicEmail" />
+                    <p:message for="publicEmail" display="icon"/>
+                </h:panelGrid>
+
+                <p:commandButton id="btn" value="Create" icon="ui-icon-check" update="panel"
+                                 actionListener="#{registerBean.create}"/>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

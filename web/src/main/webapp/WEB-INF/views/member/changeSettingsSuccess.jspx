@@ -1,0 +1,7 @@
+﻿<div xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	<jsp:output omit-xml-declaration="yes"/>
+    <div id="_title" style="width: 100%">
+	    <h1>Настройки успешно сохранены</h1>
+	</div>
+</div>
+

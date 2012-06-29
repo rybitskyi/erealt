@@ -1,0 +1,1244 @@
+ 
+ 
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--CSS FILES-->
+    <link href="../css/global2.css" rel="stylesheet" type="text/css">
+    <link href="../css/rub.new.css" rel="stylesheet" type="text/css">
+    <!--/CSS FILES-->
+
+    <!--JS FILES-->
+
+    <script src='../jquery.js' type='text/javascript'></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/jquery.highlight.js"></script>
+    <!--/JS FILES-->
+
+    <!--JS Script-->
+    <script type="text/javascript">
+        // Tabs script
+        $(function() {
+            $("#tabs").tabs({
+                cookie: { expires: 7, name: "startTab" }
+            });
+        });
+
+        $('document').ready(function () {
+
+            var sBtn = "Искать";
+            var optText = $('#hide-opt').text();
+
+            if (sBtn != "") {
+                $('#stbl').hide();
+                $('#hide-opt').text(optText == "Скрыть параметры поиска" ? "Показать параметры поиска" : "Скрыть параметры поиска");
+            }
+
+            $('#hide-opt').click(function () {
+                var optTextc = $('#hide-opt').text();
+                $('#stbl').toggle();
+                $(this).text(optTextc == "Скрыть параметры поиска" ? "Показать параметры поиска" : "Скрыть параметры поиска");
+            });
+
+            $('#regions').mouseover(function () {
+                $('#regions-list').show();
+            });
+
+            $('#regions').mouseout(function () {
+                $('#regions-list').hide();
+            });
+
+            var rubID = "121";
+
+            var aText = "";
+
+            if (aText !== "") {
+                $('#jquery-highlight').each(function() {
+                    $('div#jquery-highlight').highlight(aText);
+                });
+            }
+
+            $('.a-rubs').each(function (index) {
+                if ($(this).attr('data') === rubID) {
+                    $(this).addClass('selected');
+                }
+            });
+
+            $('.in-rooms').each(function(index) {
+                var idVal = "#rooms" + $(this).attr('value') + "";
+
+                $(idVal).removeClass('rooms');
+                $(idVal).addClass('rooms-selected');
+            });
+
+            $("a.rooms").click(function() { // все ссылки с классом .rooms
+                var roomsID = ($(this).attr("value"));
+                if ($(this).hasClass('rooms-selected') == false) {
+                    $(this).removeClass('rooms');
+                    $(this).addClass('rooms-selected');
+                    $("#in-rooms" + roomsID + "").val(roomsID);
+                } else {
+                    $(this).removeClass('rooms-selected');
+                    $(this).addClass('rooms');
+                    $("#in-rooms" + roomsID + "").val('');
+                }
+                //$(this).parents("form").submit();
+                return false;
+            });
+
+            $("a.rooms-selected").click(function() { // все ссылки с классом после _GET .rooms-selected
+                var roomsID = ($(this).attr("value"));
+                if ($(this).hasClass('rooms-selected') == false) {
+                    $(this).removeClass('rooms');
+                    $(this).addClass('rooms-selected');
+                    $("#in-rooms" + roomsID + "").val(roomsID);
+                } else {
+                    $(this).removeClass('rooms-selected');
+                    $(this).addClass('rooms');
+                    $("#in-rooms" + roomsID + "").val('');
+                }
+                //$(this).parents("form").submit();
+                return false;
+            });
+
+            $('#plus-option').click(function () {
+                var text = $(this).text();
+                $(this).text(text == "больше опций" ? "меньше параметров" : "больше параметров");
+                $('.plus-in-opt').toggle();
+
+                return false;
+            });
+
+            $('.plus-in-val').each(function(index) {
+                if ($(this).attr('value') !== '') {
+                    $('#plus-option').text('меньше опций');
+                    $('.plus-in-opt').show();
+                }
+            });
+
+            $(function() {
+                $("a.poster").click(function() { // все ссылки с классом .poster
+                    $(".for_send_value").val($(this).attr("value"));
+                    $(this).parents("form").submit();
+                    return false;
+                });
+            });
+
+            var request = "#";
+            if (request == "#НН") {
+                $('#НН').css({"font-weight":"bold", "font-size":"16px", "text-decoration":"underline", "color":"#FF9000"});
+            }
+            $(request).css({"font-weight":"bold", "font-size":"16px", "text-decoration":"underline", "color":"#FF9000"});
+        });
+    </script>
+    <!--/JS Script-->
+
+    <title>
+        Квартиры         |         Квартиры и комнаты. Сдам. ДОЛГОСРОЧНО | Недвижимость        |
+        Киев и область        |
+        online.aviso.ua
+    </title>
+</head>
+<body>
+
+<div id="content">
+<div id="top-banner">
+
+                <iframe id='aa700fce' name='aa700fce' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=53&amp;target=_blank&amp;cb=830793682' frameborder='0' scrolling='no' width='730' height='90'><a href='http://banner.ool.ua/www/delivery/ck.php?n=ac85eeb7&amp;cb=830793682' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=53&amp;cb=830793682&amp;n=ac85eeb7' border='0' alt='' /></a></iframe></div>
+<hr>
+<div id="top">
+    <div class="cfix">
+        <div class="logo">
+            <a href="index.php">
+                <img src="../images/logo.jpg" alt="AVISO" title="AVISO"/>
+            </a>
+        </div>
+
+        <div class="city-name">
+            Киев и область            <span>(434018 объявлений)</span>
+        </div>
+        <div class="search-block">
+    <div id="tabs" style="height: 110px;">
+        <ul class="tabs">
+            <div id="tabs-header-text">Поиск по:</div>
+
+            <li><a href="#tabs-1">тексту</a></li>
+            <li><a href="#tabs-2">телефону</a></li>
+            <li><a href="#tabs-3">ID</a></li>
+        </ul>
+        <div style="clear: both;"></div>
+    </div>    </div>
+</div>
+
+<br>
+
+<div id="navigation">
+    <ul class="cfix">
+        <li class="clipboard">
+            <a href="http://adpay.aviso.ua" target="_blank" class="nav-1">
+                Подать объявление
+                <span class="n-bl"><!-- --></span>
+                <span class="n-br"><!-- --></span>
+            </a>
+        </li>
+
+        <li>
+            <a href="" class="nav-2">
+                Блокнот
+                <span id="clipboardCount">(-)</span>
+                <span class="n-bl"><!-- --></span>
+                <span class="n-br"><!-- --></span>
+            </a>
+        </li>
+        <li id="regions">
+
+            <a href="#" class="nav-3">
+                Выбрать регион
+            </a>
+
+            <div id="regions-list" style="display: none;">
+                <a href="/kiev" class="nav-list">Киев и область</a>
+                <a href="/odessa" class="nav-list">Одесса и область</a>
+                <a href="/dnepropetrovsk" class="nav-list">Днепропетровск и область</a>
+
+                <a href="/lviv" class="nav-list">Львов и область</a>
+                <a href="/zhitomir" class="nav-list">Житомир и область</a>
+                <a href="/rovno" class="nav-list">Ровно и область</a>
+            </div>
+        </li>
+        <li style="float: right; background: #EDEDED; border: 1px solid #CCCCCC; padding: 2px; color: #000; font-weight: normal">
+            <!-- Search block form .panes -->
+
+            <div class="panes">
+    <div id="tabs-1">
+        <form name="search-form" method="POST" action="searchtext.php">
+            <input type="hidden" name="rub" value="121"/>
+            <input type="hidden" name="rid" value="120"/>
+            <input type="hidden" name="redirect"
+                   value="http://online.aviso.ua/kiev/rubrics_new.php?rid=120&rub=121&page=&sbtn=%D0%98%D1%81%D0%BA%D0%B0%D1%82%D1%8C&sortedby=&sortby=1&adistr=1&rooms1=1&rooms2=&rooms3=&rooms4=&rooms5=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&aspacelivemin=&aspacelivemax=&aspacekitchmin=&aspacekitchmax=&aflrmin=&aflrmax=&aflrsmin=&aflrsmax=&atext=&sbtn=%D0%98%D1%81%D0%BA%D0%B0%D1%82%D1%8C"/>
+
+            <!--
+
+            
+                <input type="hidden" name="rubs[]" value=""/>
+
+                
+            -->
+            <p>
+
+                Текст:&nbsp;
+                <input type="text" name="adtext" value="" style="width: 300px;"/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+    <div id="tabs-2">
+
+        <form name="search-form" method="POST" action="searchphone.php">
+            <input type="hidden" name="redirect" value="http://online.aviso.ua/kiev/rubrics_new.php?rid=120&rub=121&page=&sbtn=%D0%98%D1%81%D0%BA%D0%B0%D1%82%D1%8C&sortedby=&sortby=1&adistr=1&rooms1=1&rooms2=&rooms3=&rooms4=&rooms5=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&aspacelivemin=&aspacelivemax=&aspacekitchmin=&aspacekitchmax=&aflrmin=&aflrmax=&aflrsmin=&aflrsmax=&atext=&sbtn=%D0%98%D1%81%D0%BA%D0%B0%D1%82%D1%8C"/>
+
+            <p align="center">
+                код:&nbsp;
+                <input type="text" name="adcode" maxlength="2" style="width: 20px;" value=""/>
+                &nbsp;номер:&nbsp;
+                <input type="text" name="adphone" maxlength="7" style="width: 70px;" value=""/>
+
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+    <div id="tabs-3">
+        <form name="search-form" method="POST" action="view.php">
+            <input type="hidden" name="arid" value=""/>
+
+            <p align="center">
+                ID:&nbsp;
+                <input type="text" name="adid" value=""/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+
+</div>
+</div>            <!-- /Search block form .panes -->
+        </li>
+    </ul>
+</div>
+<br>
+
+<div id="left-col">
+    <!-- bn and stats -->
+    <div style="position: absolute; top: 0px;">
+                        
+        <iframe id='abdf86b4' name='abdf86b4' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=54&amp;target=_blank&amp;cb=1419901638' frameborder='0' scrolling='no' width='240' height='350'><a href='http://banner.ool.ua/www/delivery/ck.php?n=afb0fa5d&amp;cb=1419901638' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=54&amp;cb=1419901638&amp;n=afb0fa5d' border='0' alt='' /></a></iframe>
+
+<iframe id='txAd1' name='txAd1' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=28' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd2' name='txAd2' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=35' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd3' name='txAd3' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=92' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>                <hr style="border: 1px solid #FF9933">                        <iframe id='a9a57975' name='a9a57975' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=55&amp;target=_blank&amp;cb=1419901638' frameborder='0' scrolling='no' width='240' height='90'><a href='http://banner.ool.ua/www/delivery/ck.php?n=af3eecdf&amp;cb=1419901638' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=55&amp;cb=1419901638&amp;n=af3eecdf' border='0' alt='' /></a></iframe>                        <hr style="border: 1px solid #FF9933">        <iframe id='a0056550' name='a0056550' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=56&amp;target=_blank&amp;cb=1419901638' frameborder='0' scrolling='no' width='240' height='350'><a href='http://banner.ool.ua/www/delivery/ck.php?n=a655d7c4&amp;cb=1419901638' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=56&amp;cb=1419901638&amp;n=a655d7c4' border='0' alt='' /></a></iframe>
+<iframe id='txAd4' name='txAd4' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=93' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd5' name='txAd5' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=111' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd6' name='txAd6' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=112' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe>    </div>
+
+    <!-- /bn and stats -->
+</div>
+
+<div id="right-col">
+<div id="choice-section">
+    <a style="text-decoration: none; position: absolute; left: 10px;" href="./" title="Перейти на главную страницу сайта, Киев и область">
+        <img src="../images/home_16.png" width="16px" height="16px">
+    </a>
+
+    <div style="position: relative; left: 20px;">
+        »
+        <a href="rubrics_new.php?rid=1">Недвижимость</a> » <a href="rubrics_new.php?rid=120">Квартиры и комнаты. Сдам. ДОЛГОСРОЧНО</a>                »
+                <span style="color: #FF9000;">Квартиры</span>
+
+    </div>
+</div>
+<div id="content-ads">
+<div id="rubs">
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=120&rub=121" data="121">
+        <span class='a-rubs-txt'>
+            Квартиры        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=120&rub=126" data="126">
+        <span class='a-rubs-txt'>
+
+            Комнаты        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=120&rub=127" data="127">
+        <span class='a-rubs-txt'>
+            Прочие варианты        </span>
+    </a>
+        <div style="clear: left;"></div>
+
+    
+    <div style="width: 100%; border: 1px solid #ccc;"></div>
+<br>
+<form class="rubs-filters" action="/kiev/rubrics_new.php" method="GET">
+<input type="hidden" name="rid" value="120">
+<input type="hidden" name="rub" value="121">
+<input type="hidden" name="page" value="">
+<input type="hidden" name="sbtn" value="Искать">
+<!--<input type="hidden" name="rooms1" value="">
+<input type="hidden" name="rooms2" value="">
+<input type="hidden" name="rooms3" value="">
+<input type="hidden" name="rooms4" value="">
+<input type="hidden" name="rooms5" value="">
+<input type="hidden" name="adistr" value="">
+<input type="hidden" name="apricemin" value="">
+<input type="hidden" name="apricemax" value="">
+<input type="hidden" name="aspacemin" value="">
+<input type="hidden" name="aspacemax" value="">
+<input type="hidden" name="aspacelivemin" value="">
+<input type="hidden" name="aspacelivemax" value="">
+<input type="hidden" name="aspacekitchmin" value="">
+<input type="hidden" name="aspacekitchmax" value="">
+<input type="hidden" name="aflrmin" value="">
+<input type="hidden" name="aflrmax" value="">
+<input type="hidden" name="aflrsmin" value="">
+<input type="hidden" name="aflrsmax" value="">-->
+<!--<input type="hidden" name="fonly" value="">-->
+<!--<input type="hidden" name="sortby" value="">-->
+<input type="hidden" name="sortedby" class="for_send_value" value=""/>
+
+<p class="search-result" align="center">
+    По вашемо запросу
+    найдено 17 объявлений</p>
+
+<br>
+
+<div style="position: relative;">
+    <p id="sortby" align="center">
+        <a id="НН" class="poster" value="НН" href="#">
+            0..9
+        </a>&nbsp;&mdash;&nbsp;
+        <a id="А" class="poster" value="А" href="#">А</a>
+        -
+        <a id="Б" class="poster" value="Б" href="#">Б</a>
+
+        -
+        <a id="В" class="poster" value="В" href="#">В</a>
+        -
+        <a id="Г" class="poster" value="Г" href="#">Г</a>
+        -
+        <a id="Д" class="poster" value="Д" href="#">Д</a>
+        -
+        <a id="Е" class="poster" value="Е" href="#">Е</a>
+        -
+        <a id="Ё" class="poster" value="Ё" href="#">Ё</a>
+
+        -
+        <a id="Ж" class="poster" value="Ж" href="#">Ж</a>
+        -
+        <a id="З" class="poster" value="З" href="#">З</a>
+        -
+        <a id="И" class="poster" value="И" href="#">И/І</a>
+        -
+        <a id="Й" class="poster" value="Й" href="#">Й</a>
+        -
+        <a id="К" class="poster" value="К" href="#">К</a>
+
+        -
+        <a id="Л" class="poster" value="Л" href="#">Л</a>
+        -
+        <a id="М" class="poster" value="М" href="#">М</a>
+        -
+        <a id="Н" class="poster" value="Н" href="#">Н</a>
+        -
+        <a id="О" class="poster" value="О" href="#">О</a>
+        -
+        <a id="П" class="poster" value="П" href="#">П</a>
+
+        -
+        <a id="Р" class="poster" value="Р" href="#">Р</a>
+        -
+        <a id="С" class="poster" value="С" href="#">С</a>
+        -
+        <a id="Т" class="poster" value="Т" href="#">Т</a>
+        -
+        <a id="У" class="poster" value="У" href="#">У</a>
+        -
+        <a id="Ф" class="poster" value="Ф" href="#">Ф</a>
+
+        -
+        <a id="Х" class="poster" value="Х" href="#">Х</a>
+        -
+        <a id="Ц" class="poster" value="Ц" href="#">Ц</a>
+        -
+        <a id="Ч" class="poster" value="Ч" href="#">Ч</a>
+        -
+        <a id="Ш" class="poster" value="Ш" href="#">Ш</a>
+        -
+        <a id="Щ" class="poster" value="Щ" href="#">Щ</a>
+
+        -
+        <a id="Ъ" class="poster" value="Ъ" href="#">Ъ</a>
+        -
+        <a id="Ы" class="poster" value="Ы" href="#">Ы</a>
+        -
+        <a id="Ь" class="poster" value="Ь" href="#">Ь</a>
+        -
+        <a id="Э" class="poster" value="Э" href="#">Э</a>
+        -
+        <a id="Є" class="poster" value="Є" href="#">Є</a>
+
+        -
+        <a id="Ю" class="poster" value="Ю" href="#">Ю</a>
+        -
+        <a id="Я" class="poster" value="Я" href="#">Я</a>
+        &nbsp;&mdash;&nbsp;
+        <a class="poster" href="#" value="">
+            Сбросить фильтр
+        </a>
+    </p>
+
+    <br>
+
+    <p align="center">
+        <label for="sortby">Сортировать:</label>
+        <select name="sortby" onchange="javascript:this.form.submit();">
+                                <option value="1" selected>по дате - сначала новые</option>
+                                        <option value="2">по дате - сначала старые</option>
+                                        <option value="3">по цене - по возрастанию</option>
+
+                                        <option value="4">по цене - по убыванию</option>
+                                        <option value="5">по тексту - А-Я</option>
+                                        <option value="6">по тексту - Я-А</option>
+                            </select>
+    </p>
+    <br>
+</div>
+<br>
+
+<p align="center"><a id="hide-opt" href="#">Скрыть параметры поиска</a></p>
+<table width="100%" id="stbl">
+    <tr>
+        <td valign="top" width="50%">
+            <fieldset>
+                <legend>Район</legend>
+                <p class="form-element">
+                    <select name="adistr">
+
+                                                                            <option value="0">Не имеет значения</option>
+                                                                                                        <option value="1" selected>Голосеевский</option>
+                                                                                                        <option value="2">Дарницкий</option>
+                                                                                                        <option value="3">Деснянский</option>
+                                                                                                        <option value="4">Днепровский</option>
+                                                                                                        <option value="5">Оболонский</option>
+
+                                                                                                        <option value="6">Печерский</option>
+                                                                                                        <option value="7">Подольский</option>
+                                                                                                        <option value="8">Святошинский</option>
+                                                                                                        <option value="9">Соломенский</option>
+                                                                                                        <option value="10">Шевченковский</option>
+                                                                                                        <option value="11">Киевская обл.</option>
+
+                                                                                                        <option value="12">Другие города</option>
+                                                                                                        <option value="13">За рубежом</option>
+                                                                        </select>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Кол-во комнат</legend>
+
+                <p class="form-element">
+                    <a href="#" id="rooms1" class="rooms" value="1">одна</a>
+                    <input type="hidden" name="rooms1" id="in-rooms1" class="in-rooms" value="1">
+                    <a href="#" id="rooms2" class="rooms" value="2">две</a>
+                    <input type="hidden" name="rooms2" id="in-rooms2" class="in-rooms" value="">
+                    <a href="#" id="rooms3" class="rooms" value="3">три</a>
+                    <input type="hidden" name="rooms3" id="in-rooms3" class="in-rooms" value="">
+
+                    <a href="#" id="rooms4" class="rooms" value="4">четыре</a>
+                    <input type="hidden" name="rooms4" id="in-rooms4" class="in-rooms" value="">
+                    <a href="#" id="rooms5" class="rooms" value="5">больше</a>
+                    <input type="hidden" name="rooms5" id="in-rooms5" class="in-rooms" value="">
+                </p>
+            </fieldset>
+        </td>
+        <td valign="top">
+
+            <fieldset>
+                <legend>Цена, за объект</legend>
+                <p class="form-element">
+                    <input type="text" name="apricemin" maxlength="7" value=""> -
+                    <input type="text" name="apricemax" maxlength="7" value="">
+                    <select name="apricecur">
+                        <option value="5" selected>
+                            у.е.
+                        </option>
+
+                        <option value="4" >
+                            евро
+                        </option>
+                        <option value="3" >
+                            грн.
+                        </option>
+                    </select>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Площадь общая, м2</legend>
+                <p class="form-element">
+                    <input type="text" name="aspacemin" maxlength="7" value=""> -
+                    <input type="text" name="aspacemax" maxlength="7" value="">
+                </p>
+            </fieldset>
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="fonly" id="fonly" checked>
+            <label for="fonly">только с фото</label>
+        </td>
+        <td>
+            <p align="right" id="plus-option">больше опций</p>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="plus-in-opt">
+            <fieldset>
+                <legend>Площадь жилая, м2</legend>
+                <p class="form-element">
+                    <input class="plus-in-val" type="text" name="aspacelivemin" maxlength="7" value="">
+
+                    -
+                    <input class="plus-in-val" type="text" name="aspacelivemax" maxlength="7" value="">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Площадь кухни, м2</legend>
+                <p class="form-element">
+                    <input class="plus-in-val" type="text" name="aspacekitchmin" maxlength="7" value="">
+
+                    -
+                    <input class="plus-in-val" type="text" name="aspacekitchmax" maxlength="7" value="">
+                </p>
+            </fieldset>
+        </td>
+        <td class="plus-in-opt">
+            <fieldset>
+                <legend>Этаж</legend>
+                <p class="form-element">
+
+                    <input class="plus-in-val" type="text" name="aflrmin" maxlength="3" value="">
+                    -
+                    <input class="plus-in-val" type="text" name="aflrmax" maxlength="3" value="">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Этажность</legend>
+                <p class="form-element">
+
+                    <input class="plus-in-val" type="text" name="aflrsmin" maxlength="3" value="">
+                    -
+                    <input class="plus-in-val" type="text" name="aflrsmax" maxlength="3" value="">
+                </p>
+            </fieldset>
+        </td>
+    </tr>
+    <tr>
+        <td class="plus-in-opt">
+
+            <fieldset>
+                <legend>Поиск по тексту</legend>
+                <p class="form-element">
+                    <input style="width: 200px;" class="plus-in-val" type="text" name="atext" value="">
+                </p>
+            </fieldset>
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>
+            <p align="left"><input type="submit" id="sbtn" name="sbtn" value="Искать"></p>
+        </td>
+        <td></td>
+    </tr>
+</table>
+</form>
+    
+
+</div>
+<br>
+    <br>
+<p class="pagination" align="center">
+    <span class="pagination-txt"></span>&nbsp;Страниц:&nbsp;<b>1</b></p>
+    <br>
+
+<br>
+
+<div id="ads">
+            
+                                                    <div id="ads-name">
+
+                    <h3 id="ads-name-usual">
+                        Объявления
+                            <span style="position: absolute; right: 5px;">
+                                Всего:&nbsp;17                            </span>
+                    </h3>
+                </div>
+                    <div class="ads-list">
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3388328">
+                    <img src="../pics/1/003/388/328/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3388328">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 5500.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Науки (Голосеевский). • Київ, Науки просп., новый дом-спецпроект 2006-2010 рр.; стіни: піноблок; перекриття: залізобетон; поверховість: 25; будинок 2009р., Н=2.73м, швидкісні ліфти, консьєрж
+• 1 кімн., заг.площа: 64,0\\21,0\\16,0, ремонт; дизайн.ремонт 2010 р., меблі, побутова техніка, санвузол окремий, душ.кабіна, видова на Київ;
+                 Тел: (50) 0187919
+                                <span class="price" style="color: red;">
+                            5 500&nbsp;грн.                                            </span>
+                
+                                <span class="date">2011-12-22 08:11:31</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3388156">
+                    <img src="../pics/1/003/388/156/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3388156">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 4700.00 грн./месяц</b>
+                </a>
+
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Горького. сдам 1 квартиру Евроремонт метро Олемпийское
+улица Горького 
+кондиционер.
+вся техника и встроенная мебель
+0958009954
+4700грн+кому
+сотрудничаем
+                 Тел: (95) 8009954
+                                <span class="price" style="color: red;">
+                            4 700&nbsp;грн.                                            </span>
+                
+                                <span class="date">2011-12-21 13:04:46</span>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3387590">
+                    <img src="../pics/1/003/387/590/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3387590">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 2700.00 грн./месяц</b>
+
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Казачья. Сдам в аренду 1-комнатную квартиру в частном доме с отдельным санузлом и кухней.Есть вся необходимая мебель и техника.Предоплата за два месяца.Брокер 067-442-59-42,093-047-16-77,099-547-89-77.
+                 Тел: (98) 2663468
+                                <span class="price" style="color: red;">
+                            2 700&nbsp;грн.                                            </span>
+                
+                                <span class="date">2011-12-21 12:56:07</span>
+
+                <div class="clear"></div>
+
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3335843">
+                    <img src="../pics/1/003/335/843/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3335843">
+
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 500.00 евро/месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Михайловский пер.. Однокомнатную квартиру с \ мезанином\ пер.Михайловский, косметический ремонт, стеклопакеты,душевая кабина. 500Е 0503835381 0630788913
+                 Тел: (63) 0788913
+                                <span class="price" style="color: red;">
+                            500&nbsp;евро                                            </span>
+                
+                                <span class="date">2011-12-21 10:43:38</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3388039">
+                    <img src="../pics/1/003/388/039/thumb/1.jpg" alt="" title=""/>
+                </a>
+
+                
+                <a href="view.php?adid=3388039">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 1000.00 $/месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Гайдара. Новый дом, евроремонт, встроеная кухня, новая мебель, кондиционер, вся бытовая техника
+                 Тел: (66) 8114110
+                                <span class="price" style="color: red;">
+                            1 000&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-21 10:36:21</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3352210">
+                    <img src="../pics/1/003/352/210/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3352210">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 5600.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. пр Науки. Пр Науки 69 (Новострой) 12эт 24 эт дома. Общая пл 64 кв.м., комната 23 кв.м., кухня 15 кв .м. Отличный ремонт. Встроенные шкафы-купе. 2х спальный диван и др необходимая мебель. Ковровое покрытие. Кухонный гарнитур. Санузел раздельный( современный кафель, гидромассажная кабина) .Холодильник, стиральная машинка –автомат ,плазменный телевизор. Бронедверь,домофон.Консъерж.
+Тихое место. Парковка под домом.
+Для 1-2 чел без детей и животных.
+5600гр+коммунальные
+099 544 04 85 агентство
+СВОБОДНА С 1го ЯНВАРЯ 2012 г.Посмотреть и забронировать можно сейчас.
+                 Тел: (99) 5440485
+                                <span class="price" style="color: red;">
+                            5 600&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-21 09:00:42</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3335203">
+                    <img src="../pics/1/003/335/203/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3335203">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 4000.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Мостицкая 6. Сдам 1-но комнатную квартиру в Подольском р-не,Виноградарь по ул. Мостицкая, 6. Гостинка. 30/16/5. После ремонта. Новая мебель, новая кухня, сантехника. Стеклопакеты. Холодильник. 3200
+СРОЧНО!!!!!
+                 Тел: (63) 1396824
+                                <span class="price" style="color: red;">
+                            4 000&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-21 04:22:19</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3352223">
+                    <img src="../pics/1/003/352/223/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3352223">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 2500.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Казачья32. Голосеевский, м Димеевская - 10 мин, ул.Казачья 32, 1-комн.кв. 2500грн СРОЧНО
+28/18/4,5 , 4/5эт старый ремонт
+паркет, без балкона, старые обои,
+с/у совмещ.- покраска,бронедверь, интернет
+стенка, кровать, холодильник
+в счет аренды можно немного облагородить
+0504142507, 0637683932, 2287209 Юрий(посредник)
+                 Тел: (50) 4142507
+                                <span class="price" style="color: red;">
+                            2 500&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-21 04:09:47</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3387410">
+                    <img src="../pics/1/003/387/410/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3387410">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 2800.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. батумская. На голосеево,метро димеевская. Ул. батумская. Пол дома. Огромная комната - 24 метра, кухня около 12 м. Состояние хорошее(не евро ремонт - сразу говорю). мебель вся есть. кухня тоже укомплектована. Отопление. Горячая вода от газовой колонки. Есть новая стиралка. Удобства в доме. 
+Общий только вход - остальное все отдельное. 
+Можно поставить машину под домом.
+Если семье, то без детей. Цена 2800 грн. ТОРГ.
+096-82-666-22 Виталий
+                 Тел: (96) 8266622
+                                <span class="price" style="color: red;">
+                            2 800&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-20 22:40:52</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3297789">
+                    <img src="../pics/1/003/297/789/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3297789">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 6000.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Никольско-Ботаническая. Сдам в аренду на длительный срок однокомнатную квартиру по ул. Никольско-Ботанической 27/29.Капитальный евроремонт (сентябрь 2011 года!), новая мебель( в т.ч., кровать 180*200 с ортопед.матрасом), новая быт.техника( в т.ч., микроволновка и кондиционер), плазма ,шкаф-купе (ноябрь 2011), красивый балкон(застеклён), чистый подъезд.Рядом-старый Ботанический сад, видовая. 33/19/9. 10/10-эт.
+6000гр(без торга) 
+099 544 04 85 агентство
+Свободна с 25 декабря
+                 Тел: (99) 5440485
+                                <span class="price" style="color: red;">
+                            6 000&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-20 22:10:15</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3387898">
+                    <img src="../pics/1/003/387/898/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3387898">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 7000.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Голосеевская 13. Сдам 1-но комн.квартиру в новострое ул.Голосеевская 13,общ.пл:63м2,ремонт выполнен в стиле Хай-Тек,полностью мебелирована,бытовая техника.7000гр.торг 0997778442 Тимур
+                 Тел: (99) 7778442
+                                <span class="price" style="color: red;">
+                            7 000&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-20 20:15:22</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3387734">
+                    <img src="../pics/1/003/387/734/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3387734">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 4000.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Феодосеевская. Стратегическое шоссе (Феодосеевская) 7\\16кир.43\\18\\10 после хорошего ремонта пол с подогревом новая мебель паркет шкаф-купе кафель металлопластик с\\у разд новая сантехника бр\\дв бытов,техника тамбур на 3 квартиры домофон консъерж метро 10мин 4000грив 0504462110
+                 Тел: (50) 4462110
+                                <span class="price" style="color: red;">
+                            4 000&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-20 15:46:23</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3387601">
+                    <img src="../pics/1/003/387/601/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3387601">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 2600.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Бориспольская. База данных недвижимости ЛИДЕР
+С прямыми телефонами хозяев является самой полной информацией о последних предложениях на рынке недвижимости Киева и области только от хозяев объектов недвижимости (без посредников).
+
+В базу данных недвижимости ежедневно вливается свежая информация от хозяев, владельцев, соискателей квартир и СМИ. Аренда в среднем 400 объектов недвижимости в день, продажа в среднем 500 объектов недвижимости день, спрос в среднем 100 соискателей недвижимости в день. 
+044-227-1400, 095-4444-235
+http://www.baza-lider.info/
+                 Тел: (44) 2271400
+                                <span class="price" style="color: red;">
+                            2 600&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-20 13:31:20</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3387578">
+                    <img src="../pics/1/003/387/578/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3387578">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 2600.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Васильковская. База данных недвижимости ЛИДЕР
+С прямыми телефонами хозяев является самой полной информацией о последних предложениях на рынке недвижимости Киева и области только от хозяев объектов недвижимости (без посредников).
+
+В базу данных недвижимости ежедневно вливается свежая информация от хозяев, владельцев, соискателей квартир и СМИ. Аренда в среднем 400 объектов недвижимости в день, продажа в среднем 500 объектов недвижимости день, спрос в среднем 100 соискателей недвижимости в день. 
+044-227-1400, 095-4444-235
+http://www.baza-lider.info/
+                 Тел: (44) 2271400
+                                <span class="price" style="color: red;">
+                            2 600&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-20 13:16:42</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3297057">
+                    <img src="../pics/1/003/297/057/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3297057">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 4300.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Краснопартизанская 2А. Сдам 1 -комнатную квартиру, ул. Краснопартизанская, 2А, 5/5, 30/19/6, студио, евроремонт, мебель, вся бытовая техника: холодильник, СМА, газовая плита, пылесос, телевизор.Соломенская площадь, м.Вокзальная, м. Университет. 4300грн/мес. + комун.платежи. (066) 195-36-70, (044) 332-92-21. АН \ Anlar\ .
+                 Тел: (96) 9726397
+                                <span class="price" style="color: red;">
+                            4 300&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-14 10:13:43</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3329834">
+                    <img src="../pics/1/003/329/834/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3329834">
+                    <b style="font-size: 16px;">Центр</b>
+                </a>
+                <br><br>
+
+                Толстого Льва, євроремонт, нові меблі, побутова техніка, кондиціонер, поруч М"Університет", код 85728, 850у.е./мес. Тел: (44) 4959595, (50) 4442682, Галина  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            85 728&nbsp;у.е.                                            </span>
+
+                
+                                <span class="date">2011-12-12 17:52:56</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+
+                
+                <a class="photo" href="view.php?adid=3282591">
+                    <img src="../pics/1/003/282/591/thumb/1.jpg" alt="" title=""/>
+
+                </a>
+
+                
+                <a href="view.php?adid=3282591">
+                    <b style="font-size: 16px;">Сдам долгосрочно  квартиру, 12800.00 грн./месяц</b>
+                </a>
+                <br><br>
+
+                Расположение: Киев, Голосеевский,  ул. Жилянская. Аренда квартиры. Голосеевский р-н ул.Жилянская Однокомнатная квартира студия.
+Дорогой ремонт. Французские окна. Мебель CALLIGARIS. Все полы с подогревом. Кондиционер с подачей кислорода. Мойка воздуха. Вся техника. Кофеварка. ТВ 52 дюйма. Матрац, \ Венето Гранд\ Дуаль, подушки \ Венето Ортопедические\ .Сантехника и ванная фурнитура GROHE. Смеситель-термостат. Бойлер. Ванная 180/90. Фильтры для воды. Вся посуда. Бокалы для шампанского, белого, красного вин, Spiegelau. Цена: 12800грн
+                 Тел: (50) 5807137
+                                <span class="price" style="color: red;">
+                            12 800&nbsp;грн.                                            </span>
+
+                
+                                <span class="date">2011-12-08 16:41:38</span>
+
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+
+            
+                                </div>
+<br>
+    
+<p class="pagination" align="center">
+    <span class="pagination-txt"></span>&nbsp;Страниц:&nbsp;<b>1</b></p>
+
+    <br>
+<div id="footer">
+    <p class="copy">&copy;1997&ndash;2010, Pronto-Kyiv JV. All rights reserved.</p>
+	<p><a href="http://www.aviso.ua" target="_blank"><img src="/images/av-logo.gif" height="50" border="0"></a></p>
+    <p><a target="_blank" href="http://o.aviso.ua">Подать объявление</a> | <a href="http://www.aviso.ua/aviso/editions/" target="_blank">Газеты и Журналы</a> | <a href="http://www.aviso.ua/browse/" target="_blank">Просмотр</a> | <a href="http://www.aviso.ua/aviso/all-agree.asp" target="_blank">Условия</a> | <a href="http://www.aviso.ua/aviso/all-contacts.asp" target="_blank">Контакты</a><br /><a href="http://www.aviso.ua">www.aviso.ua</a> | <a target="_blank" href="http://fn.ua">fn.ua</a> | <a target="_blank" href="http://realt.aviso.ua">realt.aviso.ua</a> | <a target="_blank" href="http://auto.aviso.ua">auto.aviso.ua</a></p>
+
+    <br>
+    <!-- GOOGLE ANALYTICS -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20007511-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- /GOOGLE ANALYTICS -->
+
+    <!--bigmir)net TOP 100-->
+    <div style="position: absolute; right: 10px;">
+        <script type="text/javascript" language="javascript">
+            <!--
+            bmN=navigator,bmD=document,bmD.cookie='b=b',i=0,bs=[],bm={v:1371,s:1371,t:23,c:bmD.cookie?1:0,n:Math.round((Math.random()* 1000000)),w:0};
+            for(f=self;f!=f.parent;f=f.parent)bm.w++;
+            try{if(bmN.plugins&&bmN.mimeTypes.length&&(x=bmN.plugins['Shockwave Flash']))bm.m=parseInt(x.description.replace(/([a-zA-Z]|s)+/,''));
+                else for(f=3;f<20;f++)if(eval('new ActiveXObject("ShockwaveFlash.ShockwaveFlash.'+f+'")'))bm.m=f}catch(e){}
+            try{bm.y=bmN.javaEnabled()?1:0}catch(e){}
+            try{bmS=screen;bm.v^=bm.d=bmS.colorDepth||bmS.pixelDepth;bm.v^=bm.r=bmS.width}catch(e){}
+            r=bmD.referrer.slice(7);if(r&&r.split('/')[0]!=window.location.host){bm.f=escape(r);bm.v^=r.length}
+            bm.v^=window.location.href.length;for(x in bm)bs[i++]=x+bm[x];
+            bmD.write('<a href="http://www.bigmir.net/" target="_blank" onClick=\'img=new Image();img.src="http://www.bigmir.net/?cl=1371";\'><img src="http://c.bigmir.net/?'+bs.join('&')+'"  width="88" height="63" border="0" alt="bigmir)net TOP 100" title="bigmir)net TOP 100"></a>');
+            //--></script>
+
+    </div>
+    <!--bigmir)net TOP 100-->
+
+    <!-- I.UA counter -->
+    <div style="position: absolute; right: 110px;">
+        <a href="http://www.i.ua/" target="_blank" onclick="this.href='http://i.ua/r.php?57';" title="Rated by I.UA">
+            <script type="text/javascript" language="javascript">
+                <!--
+                iS='<img src="http://r.i.ua/s?u57&p65&n'+Math.random();
+                iD=document;iD.cookie="iua=1";if(iD.cookie)iS+='&c1';
+                iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
+                    +"&w"+screen.width+'&h'+screen.height
+                iT=iD.referrer.slice(7);iH=window.location.href.slice(7);
+                ((iI=iT.indexOf('/'))!=-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+                if(iT!=iH.substring(0,iI))iS+='&f'+escape(iD.referrer.slice(7))
+                iS+='&r'+escape(iH);
+                iD.write(iS+'" border="0" width="88" height="31" />');
+                //-->
+            </script>
+        </a>
+    </div>
+
+    <!-- End of I.UA counter -->
+</div></div>
+</div>
+</div>
+</body>
+</html>
+<font color="white">SELECT * FROM 1ads
+                      WHERE astatus > 0
+                      AND adrub=121 and addistr='1' and rooms IN(1) and adphoto>'0' 
+                      ORDER BY
+                      IF(apremium,1,0) DESC,
+                      IF(apushup,1,0) DESC
+                      , adate desc
+                      LIMIT 0, 50</font>

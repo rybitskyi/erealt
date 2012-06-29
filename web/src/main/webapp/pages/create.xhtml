@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../templates/layout.xhtml">
+
+    <ui:define name="content">
+        <h:form id="createForm" enctype="multipart/form-data">
+            <p:panel id="createFormPanel" style="width: 500px">
+                <f:facet name="header">
+                    Create Form
+                </f:facet>
+
+                <p:panelGrid id="panel" columns="1" styleClass="noborder">
+                    <f:facet name="header">
+                        <p:messages id="messages">
+                            <p:effect type="pulsate" event="load" delay="500">
+                                <f:param name="mode" value="'show'"/>
+                            </p:effect>
+                        </p:messages>
+                    </f:facet>
+
+                    <p:outputPanel>
+                        <h:outputLabel for="operationType" value="OperationType: *" styleClass="createLabel"/>
+                        <p:selectOneMenu id="operationType" value="#{createBean.operationType}"
+                                         converter="operationType">
+                            <f:selectItems value="#{createBean.operationTypeList}" var="operationType"
+                                           itemLabel="#{operationType.key}" itemValue="#{operationType}"/>
+                            <p:ajax update="roomCountPanel, flatAreaPanel, flatFloorPanel, plottagePanel, houseAreaPanel, streetObjectNoLabel"
+                                    listener="#{createBean.handleOperationTypeChange}"/>
+                        </p:selectOneMenu>
+                        <p:message for="operationType" display="icon"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel>
+                        <h:outputLabel for="district" value="#{messages.field_label_district}: *"
+                                       styleClass="createLabel"/>
+                        <p:selectOneMenu id="district" value="#{createBean.district}" converter="district"
+                                         required="true"
+                                         requiredMessage="District is required">
+                            <f:selectItems value="#{createBean.districtList}" var="district"
+                                           itemLabel="#{district.caption}"
+                                           itemValue="#{district}"/>
+                            <p:ajax update="region" listener="#{createBean.handleDistrictChange}"/>
+                        </p:selectOneMenu>
+                        <p:message for="district" display="icon"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel>
+                        <h:outputLabel for="region" value="#{messages.field_label_region}: *" styleClass="createLabel"/>
+                        <p:selectOneMenu id="region" value="#{createBean.region}" converter="region" required="true"
+                                         requiredMessage="Region is required">
+                            <f:selectItem itemLabel="Select Region" itemValue=""/>
+                            <f:selectItems value="#{createBean.regionList}" var="region" itemLabel="#{region.caption}"
+                                           itemValue="#{region}"/>
+                            <p:ajax update="street" listener="#{createBean.handleRegionChange}"/>
+                        </p:selectOneMenu>
+                        <p:message for="region" display="icon"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel>
+                        <h:outputLabel for="street" value="#{messages.field_label_street}: *" styleClass="createLabel"/>
+                        <p:selectOneMenu id="street" value="#{createBean.street}" converter="street" required="true"
+                                         requiredMessage="Street is required">
+                            <f:selectItem itemLabel="Select Street" itemValue=""/>
+                            <f:selectItems value="#{createBean.streetList}" var="street"
+                                           itemLabel="#{street.caption}"
+                                           itemValue="#{street}"/>
+                        </p:selectOneMenu>
+                        <p:message for="street" display="icon"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel>
+                        <h:outputLabel id="streetObjectNoLabel" binding="#{createBean.streetObjectNoLabel}"
+                                       styleClass="createLabel"/>
+                        <p:inputText id="streetObjectNo" value="#{createBean.streetObjectNo}"
+                                     required="#{createBean.flatSelected}"
+                                     requiredMessage="StreetObject No is required">
+                        </p:inputText>
+                        <p:message for="streetObjectNo" display="icon"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel id="roomCountPanel">
+                        <h:outputLabel for="roomCount" value="#{messages.field_label_roomCount}: *"
+                                       rendered="#{createBean.flatSelected}" styleClass="createLabel"/>
+                        <p:selectOneMenu id="roomCount" value="#{createBean.roomCount}"
+                                         converter="roomCountTypeConverter"
+                                         rendered="#{createBean.flatSelected}" required="#{createBean.flatSelected}"
+                                         requiredMessage="RoomCount is required">
+                            <f:selectItem itemLabel="Select RoomCount" itemValue=""/>
+                            <f:selectItems value="#{createBean.roomTypeList}"/>
+                        </p:selectOneMenu>
+                        <p:message for="roomCount" display="icon" rendered="#{createBean.flatSelected}"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel id="flatAreaPanel">
+                        <h:outputLabel for="flatAreaTotal" value="Total Area:"
+                                       rendered="#{createBean.flatSelected}"/>
+                        <p:spinner id="flatAreaTotal" value="#{createBean.flatAreaTotal}" size="3"
+                                   stepFactor="10" rendered="#{createBean.flatSelected}" title="Total Area"/>
+                        <p:message for="flatAreaTotal" display="icon" rendered="#{createBean.flatSelected}"/>
+
+                        <h:outputLabel for="flatAreaResidental" value="Residental Area:"
+                                       rendered="#{createBean.flatSelected}"/>
+                        <p:spinner id="flatAreaResidental" value="#{createBean.flatAreaResidental}" size="3"
+                                   stepFactor="10" rendered="#{createBean.flatSelected}" title="Residental Area"/>
+                        <p:message for="flatAreaResidental" display="icon" rendered="#{createBean.flatSelected}"/>
+
+                        <h:outputLabel for="flatAreaKitchen" value="Kitchen Area:"
+                                       rendered="#{createBean.flatSelected}"/>
+                        <p:spinner id="flatAreaKitchen" value="#{createBean.flatAreaKitchen}" size="2"
+                                   stepFactor="10" rendered="#{createBean.flatSelected}" title="Kitchen Area"/>
+                        <p:message for="flatAreaKitchen" display="icon" rendered="#{createBean.flatSelected}"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel id="flatFloorPanel">
+                        <h:outputLabel for="flatFloor" value="#{messages.field_label_flatFloor}:"
+                                       rendered="#{createBean.flatSelected}"/>
+                        <p:spinner id="flatFloor" value="#{createBean.flatFloor}" size="2" min="1" max="99"
+                                   rendered="#{createBean.flatSelected}" title="Flat Floor"/>
+                        <p:message for="flatFloor" display="icon" rendered="#{createBean.flatSelected}"/>
+
+                        <h:outputLabel for="flatBuildFloor" value="#{messages.field_label_buildFloor}:"
+                                       rendered="#{createBean.flatSelected}"/>
+                        <p:spinner id="flatBuildFloor" value="#{createBean.flatBuildFloor}" size="2" min="1" max="99"
+                                   rendered="#{createBean.flatSelected}" title="Build Floor"/>
+                        <p:message for="flatBuildFloor" display="icon" rendered="#{createBean.flatSelected}"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel id="plottagePanel">
+                        <h:outputLabel for="plottage" value="#{messages.field_label_plottage}:"
+                                       rendered="#{createBean.landSelected}" styleClass="createLabel"/>
+                        <p:spinner id="plottage" value="#{createBean.plottage}" size="4" stepFactor="5"
+                                   rendered="#{createBean.landSelected}" title="Plottage"/>
+                        <p:message for="plottage" display="icon" rendered="#{createBean.landSelected}"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel id="houseAreaPanel">
+                        <h:outputLabel for="houseArea" value="#{messages.field_label_houseArea}:"
+                                       rendered="#{createBean.houseSelected}" styleClass="createLabel"/>
+                        <p:spinner id="houseArea" value="#{createBean.houseArea}" size="4" max="2000" stepFactor="50"
+                                   rendered="#{createBean.houseSelected}" title="houseArea"/>
+                        <p:message for="houseArea" display="icon" rendered="#{createBean.houseSelected}"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel>
+                        <h:outputLabel for="price" value="#{messages.field_label_price}: *" styleClass="createLabel"/>
+                        <p:inputText id="price" value="#{createBean.price}" required="true"
+                                     requiredMessage="Price is required"
+                                     converter="javax.faces.Integer" converterMessage="Price is not valid">
+                        </p:inputText>
+                        <p:message for="price" display="icon"/>
+                    </p:outputPanel>
+
+                    <p:outputPanel>
+                        <h:outputLabel for="description" value="#{messages.field_label_description}: *"
+                                       styleClass="createLabel"/>
+                        <p:inputTextarea id="description" value="#{createBean.description}" required="true"
+                                         requiredMessage="Description is required" maxlength="1000"
+                                         autoResize="true"/>
+                        <p:message for="description" display="icon"/>
+                    </p:outputPanel>
+                    <p:outputPanel>
+                        <h:outputLabel value="#{messages.field_label_photo}:"
+                                       styleClass="createLabel"/>
+                        <p:fileUpload fileUploadListener="#{createBean.handleFileUpload}"
+            mode="advanced"
+            update="messages"
+            auto="true"
+            sizeLimit="100000"
+            allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+<!--
+                        <p:fileUpload id="photo" value="#{createBean.file}" mode="simple"
+                                      sizeLimit="100000"
+                                      allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+-->
+                    </p:outputPanel>
+                    <f:facet name="footer">
+                        <p:commandButton id="btn" value="Create" icon="ui-icon-check" update="panel"
+                                         actionListener="#{createBean.create}"/>
+                    </f:facet>
+                </p:panelGrid>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

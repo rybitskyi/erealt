@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- proext TOP 1x1 v2.00 -->
+<script language="javascript" type="text/javascript"><!--
+pcD = document;
+pcD.cookie = "b=b";
+pcC = pcD.cookie ? 1 : 0;
+pcQ = '<img src="http://t.proext.com/?u=67437&c=' + pcC + '&l=1';
+pcF = pcD.referrer.slice(7);
+((pcI = pcF.indexOf('/')) != -1) ? (pcF = pcF.substring(0, pcI)) : (pcI = pcF.length);
+if (pcF != window.location.href.substring(7, 7 + pcI)) {
+    pcQ += '&r=' + escape(pcD.referrer)
+}
+else {
+    try {
+        pcOF = (window.opener && window.opener.document && window.opener.document.referrer) ? window.opener.document.referrer.slice(7) : '';
+        ((pcOI = pcOF.indexOf('/')) != -1) ? (pcOF = pcOF.substring(0, pcOI)) : (pcOI = pcOF.length);
+        if (pcOF != window.location.href.substring(7, 7 + pcOI))pcQ += '&r=' + escape(window.opener.document.referrer)
+    } catch(e) {
+    }
+}
+pcQ += '&p=' + escape(document.URL) + '&t=' + Math.random();
+pcD.write(pcQ + '" width=1 height=1 border=0 alt="">');
+//--></script>
+<script language="javascript" type="text/javascript" src="http://t.proext.com/js/to.js"></script>
+<!-- proext TOP 1x1 -->
+<body>
+<!-- proext TOP counter v2.00 -->
+<a href="http://www.proext.com/" target=_blank onClick='this.href="http://top.proext.com/go.cgi?u=67437";'>
+    <img src="http://t.proext.com/?u=67437&d=1&v=2&f=9" width=31 height=31 border=0 alt="TOP.proext.com"></a>
+<!-- proext TOP counter -->
+</body>
+</html>

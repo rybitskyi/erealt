@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Root>
+	<Row>
+		<Column>  3-я    ( 3-я )</Column>
+		<Column2> линия</Column2>
+		<Column3> Оболонский</Column3>
+	</Row>
+	<Row>
+		<Column>  40-рiччя Жовтня    ( 40-летия Октября )</Column>
+		<Column2> пр.</Column2>
+		<Column3> Голосеевский</Column3>
+		<Column4> Голосiївський</Column4>
+	</Row>
+	<Row>
+		<Column>  Iжевська    ( Ижевская )</Column>
+		<Column3> Дарницкий</Column3>
+	</Row>
+	<Row>
+		<Column>  Амосова Миколи    ( Амосова Николая )</Column>
+		<Column3>Соломенский</Column3>
+		<Column4> Протасiв Яр</Column4>
+		<I> Разiна Степана</I>
+	</Row>
+	<Row>
+		<Column>  Володимирський    ( Владимирский )</Column>
+		<Column2> спуск</Column2>
+		<Column3> Печерский, Подольский, Шевченковский</Column3>
+	</Row>		
+</Root>

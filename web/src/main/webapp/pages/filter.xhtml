@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:spring="http://www.springframework.org/tags"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition id="filter">
+    <h:form id="filter-form">
+        <p:panel header="Filter" style="margin-bottom:10px;">
+            <h:panelGrid columns="4" cellpadding="5">
+                <p:selectOneMenu id="districts" value="#{filterBean.searchCriteria.district}" converter="district">
+                    <f:selectItems value="#{filterBean.districtList}"/>
+                    <p:ajax update="regions"
+                            listener="#{filterBean.handleDistrictChange}"/>
+                </p:selectOneMenu>
+
+                <p:selectOneMenu id="regions" value="#{filterBean.searchCriteria.region}" converter="region">
+                    <f:selectItem itemLabel="All Regions" itemValue=""/>
+                    <f:selectItems value="#{filterBean.regionList}"/>
+                </p:selectOneMenu>
+
+                <p:commandButton value="FIND" update=":dataForm:data" id="find"/>
+            </h:panelGrid>
+        </p:panel>
+    </h:form>
+
+</ui:composition>
+</html>

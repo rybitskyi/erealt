@@ -1,0 +1,117 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:roo="urn:jsptagdir:/WEB-INF/tags"
+     id="body"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <script type="text/javascript">dojo.require('dijit.TitlePane');dojo.require('dijit.form.DateTextBox');dojo.require('dijit.form.FilteringSelect');dojo.require('dijit.form.SimpleTextarea');</script>
+    <roo:address/>
+    <div id="_title_div">
+        <spring:message code="label.leasehouse" var="entity_label"/>
+        <spring:message arguments="${entity_label}" code="entity.create" var="title_msg"/>
+        <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_title_div', widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title_msg}'}})); </script>
+        <spring:url value="/leasehouse" var="form_url"/>
+        <form:form action="${form_url}" method="POST" modelAttribute="object" enctype="multipart/form-data">
+            <form:errors cssClass="errors" delimiter="&lt;p/&gt;"/>
+            <table class="noborder">
+            <tr>
+            <td class="noborder">
+            <div id="roo_leaseHouse_district">
+                <c:if test="${not empty districts}">
+                    <label for="_district_id"><spring:message code="field.label.district" />:</label>
+                    <form:select cssStyle="width:250px" id="_district_id" path="district">
+                        <form:options itemValue="id" items="${districts}"/>
+                    </form:select>
+                    <!--<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_district_id', widgetType: 'dijit.form.FilteringSelect', widgetAttrs : {hasDownArrow : true}})); </script>-->
+                </c:if>
+            </div>
+            <br/>
+            <div id="roo_leaseHouse_region">
+                <label for="_region_id"><spring:message code="field.label.region" /></label>
+                <form:select cssStyle="width:250px" id="_region_id" path="region">
+                    <c:if test="${not empty regions}">
+                        <form:options itemValue="id" items="${regions}"/>
+                    </c:if>
+                </form:select>
+                <!--<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_region_id', widgetType: 'dijit.form.FilteringSelect', widgetAttrs : {hasDownArrow : true}})); </script>-->
+            </div>
+            <br/>
+            <div id="roo_leaseHouse_street">
+                <label for="_street_id"><spring:message code="field.label.street" />:</label>
+                <form:select cssStyle="width:250px" id="_street_id" path="street">
+                    <c:if test="${not empty streets}">
+                    <form:options itemValue="id" items="${streets}"/>
+                    </c:if>
+                </form:select>
+                    <!--<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_street_id', widgetType: 'dijit.form.FilteringSelect', widgetAttrs : {hasDownArrow : true}})); </script>-->
+            </div>
+            <br/>
+            <div id="roo_leaseHouse_streetObjectNo">
+                <label for="_streetObjectNo_id"><spring:message code="field.label.buildNo" />:</label>
+                <form:input cssStyle="width:250px" id="_streetObjectNo_id" maxlength="30" path="streetObjectNo" size="0"/>
+                <br/>
+                <form:errors cssClass="errors" id="_streetObjectNo_error_id" path="streetObjectNo"/>
+                <spring:message arguments="Street Object No" code="field.invalid" var="field_invalid"/>
+                <spring:message code="field.required" var="field_required"/>
+                <spring:message code="field.streetObjectNo1" var="field_streetObjectNo"/>
+                <spring:message argumentSeparator="," arguments="${field_streetObjectNo}," code="field.simple.validation" var="field_validation"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_streetObjectNo_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: '${field_validation}', invalidMessage: '${field_invalid}', required : false}})); </script>
+            </div>
+            <br/>
+            <div id="roo_leaseHouse_plottage">
+                <label for="_plottage_id"><spring:message code="field.label.plottage" />:</label>
+                <form:input cssStyle="width:250px" id="_plottage_id" maxlength="30" path="plottage" size="0"/>
+                <br/>
+                <form:errors cssClass="errors" id="_plottage_error_id" path="plottage"/>
+                <spring:message code="field.invalid.integer" var="field_invalid"/>
+                <spring:message code="field.required" var="field_required"/>
+                <spring:message code="field.plottage1" var="field_plottage"/>
+                <spring:message argumentSeparator="," arguments="${field_plottage}," code="field.simple.validation" var="field_validation"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_plottage_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: '${field_validation}', invalidMessage: '${field_invalid}', regExp: '-?[0-9]*', required : false}})); </script>
+            </div>
+            <br/>
+            <div id="roo_leaseHouse_price">
+                <label for="_price_id"><spring:message code="field.label.price" />*:</label>
+                <form:input cssStyle="width:250px" id="_price_id" maxlength="30" path="price" size="0"/>
+                <br/>
+                <form:errors cssClass="errors" id="_price_error_id" path="price"/>
+                <spring:message code="field.invalid.integer" var="field_invalid"/>
+                <spring:message code="field.required" var="field_required"/>
+                <spring:message code="field.price1" var="field_price"/>
+                <spring:message argumentSeparator="," arguments="${field_price},(${field_required})" code="field.simple.validation" var="field_validation"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_price_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: '${field_validation}', invalidMessage: '${field_invalid}', regExp: '-?[0-9]*', required : true}})); </script>
+            </div>
+            </td>
+            <td class="noborder">
+            <div id="roo_leaseHouse_description">
+                <label for="_description_id"><spring:message code="field.label.description" />:</label>
+                <form:textarea cssStyle="width:250px" id="_description_id" path="description"/>
+                <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_description_id', widgetType: 'dijit.form.SimpleTextarea', widgetAttrs: {rows: 6}})); </script>
+                <br/>
+                <form:errors cssClass="errors" id="_description_error_id" path="description"/>
+            </div>
+            <br/>
+            <div id="roo_leaseHouse_photo">
+                <label for="fileData"><spring:message code="field.label.photo" />:</label>
+                <form:input cssStyle="width:250px" path="fileDataWrapper.fileData" type="file"/>
+                <br/>
+            </div>
+            </td>
+            </tr>
+            <tr class="noborder">
+                <td class="noborder"/>
+                <td class="noborder">
+                    <br />
+                    <div class="submit-right" id="roo_leaseHouse_submit">
+                        <spring:message code="button.save" var="save_button" />
+                        <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
+                        <input id="proceed" type="submit" value="${save_button}"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        </form:form>
+    </div>
+</div>

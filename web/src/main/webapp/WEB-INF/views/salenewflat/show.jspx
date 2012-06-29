@@ -1,0 +1,136 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <script type="text/javascript">dojo.require('dijit.TitlePane');</script>
+    <div id="_title_div">
+        <spring:message code="label.salenewflat" var="entity_label"/>
+        <spring:message arguments="${entity_label}" code="entity.show" var="title_msg"/>
+        <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_title_div', widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title_msg}'}})); </script>
+        <c:if test="${not empty saleNewFlat}">
+            <div id="roo_saleNewFlat_creationDate">
+                <label for="_creationDate_id"><spring:message code="field.label.creationDate" />:</label>
+                <div class="box" id="_creationDate_id">
+                    <fmt:formatDate pattern="${saleNewFlat_creationDate_date_format}" value="${saleNewFlat.creationDate}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_district">
+                <label for="_district_id"><spring:message code="field.label.district" />:</label>
+                <div class="box" id="_district_id">
+                    <c:out value="${saleNewFlat.district}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_region">
+                <label for="_region_id"><spring:message code="field.label.region" /></label>
+                <div class="box" id="_region_id">
+                    <c:out value="${saleNewFlat.region}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_street">
+                <label for="_street_id"><spring:message code="field.label.street" />:</label>
+                <div class="box" id="_street_id">
+                    <c:out value="${saleNewFlat.street}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_streetObjectNo">
+                <label for="_streetObjectNo_id"><spring:message code="field.label.buildNo" />:</label>
+                <div class="box" id="_streetObjectNo_id">
+                    <c:out value="${saleNewFlat.streetObjectNo}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_price">
+                <label for="_price_id"><spring:message code="field.label.price" />:</label>
+                <div class="box" id="_price_id">
+                	<fmt:formatNumber type="number" value="${saleNewFlat.price}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_clientName">
+                <label for="_clientName_id"><spring:message code="field.label.сlientName" />:</label>
+                <div class="box" id="_clientName_id">
+                    <c:if test="${saleNewFlat.accessUser == null}">
+                        <c:if test="${saleNewFlat.clientName != 'Unknown'}">
+                            <c:out value="${saleNewFlat.clientName}"/>
+                        </c:if>
+                    </c:if>
+                    <c:if test="${saleNewFlat.accessUser.caption == null}">
+                        <c:out value="${saleNewFlat.accessUser.caption}"/>
+                    </c:if>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_telephone">
+                <label for="_telephone_id"><spring:message code="field.label.telephone" />:</label>
+                <div class="box" id="_telephone_id">
+                    <c:if test="${saleNewFlat.accessUser == null}">
+                        <c:out value="${saleNewFlat.telephone}"/>
+                    </c:if>
+                    <c:out value="${saleNewFlat.accessUser.allTelephones}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_email">
+                <label for="_email_id"><spring:message code="field.label.email" />:</label>
+                <div class="box" id="_email_id">
+                    <c:if test="${saleNewFlat.accessUser == null}">
+	                    <c:if test="${saleNewFlat.email != null}">
+	                    	<A href="mailto:${saleNewFlat.email}">${saleNewFlat.email}</A>
+	                    </c:if>                                                                                
+                    </c:if>
+                    <c:if test="${saleNewFlat.accessUser.email != null}">
+                    	<c:if test="${saleNewFlat.accessUser.publicEmail}">
+                    		<A href="mailto:${saleNewFlat.accessUser.email}">${saleNewFlat.accessUser.email}</A>
+                    	</c:if>		
+                    </c:if>                                                                                
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_description">
+                <label for="_description_id"><spring:message code="field.label.description" />:</label>
+                <div class="box" id="_description_id">
+                    <c:out value="${saleNewFlat.description}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_roomCount">
+                <label for="_roomCount_id"><spring:message code="field.label.roomCount" />:</label>
+                <div class="box" id="_roomCount_id">
+                    <c:out value="${saleNewFlat.roomCount}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_flatArea">
+                <label for="_flatArea_id"><spring:message code="field.label.flatArea" />:</label>
+                <div class="box" id="_flatArea_id">
+                    <c:out value="${saleNewFlat.flatArea}"/>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <div id="roo_saleNewFlat_flatFloor">
+                <label for="_flatFloor_id"><spring:message code="field.label.flatFloor" />:</label>
+                <div class="box" id="_flatFloor_id">
+                    <c:out value="${saleNewFlat.flatFloor}"/>
+                </div>
+            </div>
+            <br/>
+            <div id="roo_saleNewFlat_buildFloor">
+                <label for="_buildFloor_id"><spring:message code="field.label.buildFloor" />:</label>
+                <div class="box" id="_buildFloor_id">
+                    <c:out value="${saleNewFlat.buildFloor}"/>
+                </div>
+            </div>
+            <br/>
+            <c:if test="${not empty saleNewFlat.photoUrl}">
+                <img src="${saleNewFlat.photoUrl}"/>
+            </c:if>
+            <br/>
+        </c:if>
+        <c:if test="${empty saleNewFlat}">
+            <spring:message arguments="${entity_label}" code="entity.not.found.single"/>
+        </c:if>
+    </div>
+</div>

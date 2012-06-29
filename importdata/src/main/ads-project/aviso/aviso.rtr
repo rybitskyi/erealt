@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transform version="0.0.317" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/aviso" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="aviso.rtr">
+    <input typeRef="#root" required="false" path="" modelRef="aviso.rdm" endID="0"/>
+    <constant constant="aviso" id="404"/>
+    <constant constant="//head/title" id="756"/>
+    <constant constant="2" id="776"/>
+    <transformMethod name="SUBTRACT" y="225" x="232" id="778"/>
+    <constant constant="1" id="779"/>
+    <transformMethod type="#number_int" name="CAST" y="217" x="323" id="780"/>
+    <transformMethod name="TOSTRING" y="153" x="83" id="786"/>
+    <transformMethod name="TOSTRING" y="345" x="147" id="794"/>
+    <constant constant="2" id="795"/>
+    <transformMethod type="#number_long" name="FROMSTRING" y="323" x="261" id="796"/>
+    <filterRef refId="631" y="123" x="247" id="633"/>
+    <localTransformRef refId="641" y="141" x="394" id="643"/>
+    <javaMethodRef refId="754" y="48" x="259" id="753"/>
+    <hashtableRef refId="781" y="248" x="106" id="782"/>
+    <javaMethodRef refId="790" y="297" x="406" id="789"/>
+    <contextPath input="false" endID="0" contextRef="source" id="405"/>
+    <contextPath input="false" endID="0" contextRef="" id="447"/>
+    <contextPath input="true" endID="0" contextRef="div" id="640"/>
+    <contextPath input="false" endID="0" contextRef="dtype" id="757"/>
+    <contextPath input="true" endID="0" contextRef="title" id="759"/>
+    <contextPath input="true" endID="0" contextRef="@aroom" id="772"/>
+    <contextPath input="false" endID="0" contextRef="district" id="777"/>
+    <contextPath input="false" endID="0" contextRef="room_count" id="773"/>
+    <contextPath input="true" endID="0" contextRef="@adistr" id="787"/>
+    <contextPath input="false" endID="0" contextRef="region" id="792"/>
+    <translation outputPort="1" outputID="778" inputPort="0" inputID="779"/>
+    <translation outputPort="0" outputID="780" inputPort="0" inputID="778"/>
+    <translation outputPort="0" outputID="782" inputPort="0" inputID="786"/>
+    <translation outputPort="0" outputID="789" inputPort="0" inputID="782"/>
+    <translation outputPort="0" outputID="794" inputPort="0" inputID="795"/>
+    <translation outputPort="0" outputID="796" inputPort="0" inputID="794"/>
+    <translation outputPort="1" outputID="789" inputPort="0" inputID="796"/>
+    <translation outputPort="0" outputID="405" inputPort="0" inputID="404"/>
+    <translation outputPort="0" outputID="643" inputPort="0" inputID="633"/>
+    <translation outputPort="0" outputID="447" inputPort="0" inputID="643"/>
+    <translation outputPort="0" outputID="633" inputPort="0" inputID="640"/>
+    <translation outputPort="0" outputID="757" inputPort="0" inputID="753"/>
+    <translation outputPort="0" outputID="753" inputPort="0" inputID="759"/>
+    <translation outputPort="0" outputID="777" inputPort="0" inputID="776"/>
+    <translation outputPort="0" outputID="778" inputPort="0" inputID="772"/>
+    <translation outputPort="0" outputID="773" inputPort="0" inputID="780"/>
+    <translation outputPort="0" outputID="786" inputPort="0" inputID="787"/>
+    <translation outputPort="0" outputID="792" inputPort="0" inputID="789"/>
+    <nextId>907</nextId>
+    <output typeRef="abstract_object" required="false" path="" modelRef="../abstract_object.rdm" endID="0"/>
+    <filter id="631">
+        <filter name="ad usual">
+            <input typeRef="#root" required="false" path="div" modelRef="aviso.rdm" endID="0"/>
+            <transformMethod name="EQUALS" y="54" x="149" id="634"/>
+            <constant constant="ad usual" id="635"/>
+            <contextPath input="false" endID="0" contextRef="boolean" id="637"/>
+            <contextPath input="false" endID="1" contextRef="any" id="639"/>
+            <contextPath input="true" endID="0" contextRef="@class" id="636"/>
+            <contextPath input="true" endID="0" contextRef="" id="638"/>
+            <translation outputPort="1" outputID="634" inputPort="0" inputID="635"/>
+            <translation outputPort="0" outputID="637" inputPort="0" inputID="634"/>
+            <translation outputPort="0" outputID="634" inputPort="0" inputID="636"/>
+            <translation outputPort="0" outputID="639" inputPort="0" inputID="638"/>
+            <nextId>0</nextId>
+        </filter>
+    </filter>
+    <localTransform id="641">
+        <transform version="0.0.317" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/aviso" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="row">
+            <input typeRef="#root" required="false" path="div" modelRef="aviso.rdm" endID="0"/>
+            <transformMethod name="TOSTRING" y="302" x="158" id="741"/>
+            <transformMethod name="GREATERTHAN" y="315" x="365" id="877"/>
+            <constant constant="0" id="878"/>
+            <transformMethod type="#string" name="IF" y="295" x="514" id="880"/>
+            <constant constant="&quot;jpg&quot;" id="881"/>
+            <transformMethod name="LENGTH" y="305" x="256" id="882"/>
+            <constant constant="&quot;&quot;" id="883"/>
+            <filterRef refId="644" y="37" x="75" id="646"/>
+            <filterRef refId="661" y="191" x="123" id="663"/>
+            <filterRef refId="673" y="249" x="236" id="675"/>
+            <localTransformRef refId="683" y="243" x="394" id="685"/>
+            <filterRef refId="760" y="387" x="168" id="762"/>
+            <contextPath input="false" endID="0" contextRef="price" id="672"/>
+            <contextPath input="false" endID="0" contextRef="" id="686"/>
+            <contextPath input="false" endID="0" contextRef="img" id="743"/>
+            <contextPath input="false" endID="0" contextRef="web" id="771"/>
+            <contextPath input="false" endID="0" contextRef="photo_ext" id="876"/>
+            <contextPath input="false" endID="0" contextRef="creation_date" id="658"/>
+            <contextPath input="true" endID="0" contextRef="span" id="653"/>
+            <contextPath input="true" endID="0" contextRef="a" id="682"/>
+            <contextPath input="true" endID="0" contextRef="a/img/@src" id="742"/>
+            <translation outputPort="1" outputID="877" inputPort="0" inputID="878"/>
+            <translation outputPort="0" outputID="880" inputPort="0" inputID="877"/>
+            <translation outputPort="1" outputID="880" inputPort="0" inputID="881"/>
+            <translation outputPort="0" outputID="877" inputPort="0" inputID="882"/>
+            <translation outputPort="0" outputID="882" inputPort="0" inputID="741"/>
+            <translation outputPort="2" outputID="880" inputPort="0" inputID="883"/>
+            <translation outputPort="0" outputID="672" inputPort="0" inputID="663"/>
+            <translation outputPort="0" outputID="685" inputPort="0" inputID="675"/>
+            <translation outputPort="0" outputID="686" inputPort="0" inputID="685"/>
+            <translation outputPort="0" outputID="743" inputPort="0" inputID="741"/>
+            <translation outputPort="0" outputID="771" inputPort="0" inputID="762"/>
+            <translation outputPort="0" outputID="876" inputPort="0" inputID="880"/>
+            <translation outputPort="0" outputID="658" inputPort="0" inputID="646"/>
+            <translation outputPort="0" outputID="646" inputPort="0" inputID="653"/>
+            <translation outputPort="0" outputID="663" inputPort="0" inputID="653"/>
+            <translation outputPort="0" outputID="675" inputPort="0" inputID="682"/>
+            <translation outputPort="0" outputID="741" inputPort="0" inputID="742"/>
+            <translation outputPort="0" outputID="762" inputPort="0" inputID="682"/>
+            <nextId>0</nextId>
+            <output typeRef="abstract_object" required="false" path="" modelRef="../abstract_object.rdm" endID="0"/>
+            <filter id="644">
+                <filter name="date">
+                    <input typeRef="#div" required="false" path="span" modelRef="aviso.rdm" endID="0"/>
+                    <transformMethod name="EQUALS" y="62" x="118" id="647"/>
+                    <constant constant="date" id="648"/>
+                    <transformMethod type="#date_generic" name="IF" y="129" x="390" id="888"/>
+                    <transformMethod name="NOW" y="210" x="147" id="889"/>
+                    <transformMethod name="EXISTS" y="144" x="144" id="890"/>
+                    <transformMethod name="DATEFROMSTRING" y="83" x="272" id="892"/>
+                    <transformMethod type="#date_sql_timestamp" name="CONVERTDATE" y="109" x="504" id="893"/>
+                    <constant constant="yyyy-MM-dd HH:mm:ss" id="894"/>
+                    <constant constant="yyyy-MM-dd HH:mm:ss" id="895"/>
+                    <contextPath input="false" endID="0" contextRef="boolean" id="650"/>
+                    <contextPath input="false" endID="1" contextRef="any" id="652"/>
+                    <contextPath input="true" endID="0" contextRef="@class" id="649"/>
+                    <contextPath input="true" endID="0" contextRef="MIXED#0" id="651"/>
+                    <contextPath input="true" endID="0" contextRef="img" id="891"/>
+                    <translation outputPort="1" outputID="647" inputPort="0" inputID="648"/>
+                    <translation outputPort="0" outputID="888" inputPort="0" inputID="890"/>
+                    <translation outputPort="1" outputID="888" inputPort="0" inputID="889"/>
+                    <translation outputPort="1" outputID="892" inputPort="0" inputID="895"/>
+                    <translation outputPort="2" outputID="888" inputPort="0" inputID="892"/>
+                    <translation outputPort="0" outputID="893" inputPort="0" inputID="888"/>
+                    <translation outputPort="0" outputID="650" inputPort="0" inputID="647"/>
+                    <translation outputPort="0" outputID="652" inputPort="0" inputID="893"/>
+                    <translation outputPort="0" outputID="647" inputPort="0" inputID="649"/>
+                    <translation outputPort="0" outputID="890" inputPort="0" inputID="891"/>
+                    <translation outputPort="0" outputID="892" inputPort="0" inputID="651"/>
+                    <nextId>0</nextId>
+                </filter>
+            </filter>
+            <filter id="661">
+                <filter name="price">
+                    <input typeRef="#div" required="false" path="span" modelRef="aviso.rdm" endID="0"/>
+                    <transformMethod name="EQUALS" y="55" x="113" id="664"/>
+                    <constant constant="price" id="665"/>
+                    <javaMethodRef refId="669" y="174" x="122" id="668"/>
+                    <contextPath input="false" endID="0" contextRef="boolean" id="667"/>
+                    <contextPath input="false" endID="1" contextRef="any" id="671"/>
+                    <contextPath input="true" endID="0" contextRef="@class" id="666"/>
+                    <contextPath input="true" endID="0" contextRef="MIXED#0" id="670"/>
+                    <translation outputPort="1" outputID="664" inputPort="0" inputID="665"/>
+                    <translation outputPort="0" outputID="667" inputPort="0" inputID="664"/>
+                    <translation outputPort="0" outputID="671" inputPort="0" inputID="668"/>
+                    <translation outputPort="0" outputID="664" inputPort="0" inputID="666"/>
+                    <translation outputPort="0" outputID="668" inputPort="0" inputID="670"/>
+                    <nextId>0</nextId>
+                    <javaMethod id="669">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getPrice</methodName>
+                        <input type="#string" role="str"/>
+                        <output type="#number_int"/>
+                        <code>return biz.rageintegro.importdata.aviso.AvisoUtils.getPrice(str);</code>
+                    </javaMethod>
+                </filter>
+            </filter>
+            <filter id="673">
+                <filter name="descrFilter">
+                    <input typeRef="#div" required="false" path="a" modelRef="aviso.rdm" endID="0"/>
+                    <transformMethod name="STARTSWITH" y="72" x="135" id="676"/>
+                    <constant constant="view.php?adid=" id="677"/>
+                    <transformMethod name="NOTEXISTS" y="164" x="75" id="733"/>
+                    <transformMethod name="AND" y="103" x="277" id="735"/>
+                    <contextPath input="false" endID="1" contextRef="any" id="681"/>
+                    <contextPath input="false" endID="0" contextRef="boolean" id="679"/>
+                    <contextPath input="true" endID="0" contextRef="@href" id="678"/>
+                    <contextPath input="true" endID="0" contextRef="" id="680"/>
+                    <contextPath input="true" endID="0" contextRef="img" id="734"/>
+                    <translation outputPort="1" outputID="676" inputPort="0" inputID="677"/>
+                    <translation outputPort="0" outputID="735" inputPort="0" inputID="676"/>
+                    <translation outputPort="1" outputID="735" inputPort="0" inputID="733"/>
+                    <translation outputPort="0" outputID="679" inputPort="0" inputID="735"/>
+                    <translation outputPort="0" outputID="676" inputPort="0" inputID="678"/>
+                    <translation outputPort="0" outputID="681" inputPort="0" inputID="680"/>
+                    <translation outputPort="0" outputID="733" inputPort="0" inputID="734"/>
+                    <nextId>0</nextId>
+                </filter>
+            </filter>
+            <localTransform id="683">
+                <transform version="0.0.317" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/aviso" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="descr">
+                    <input typeRef="#div" required="false" path="a" modelRef="aviso.rdm" endID="0"/>
+                    <transformMethod type="#string" name="XPATH" y="177" x="383" id="689"/>
+                    <transformMethod name="CONCAT" y="313" x="382" id="690"/>
+                    <transformMethod name="REPLACEWHITESPACE" y="247" x="473" id="691"/>
+                    <transformMethod name="COLLAPSEWHITESPACE" y="184" x="524" id="692"/>
+                    <transformMethod name="PARENT" y="245" x="92" id="693"/>
+                    <transformMethod name="TRIM" y="240" x="592" id="694"/>
+                    <transformMethod name="CONCAT" y="118" x="291" id="695"/>
+                    <transformMethod name="TOSTRING" y="271" x="239" id="699"/>
+                    <constant constant="string(//body/a[" id="700"/>
+                    <constant constant="]/following-sibling::node()[1][self::text()])" id="701"/>
+                    <constant constant="string(//a[" id="702"/>
+                    <constant constant="]/following-sibling::node()[1][self::text()])" id="705"/>
+                    <transformMethod type="#number_int" name="CAST" y="394" x="342" id="721"/>
+                    <transformMethod name="SUBSTRING" y="441" x="475" id="722"/>
+                    <transformMethod name="ADD" y="391" x="252" id="723"/>
+                    <transformMethod name="INDEXOF" y="399" x="133" id="724"/>
+                    <constant constant="adid=" id="725"/>
+                    <constant constant="-1" id="726"/>
+                    <constant constant="5" id="727"/>
+                    <constant constant="adid=" id="729"/>
+                    <constant constant="5" id="730"/>
+                    <constant constant="-1" id="731"/>
+                    <transformMethod type="#number_long" name="FROMSTRING" y="486" x="520" id="812"/>
+                    <transformMethod name="TOSTRING" y="494" x="367" id="813"/>
+                    <constant constant="2" id="814"/>
+                    <transformMethod name="PARENT" y="527" x="205" id="837"/>
+                    <transformMethod name="PARENT" y="487" x="118" id="838"/>
+                    <transformMethod type="#string" name="XPATH" y="574" x="480" id="865"/>
+                    <constant constant="string(@regionId)" id="866"/>
+                    <transformMethod type="#number_long" name="FROMSTRING" y="568" x="591" id="870"/>
+                    <transformMethod name="TRIM" y="62" x="448" id="896"/>
+                    <javaMethodRef refId="697" y="184" x="151" id="696"/>
+                    <javaMethodRef refId="710" y="235" x="715" id="709"/>
+                    <javaMethodRef refId="713" y="270" x="720" id="712"/>
+                    <javaMethodRef refId="715" y="320" x="705" id="714"/>
+                    <javaMethodRef refId="717" y="363" x="706" id="716"/>
+                    <javaMethodRef refId="748" y="74" x="702" id="747"/>
+                    <javaMethodRef refId="800" y="485" x="676" id="799"/>
+                    <javaMethodRef refId="873" y="183" x="720" id="872"/>
+                    <contextPath input="false" endID="0" contextRef="description" id="704"/>
+                    <contextPath input="false" endID="0" contextRef="telephone" id="711"/>
+                    <contextPath input="false" endID="0" contextRef="build_floor" id="718"/>
+                    <contextPath input="false" endID="0" contextRef="flat_area" id="719"/>
+                    <contextPath input="false" endID="0" contextRef="flat_floor" id="720"/>
+                    <contextPath input="false" endID="0" contextRef="eid" id="732"/>
+                    <contextPath input="false" endID="0" contextRef="client_name" id="749"/>
+                    <contextPath input="false" endID="0" contextRef="street" id="805"/>
+                    <contextPath input="false" endID="0" contextRef="street_object_no" id="874"/>
+                    <contextPath input="true" endID="0" contextRef="" id="703"/>
+                    <contextPath input="true" endID="0" contextRef="@href" id="728"/>
+                    <contextPath input="true" endID="0" contextRef="MIXED#0" id="897"/>
+                    <javaMethodRef refId="904" y="408" x="706" id="903"/>
+                    <contextPath input="false" endID="0" contextRef="plottage" id="905"/>
+                    <translation outputPort="0" outputID="690" inputPort="0" inputID="702"/>
+                    <translation outputPort="0" outputID="694" inputPort="0" inputID="691"/>
+                    <translation outputPort="0" outputID="691" inputPort="0" inputID="692"/>
+                    <translation outputPort="0" outputID="692" inputPort="0" inputID="689"/>
+                    <translation outputPort="1" outputID="695" inputPort="0" inputID="705"/>
+                    <translation outputPort="0" outputID="695" inputPort="0" inputID="690"/>
+                    <translation outputPort="0" outputID="689" inputPort="0" inputID="695"/>
+                    <translation outputPort="1" outputID="689" inputPort="0" inputID="693"/>
+                    <translation outputPort="0" outputID="699" inputPort="0" inputID="696"/>
+                    <translation outputPort="1" outputID="690" inputPort="0" inputID="699"/>
+                    <translation outputPort="0" outputID="709" inputPort="0" inputID="694"/>
+                    <translation outputPort="0" outputID="712" inputPort="0" inputID="694"/>
+                    <translation outputPort="0" outputID="714" inputPort="0" inputID="694"/>
+                    <translation outputPort="0" outputID="716" inputPort="0" inputID="694"/>
+                    <translation outputPort="1" outputID="724" inputPort="0" inputID="729"/>
+                    <translation outputPort="0" outputID="723" inputPort="0" inputID="724"/>
+                    <translation outputPort="1" outputID="723" inputPort="0" inputID="730"/>
+                    <translation outputPort="0" outputID="721" inputPort="0" inputID="723"/>
+                    <translation outputPort="1" outputID="722" inputPort="0" inputID="721"/>
+                    <translation outputPort="2" outputID="722" inputPort="0" inputID="731"/>
+                    <translation outputPort="0" outputID="747" inputPort="0" inputID="694"/>
+                    <translation outputPort="1" outputID="799" inputPort="0" inputID="812"/>
+                    <translation outputPort="0" outputID="813" inputPort="0" inputID="814"/>
+                    <translation outputPort="0" outputID="812" inputPort="0" inputID="813"/>
+                    <translation outputPort="0" outputID="837" inputPort="0" inputID="838"/>
+                    <translation outputPort="0" outputID="865" inputPort="0" inputID="866"/>
+                    <translation outputPort="1" outputID="865" inputPort="0" inputID="837"/>
+                    <translation outputPort="0" outputID="870" inputPort="0" inputID="865"/>
+                    <translation outputPort="2" outputID="799" inputPort="0" inputID="870"/>
+                    <translation outputPort="0" outputID="799" inputPort="0" inputID="896"/>
+                    <translation outputPort="0" outputID="872" inputPort="0" inputID="896"/>
+                    <translation outputPort="0" outputID="704" inputPort="0" inputID="694"/>
+                    <translation outputPort="0" outputID="711" inputPort="0" inputID="709"/>
+                    <translation outputPort="0" outputID="718" inputPort="0" inputID="712"/>
+                    <translation outputPort="0" outputID="719" inputPort="0" inputID="714"/>
+                    <translation outputPort="0" outputID="720" inputPort="0" inputID="716"/>
+                    <translation outputPort="0" outputID="732" inputPort="0" inputID="722"/>
+                    <translation outputPort="0" outputID="749" inputPort="0" inputID="747"/>
+                    <translation outputPort="0" outputID="805" inputPort="0" inputID="799"/>
+                    <translation outputPort="0" outputID="874" inputPort="0" inputID="872"/>
+                    <translation outputPort="0" outputID="693" inputPort="0" inputID="703"/>
+                    <translation outputPort="0" outputID="696" inputPort="0" inputID="703"/>
+                    <translation outputPort="0" outputID="724" inputPort="0" inputID="728"/>
+                    <translation outputPort="0" outputID="722" inputPort="0" inputID="728"/>
+                    <translation outputPort="0" outputID="838" inputPort="0" inputID="703"/>
+                    <translation outputPort="0" outputID="896" inputPort="0" inputID="897"/>
+                    <translation outputPort="0" outputID="903" inputPort="0" inputID="694"/>
+                    <translation outputPort="0" outputID="905" inputPort="0" inputID="903"/>
+                    <nextId>0</nextId>
+                    <output typeRef="abstract_object" required="false" path="" modelRef="../abstract_object.rdm" endID="0"/>
+                    <javaMethod id="697">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getIndex</methodName>
+                        <input type="#complex" role="value"/>
+                        <output type="#number_int"/>
+                        <code>return value.getParent().getElementIndex(&quot;a&quot;, value) + 1;&#xD;
+</code>
+                    </javaMethod>
+                    <javaMethod id="710">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getTelephone</methodName>
+                        <input type="#string" role="str"/>
+                        <output type="#string"/>
+                        <code>return biz.rageintegro.importdata.aviso.TelephoneParser.parseTelephone2(str);</code>
+                    </javaMethod>
+                    <javaMethod id="713">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getBuildFloor</methodName>
+                        <input type="#string" role="str"/>
+                        <output type="##number_int"/>
+                        <code>return biz.rageintegro.importdata.aviso.AvisoUtils.getBuildFloor(str);</code>
+                    </javaMethod>
+                    <javaMethod id="715">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getFlatArea</methodName>
+                        <input type="#string" role="str"/>
+                        <output type="#string"/>
+                        <code>return biz.rageintegro.importdata.aviso.AvisoUtils.getFlatArea(str);</code>
+                    </javaMethod>
+                    <javaMethod id="717">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getFlatFloor</methodName>
+                        <input type="#string" role="str"/>
+                        <output type="##number_int"/>
+                        <code>return biz.rageintegro.importdata.aviso.AvisoUtils.getFlatFloor(str);</code>
+                    </javaMethod>
+                    <javaMethod id="748">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getClientName</methodName>
+                        <input type="#string" role="str"/>
+                        <output type="#string"/>
+                        <code>String result;&#xD;
+try {&#xD;
+result = biz.rageintegro.importdata.aviso.ClientNameParser.parseClientName(str);&#xD;
+}&#xD;
+catch (Throwable t) {&#xD;
+result = t.toString();&#xD;
+}&#xD;
+return result;</code>
+                    </javaMethod>
+                    <javaMethod id="800">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getStreet</methodName>
+                        <input type="#string" role="str"/>
+                        <input type="#number_long" role="district"/>
+                        <input type="#number_long" role="region"/>
+                        <output type="#number_long"/>
+                        <code>str =  biz.rageintegro.importdata.aviso.AvisoUtils.getStreet(str, district);&#xD;
+org.hibernate.Session session = (org.hibernate.Session) getObjectFactory();&#xD;
+return biz.rageintegro.importdata.aviso.AvisoUtils.getStreetId(str, region, session);</code>
+                    </javaMethod>
+                    <javaMethod id="873">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getStreetObjectNo</methodName>
+                        <input type="#string" role="str"/>
+                        <output type="#string"/>
+                        <code>return biz.rageintegro.importdata.aviso.AvisoUtils.getStreetObjectNo(str);</code>
+                    </javaMethod>
+                    <javaMethod id="904">
+                        <libraryMethod>false</libraryMethod>
+                        <methodName>getPlottage</methodName>
+                        <input type="#string" role="str"/>
+                        <output type="##number_int"/>
+                        <code>return biz.rageintegro.importdata.aviso.PlottageParser.parseIntPlottage(str);</code>
+                    </javaMethod>
+                </transform>
+            </localTransform>
+            <filter id="760">
+                <filter name="site">
+                    <input typeRef="#div" required="false" path="a" modelRef="aviso.rdm" endID="0"/>
+                    <transformMethod name="STARTSWITH" y="76" x="183" id="763"/>
+                    <constant constant="www." id="764"/>
+                    <contextPath input="false" endID="0" contextRef="boolean" id="766"/>
+                    <contextPath input="false" endID="1" contextRef="any" id="768"/>
+                    <contextPath input="true" endID="0" contextRef="MIXED#0" id="765"/>
+                    <translation outputPort="1" outputID="763" inputPort="0" inputID="764"/>
+                    <translation outputPort="0" outputID="766" inputPort="0" inputID="763"/>
+                    <translation outputPort="0" outputID="763" inputPort="0" inputID="765"/>
+                    <translation outputPort="0" outputID="768" inputPort="0" inputID="765"/>
+                    <nextId>0</nextId>
+                </filter>
+            </filter>
+        </transform>
+    </localTransform>
+    <javaMethod id="754">
+        <libraryMethod>false</libraryMethod>
+        <methodName>dtype</methodName>
+        <input type="#string" role="value"/>
+        <output type="#string"/>
+        <code>if (value == null) {&#xD;
+    return null;&#xD;
+}&#xD;
+if (value.indexOf(&quot;Квартиры и комнаты. Продам&quot;) &gt; -1) {&#xD;
+    return &quot;SaleFlat&quot;;&#xD;
+}&#xD;
+if (value.indexOf(&quot;Дома, дачи, земельные участки. Продажа » Дома. Дачи. Коттеджи&quot;) &gt; -1) {&#xD;
+    return &quot;SaleHouse&quot;;&#xD;
+}&#xD;
+if (value.indexOf(&quot;Дома, дачи, земельные участки. Продажа »Земельные участки&quot;) &gt; -1) {&#xD;
+    return &quot;SaleLand&quot;;&#xD;
+}&#xD;
+if (value.indexOf(&quot;Квартиры и комнаты. Сдам&quot;) &gt; -1) {&#xD;
+    return &quot;LeaseFlat&quot;;&#xD;
+}&#xD;
+if (value.indexOf(&quot;Дома, дачи, земельные участки. Аренда » Дома. Коттеджи. Дачи.&quot;) &gt; -1) {&#xD;
+    return &quot;LeaseHouse&quot;;&#xD;
+}&#xD;
+return null;  </code>
+    </javaMethod>
+    <hashtable id="781">
+        <name>region</name>
+        <makePublic>false</makePublic>
+        <defaultValue>0</defaultValue>
+        <entry value="Голосеевский" key="1"/>
+        <entry value="Шевченковский" key="10"/>
+        <entry value="Дарницкий" key="2"/>
+        <entry value="Деснянский" key="3"/>
+        <entry value="Днепровский" key="4"/>
+        <entry value="Оболонский" key="5"/>
+        <entry value="Печерский" key="6"/>
+        <entry value="Подольский" key="7"/>
+        <entry value="Святошинский" key="8"/>
+        <entry value="Соломенский" key="9"/>
+    </hashtable>
+    <javaMethod id="790">
+        <libraryMethod>false</libraryMethod>
+        <methodName>getRegion</methodName>
+        <input type="#string" role="str"/>
+        <input type="#number_long" role="district"/>
+        <output type="#number_long"/>
+        <code>org.hibernate.Session session = (org.hibernate.Session) getObjectFactory();&#xD;
+return biz.rageintegro.importdata.aviso.AvisoUtils.getRegionId(str, district, session);</code>
+    </javaMethod>
+</transform>

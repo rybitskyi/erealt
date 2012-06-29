@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     id="footer"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <div class="quickLinks">
+    <span>
+        <spring:url var="home" value="/"/>
+        <spring:url var="contact" value="/contact/index"/>
+        <a href="${home}">
+            <spring:message code="button.home"/>
+        </a>
+    </span>
+        <c:out value=" | "/>
+        <a href="${contact}">
+            <spring:message code="contact_us"/>
+        </a>
+    </div>
+    <div>
+        <jsp:include page="i-ua.html"/>
+    </div>
+    <div>
+        <jsp:include page="proext-com.html"/>
+    </div>
+    <div>
+        <jsp:include page="bigmir-net.html"/>
+    </div>
+    <div>
+        <jsp:include page="agent-ua.html"/>
+    </div>
+    <div>
+        (044) 537-15-90
+        <br/>
+        <a href="mailto:info@rageintegro.biz">info@rageintegro.biz</a>
+    </div>
+    <div>
+        <a href="http://www.rageintegro.biz/"
+           target="_blank">&amp;copy; 2009-2012 RageIntegro</a>
+    </div>
+</div>

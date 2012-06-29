@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Settlement>
+	<Row>
+		<Region> Белоцерковский</Region>
+		<Name> Ивановка</Name>
+		<KievKM>64</KievKM>
+		<Orientation>S</Orientation>
+		<TelephoneCode>4563</TelephoneCode>
+		<PostIndex>-</PostIndex>
+		<Head> Белая Церковь</Head>
+	</Row>
+	<Row>
+		<Region> Белоцерковский</Region>
+		<Name> Белая Церковь</Name>
+		<KievKM>78</KievKM>
+		<Orientation>SSW</Orientation>
+		<TelephoneCode>4563,52222</TelephoneCode>
+		<PostIndex>-</PostIndex>
+		<Head> +</Head>
+	</Row>
+	<Row>
+		<Region> Белоцерковский</Region>
+		<Name> Бакалы</Name>
+		<KievKM>89</KievKM>
+		<Orientation>SSW</Orientation>
+		<TelephoneCode>4563</TelephoneCode>
+		<PostIndex>-</PostIndex>
+		<Head> Белая Церковь</Head>
+	</Row>
+</Settlement>

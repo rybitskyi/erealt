@@ -1,0 +1,20 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags"
+     id="body"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <h1>Строительство объектов недвижимости</h1>
+<ul>Мы проектируем и строим:
+    <li>многофункциональные промышленные здания;</li>
+    <li>торгово-офисные центры различных форматов;</li>
+    <li>складские помещения;</li>
+    <li>спортивно-развлекательные комплексы;</li>
+    <li>общественные здания;</li>
+    <li>дома клубного типа;</li>
+    <li>загородные дома;</li>
+    <li>жилые дома</li>
+</ul>
+
+Мы предоставляем своим клиентам полный комплекс услуг по проектированию, технадзору, строительству и реконструкции зданий и сооружений любой функциональности и сложности.<br/><br/>
+По всем вопросам, пожалуйста, обращайтесь по телефону (044) 537-15-90 или по электронной почте – <A href="mailto:info@rageintegro.biz">info@rageintegro.biz</A>.<br/><br/>    
+</div>

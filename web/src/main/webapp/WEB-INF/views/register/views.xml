@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+	
+<tiles-definitions>
+	
+	<definition name="register/newuser" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/register/newuser.jspx" />
+	</definition>
+	
+	<definition name="register/success" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/register/successRegistration.jspx" />
+	</definition>
+
+	<definition name="register/recoverPassword" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/register/recoverPassword.jspx" />
+	</definition>
+
+	<definition name="register/successRecoverPassword" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/register/successRecoverPassword.jspx" />
+	</definition>
+
+	<definition name="register/notExistUsername" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/register/notExistUsername.jspx" />
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,80 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:spring="http://www.springframework.org/tags"
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <jsp:directive.attribute name="skipStreet" type="java.lang.Boolean" required="false"
+                             description="skip street"/>
+
+    <jsp:directive.attribute name="useAllOption" type="java.lang.Boolean" required="false"
+                             description="use All Option"/>
+
+    <jsp:directive.attribute name="region" type="java.lang.Long" required="false"
+                             description="Selected region"/>
+
+    <c:if test="${empty skipStreet}">
+        <c:set var="skipStreet" value="false"/>
+    </c:if>
+    <c:if test="${empty useAllOption}">
+        <c:set var="useAllOption" value="false"/>
+    </c:if>
+    <c:if test="${empty region}">
+        <c:set var="region" value="0"/>
+    </c:if>
+
+    <spring:url value="/address/region" var="region_url"/>
+    <spring:url value="/address/street" var="street_url"/>
+    <spring:message code="label.allregions" var="labelallregions"/>
+    <script type="text/javascript">
+        $(document).ready(function() {
+           // event listeners
+           $("select[name^=district]").bind('change', loadRegions);
+           if (! (${skipStreet})) {
+            $("select[name^=region]").bind('change', loadStreets);
+           }
+           $("select[name^=district]").trigger('change');
+        });
+
+        // When a district is selected, populate the regions dropdown
+        function loadRegions() {
+           $.getJSON("${region_url}",     // url
+              { districtId: this.value },   // request params
+              function(json){           // callback
+                 var options = '';
+                 if ((${useAllOption})) {
+                    if (${region} == 0) {
+                        options += '<option selected="true" value="-1">' + '${labelallregions}' + '</option>';
+                    }
+                    else {
+                        options += '<option value="-1">' + '${labelallregions}' + '</option>';
+                    }
+                 }
+                 $(json.list.region).each(function() {
+                    if (this.id == ${region}) {
+                        options += '<option value="' + this.id + '" selected="true">' + this.caption + '</option>';
+                    }
+                    else {
+                        options += '<option value="' + this.id + '">' + this.caption + '</option>';
+                    }
+                 });
+                 $("select[name^=region]").html(options);
+                 $("select[name^=region]").trigger('change');
+              }
+           );
+        }
+
+        // When a region is selected, populate the streets dropdown
+        function loadStreets() {
+           $.getJSON("${street_url}",     // url
+              { regionId: this.value },   // request params
+              function(json){           // callback
+                 var options = '';
+                 $(json.list.street).each(function() {
+                     options += '<option value="' + this.id + '">' + this.caption + '</option>';
+                 });
+                 $("select[name^=street]").html(options);
+              }
+           );
+        }
+    </script>
+
+</jsp:root>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="services/index">
+        <put-attribute name="body" value="/WEB-INF/views/services/index.jspx"/>
+        <put-attribute name="news" value="/WEB-INF/views/news/recentlist.jspx" />
+    </definition>
+    <definition extends="default" name="services/expertise">
+        <put-attribute name="body" value="/WEB-INF/views/services/expertise.jspx"/>
+        <put-attribute name="news" value="/WEB-INF/views/news/recentlist.jspx" />
+        <put-attribute name="top-submenu" value="/WEB-INF/views/services/submenu.jspx" />
+    </definition>
+    <definition extends="default" name="services/development">
+        <put-attribute name="body" value="/WEB-INF/views/services/development.jspx"/>
+		<put-attribute name="news" value="/WEB-INF/views/news/recentlist.jspx" />
+        <put-attribute name="top-submenu" value="/WEB-INF/views/services/submenu.jspx" />
+    </definition>
+</tiles-definitions>

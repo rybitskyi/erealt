@@ -1,0 +1,12 @@
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     id="body"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <table class="noborder">
+        <tr class="noborder">
+            <td class="noborder-top"><tiles:insertAttribute name="searchpanel"/></td>
+            <td class="noborder"><tiles:insertAttribute name="list"/></td>
+        </tr>
+    </table>
+</div>

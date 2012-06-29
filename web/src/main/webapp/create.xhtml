@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:p="http://primefaces.org/ui"
+     id="body">
+
+    <f:view>
+        <h2>temp3</h2>
+        <spring:url value="/saleflat" var="form_url"/>
+
+        <h:form id="create" action="${form_url}" method="POST">
+            <h:panelGrid columns="3" border="0">
+                District:
+                <h:selectOneMenu id="district" value="#{createPropertyBean.district}">
+                    <f:selectItems value="#{createPropertyBean.districtList}"/>
+                    <p:ajax update="region" listener="#{createPropertyBean.handleDistrictChange}"/>
+                </h:selectOneMenu>
+                <h:message for="create:district" style="color: red"/>
+
+                Region:
+                <h:selectOneMenu id="region" value="#{createPropertyBean.region}">
+                    <f:selectItems value="#{createPropertyBean.regionList}"/>
+                </h:selectOneMenu>
+
+            </h:panelGrid>
+            <h:messages style="color: red" globalOnly="true"/>
+        </h:form>
+    </f:view>
+</div>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.0//EN" "http://tuckey.org/res/dtds/urlrewrite3.0.dtd">
+
+<urlrewrite default-match-type="wildcard">
+    <rule>
+        <from>/sitemap.xml</from>
+        <to last="true">/sitemap.xml</to>
+    </rule>
+    <rule>
+        <from>/robots.txt</from>
+        <to last="true">/robots.txt</to>
+    </rule>
+    <rule>
+        <from>/domain</from>
+        <to last="true">/domain</to>
+    </rule>
+    <rule>
+        <from>/domain?wsdl</from>
+        <to last="true">/domain.wsdl</to>
+    </rule>
+    <rule>
+        <from>/domain/**</from>
+        <to last="true">/domain/$1</to>
+    </rule>
+	<rule>
+		<from>/resources/**</from>
+		<to last="true">/resources/$1</to>
+	</rule>
+	<rule>
+		<from>/javax.faces.resource/**</from>
+		<to last="true">/javax.faces.resource/$1</to>
+	</rule>
+	<rule>
+		<from>/resources2/**</from>
+		<to last="true">/resources2/$1</to>
+	</rule>
+	<rule>
+		<from>/static/WEB-INF/**</from>
+		<set type="status">403</set>
+		<to last="true">/static/WEB-INF/$1</to>
+	</rule>
+	<rule>
+		<from>/static/**</from>
+		<to last="true">/$1</to>
+	</rule>
+	<rule>
+		<from>/</from>
+		<to last="true">/app/index</to>
+	</rule>
+	<rule>
+		<from>/app/**</from>
+		<to last="true">/app/$1</to>
+	</rule>
+        <rule>
+		<from>/javax.faces.resource/**</from>
+		<to last="true">/javax.faces.resource/$1</to>
+	</rule>
+        <rule>
+		<from>/pages/**</from>
+		<to last="true">/pages/$1</to>
+	</rule>
+        <rule>
+		<from>/pages/**</from>
+		<to last="true">/pages/$1</to>
+	</rule>
+	<rule>
+		<from>/**</from>
+		<to>/app/$1</to>
+	</rule>
+	<outbound-rule>
+		<from>/app/**</from>
+		<to>/$1</to>
+	</outbound-rule>
+    <outbound-rule>
+           <name>Strip URL Session ID's</name>
+           <note>
+               Strip ;jsession=XXX from urls passed through
+    response.encodeURL().
+               The characters ? and # are the only things we can use to
+    find out where the jsessionid ends.
+               The expression in 'from' below contains three capture
+    groups, the last two being optional.
+                   1, everything before ;jesessionid
+                   2, everything after ;jesessionid=XXX starting with a ?
+    (to get the query string) up to #
+                   3, everything ;jesessionid=XXX and optionally ?XXX
+    starting with a # (to get the target)
+               eg,
+               from index.jsp;jsessionid=sss?qqq to index.jsp?qqq
+               from index.jsp;jsessionid=sss?qqq#ttt to index.jsp?qqq#ttt
+               from index.jsp;jsessionid=asdasdasdsadsadasd#dfds -
+    index.jsp#dfds
+               from u.jsp;jsessionid=wert.hg - u.jsp
+               from /;jsessionid=tyu - /
+           </note>
+           <condition name="user-agent">googlebot</condition>
+           <from>^(.*?)(?:\;jsessionid=[^\?#]*)?(\?[^#]*)?(#.*)?$</from>
+           <to>$1$2$3</to>
+       </outbound-rule>    
+</urlrewrite>

@@ -1,0 +1,91 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     id="body"
+     class="objectdetails"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <div id="propeprty_show_header" class="property_body_header">
+        <div><b><fmt:formatNumber type="number" value="${object.price}"/></b>
+        </div>
+        <h1><c:out value="${object.fullAddressName}"/></h1>
+    </div>
+    <div id="property_body">
+        <c:if test="${not empty object.photoUrl}">
+            <div class="bordered_img">
+                <img src="${object.photoUrl}"/>
+            </div>
+        </c:if>
+
+        <div class="objectdetails_panel">
+            <div id="roo_object_price" class="box">
+                <label for="_price_id"><spring:message code="field.label.price"/>:</label>
+
+                <b>
+                    <fmt:formatNumber type="number" value="${object.price}"/>
+                </b>
+            </div>
+
+            <tiles:insertAttribute name="objectdetails"/>
+
+            <div id="roo_object_creationDate" class="box">
+                <label for="_creationDate_id"><spring:message code="field.label.creationDate"/>:</label>
+
+                <b>
+                    <fmt:formatDate pattern="${date_format}" value="${object.creationDate}"/>
+                </b>
+            </div>
+
+            <div id="roo_object_clientName" class="box">
+                <label for="_clientName_id"><spring:message code="field.label.сlientName"/>:</label>
+
+                <b>
+                    <c:if test="${object.accessUser == null}">
+                        <c:if test="${object.clientName != 'Unknown'}">
+                            <c:out value="${object.clientName}"/>
+                        </c:if>
+                    </c:if>
+                    <c:if test="${object.accessUser.caption == null}">
+                        <c:out value="${object.accessUser.caption}"/>
+                    </c:if>
+                </b>
+            </div>
+
+            <div id="roo_object_telephone" class="box">
+                <label for="_telephone_id"><spring:message code="field.label.telephone"/>:</label>
+
+                <b>
+                    <c:if test="${object.accessUser == null}">
+                        <c:out value="${object.telephone}"/>
+                    </c:if>
+                    <c:out value="${object.accessUser.allTelephones}"/>
+                </b>
+            </div>
+
+            <div id="roo_object_email" class="box">
+                <label for="_email_id"><spring:message code="field.label.email"/>:</label>
+
+                <b>
+                    <c:if test="${object.accessUser == null}">
+                        <c:if test="${object.email != null}">
+                            <a href="mailto:${object.email}">${object.email}</a>
+                        </c:if>
+                    </c:if>
+                    <c:if test="${object.accessUser.email != null}">
+                        <c:if test="${object.accessUser.publicEmail}">
+                            <a href="mailto:${object.accessUser.email}">${object.accessUser.email}</a>
+                        </c:if>
+                    </c:if>
+                </b>
+            </div>
+            <br/>
+        </div>
+        <div class="description">
+            <c:out value="${object.description}"/>
+        </div>
+        <jsp:text>${map}</jsp:text>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transform version="0.0.42" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="streets.rtr">
+    <input typeRef="#Root" required="false" path="" modelRef="streets.rdm" endID="0"/>
+    <globalTransformRef ref="streets-row.rtr" y="64" x="199" id="134"/>
+    <contextPath input="true" endID="0" contextRef="Row" id="135"/>
+    <contextPath input="false" endID="0" contextRef="" id="136"/>
+    <translation outputPort="0" outputID="134" inputPort="0" inputID="135"/>
+    <translation outputPort="0" outputID="136" inputPort="0" inputID="134"/>
+    <nextId>137</nextId>
+    <output typeRef="street" required="false" path="" modelRef="db.rdm" endID="0"/>
+    <globalTransform id="0">
+        <transformRef>streets-row.rtr</transformRef>
+    </globalTransform>
+</transform>

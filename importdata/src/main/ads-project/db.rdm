@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataModel targetNamespace="http://rageintegro.biz/erealt" outputMask="XML" inputMask="XML" hibernateIDGeneratorMethodDefault="native" encrypted="false" encoding="UTF-8" elementFormDefault="Qualified" attributeFormDefault="Unqualified" IOversion="3.1.0" version="0.0.5" name="db.rdm">
+    <type>
+        <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="district">
+            <element identifier="false" primaryKey="true" min="1" max="1" name="id">
+                <type>
+                    <atomicSimpleType baseType="#number_long" name="district_id"/>
+                </type>
+            </element>
+            <element identifier="false" typeRef="#number_int" min="0" max="1" name="version"/>
+            <element identifier="false" min="0" max="1" name="caption">
+                <type>
+                    <atomicSimpleType baseType="#string" name="district_caption">
+                        <facet facetType="max_length">
+                            <value>255</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+        </complexType>
+    </type>
+    <type>
+        <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="region">
+            <element identifier="false" primaryKey="true" min="1" max="1" name="id">
+                <type>
+                    <atomicSimpleType baseType="#number_long" name="region_id"/>
+                </type>
+            </element>
+            <element identifier="false" typeRef="#number_int" min="0" max="1" name="version"/>
+            <element identifier="false" min="0" max="1" name="caption">
+                <type>
+                    <atomicSimpleType baseType="#string" name="region_caption">
+                        <facet facetType="max_length">
+                            <value>255</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+            <element identifier="false" typeRef="district/id#" min="0" max="1" name="district"/>
+            <element identifier="false" typeRef="street_regions" min="0" max="-1" name="street_regions">
+                <databaseKeyRef parentKey="id" childKey="regions"/>
+            </element>
+        </complexType>
+    </type>
+    <type>
+        <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="street">
+            <element identifier="false" primaryKey="true" min="1" max="1" name="id">
+                <type>
+                    <atomicSimpleType baseType="#number_long" name="street_id"/>
+                </type>
+            </element>
+            <element identifier="false" typeRef="#number_int" min="0" max="1" name="version"/>
+            <element identifier="false" min="0" max="1" name="caption">
+                <type>
+                    <atomicSimpleType baseType="#string" name="street_caption">
+                        <facet facetType="max_length">
+                            <value>255</value>
+                        </facet>
+                    </atomicSimpleType>
+                </type>
+            </element>
+            <element identifier="false" typeRef="#boolean" min="0" max="1" name="deprecated"/>
+            <element identifier="false" typeRef="street_regions" min="0" max="-1" name="street_regions">
+                <databaseKeyRef parentKey="id" childKey="street"/>
+            </element>
+        </complexType>
+    </type>
+    <type>
+        <complexType specifyStructure="true" specialisation="Generic complex" processAsBatch="false" excludeFromDatabase="false" contentModel="Sequence" abstract="false" name="street_regions">
+            <element identifier="false" typeRef="street/id#" primaryKey="true" min="1" max="1" name="street"/>
+            <element identifier="false" typeRef="region/id#" primaryKey="true" min="1" max="1" name="regions"/>
+        </complexType>
+    </type>
+    <namespace uri="http://rageintegro.biz/erealt" prefix=""/>
+</dataModel>

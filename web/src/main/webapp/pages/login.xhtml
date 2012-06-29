@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../templates/layout.xhtml">
+
+    <ui:define name="head">
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <p:panel id="panel" header="#{messages.security_login_title}">
+                <p:messages id="messages">
+                    <p:effect type="pulsate" event="load" delay="500">
+                        <f:param name="mode" value="'show'"/>
+                    </p:effect>
+                </p:messages>
+
+                <h:panelGrid columns="3">
+
+                    <h:outputLabel for="j_username" value="#{messages.security_login_form_name}"/>
+                    <h:inputText id="j_username" value="#{loginBean.userName}"/>
+                    <p:message for="j_username" display="icon"/>
+
+                    <h:outputLabel for="j_password" value="#{messages.security_login_form_password}"/>
+                    <p:password id="j_password" value="#{loginBean.password}" feedback="false"/>
+                    <p:message for="j_password" display="icon"/>
+
+                </h:panelGrid>
+
+                <p:commandButton id="btn" value="Login" action="#{loginBean.authenticate}" ajax="false"/>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

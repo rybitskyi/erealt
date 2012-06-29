@@ -1,0 +1,49 @@
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     class="widget"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <div id="submenu2_title_div">
+        <spring:message code="label.addNewAnnouncement" var="title_msg"/>
+        <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : 'submenu2_title_div',
+            widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title_msg}'}}));
+        </script>
+        <ul>
+            <li>
+                <spring:url value="/saleflat/form" var="web_mvc_jsp_create_saleflat_menu_item_url"/>
+                <a id="addAnnouncement1" href="${web_mvc_jsp_create_saleflat_menu_item_url}">
+                    <spring:message code="label.saleflat" var="label_saleflat"/>
+                    <spring:message arguments="${label_saleflat}" code="global.menu.new"/>
+                </a>
+            </li>
+            <li>
+                <spring:url value="/salehouse/form" var="web_mvc_jsp_create_saleflat_menu_item_url"/>
+                <a id="addAnnouncement2" href="${web_mvc_jsp_create_saleflat_menu_item_url}">
+                    <spring:message code="label.salehouse" var="label_saleflat"/>
+                    <spring:message arguments="${label_saleflat}" code="global.menu.new"/>
+                </a>
+            </li>
+            <li>
+                <spring:url value="/saleland/form" var="web_mvc_jsp_create_saleflat_menu_item_url"/>
+                <a id="addAnnouncement3" href="${web_mvc_jsp_create_saleflat_menu_item_url}">
+                    <spring:message code="label.saleland" var="label_saleflat"/>
+                    <spring:message arguments="${label_saleflat}" code="global.menu.new"/>
+                </a>
+            </li>
+            <li>
+                <spring:url value="/leaseflat/form" var="web_mvc_jsp_create_saleflat_menu_item_url"/>
+                <a id="addAnnouncement4" href="${web_mvc_jsp_create_saleflat_menu_item_url}">
+                    <spring:message code="label.leaseflat" var="label_saleflat"/>
+                    <spring:message arguments="${label_saleflat}" code="global.menu.new"/>
+                </a>
+            </li>
+            <li>
+                <spring:url value="/leasehouse/form" var="web_mvc_jsp_create_saleflat_menu_item_url"/>
+                <a id="addAnnouncement5" href="${web_mvc_jsp_create_saleflat_menu_item_url}">
+                    <spring:message code="label.leasehouse" var="label_saleflat"/>
+                    <spring:message arguments="${label_saleflat}" code="global.menu.new"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

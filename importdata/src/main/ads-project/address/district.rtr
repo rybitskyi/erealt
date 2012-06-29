@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transform version="0.0.3" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/address/oldtransform" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="district.rtr">
+    <input typeRef="#Root" required="false" path="" modelRef="district.rdm" endID="0"/>
+    <localTransformRef refId="4" y="76" x="190" id="6"/>
+    <contextPath input="true" endID="0" contextRef="district" id="7"/>
+    <contextPath input="false" endID="0" contextRef="" id="8"/>
+    <translation outputPort="0" outputID="6" inputPort="0" inputID="7"/>
+    <translation outputPort="0" outputID="8" inputPort="0" inputID="6"/>
+    <nextId>13</nextId>
+    <output typeRef="district" required="false" path="" modelRef="../db.rdm" endID="0"/>
+    <localTransform id="4">
+        <transform version="0.0.3" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/address/oldtransform" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="localDistrict">
+            <input typeRef="#Root" required="false" path="district" modelRef="district.rdm" endID="0"/>
+            <constant constant="1" id="11"/>
+            <contextPath input="false" endID="0" contextRef="caption" id="10"/>
+            <contextPath input="false" endID="0" contextRef="version" id="12"/>
+            <contextPath input="true" endID="0" contextRef="@name" id="9"/>
+            <translation outputPort="0" outputID="12" inputPort="0" inputID="11"/>
+            <translation outputPort="0" outputID="10" inputPort="0" inputID="9"/>
+            <nextId>0</nextId>
+            <output typeRef="district" required="false" path="" modelRef="../db.rdm" endID="0"/>
+        </transform>
+    </localTransform>
+</transform>

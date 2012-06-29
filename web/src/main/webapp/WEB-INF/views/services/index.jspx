@@ -1,0 +1,30 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:roo="urn:jsptagdir:/WEB-INF/tags"
+     xmlns:spring="http://www.springframework.org/tags" version="2.0"
+        id="body">
+    <jsp:output omit-xml-declaration="yes"/>
+        <spring:url value="/services/expertise" var="expertise_url"/>
+            <h3>
+                <a href="${expertise_url}">Оказание консультационных услуг при выборе объектов недвижимости</a></h3>
+Как часто Вы задумывались над выбором в пользу того или иного объекта недвижимости? Сколько времени у Вас занимал процесс взвешивания всех «за» и «против»? Как часто Вы задумывались о целесообразности инвестирования в объекты недвижимости?<br/><br/>
+    <spring:url value="/static/images/new0.gif" var="new_image_url"/>
+    <spring:url value="/static/images/video.gif" var="video_image_url"/>
+<!--//todo: add news rubric-->
+
+Безусловно, когда есть варианты, а необходимо сделать единый правильный выбор, колебания неизбежны.<br/><br/>
+
+Как в любом солидном магазине Вам необходимы будут услуги консультанта. А при сделках с недвижимостью консультант необходим в первую очередь, ведь суммы исчисляются сотнями тысяч.<br/>
+<a href="${expertise_url}">Подробнее..</a>
+    <spring:url value="/services/development" var="development_url"/>
+    <h3><a href="${development_url}">Строительство объектов недвижимости</a></h3>
+Мы предоставляем своим клиентам полный комплекс услуг по проектированию, технадзору, строительству и реконструкции зданий и сооружений любой функциональности и сложности.<br/>
+<a href="${development_url}">Подробнее..</a>
+        <br/><br/>
+        Звоните с 9:00 до 18:00:<br/>
+        <b>(044) 537-15-90</b>
+        <br/><br/>
+        Пишите круглосуточно:<br/>
+        <b><A href="mailto:info@rageintegro.biz">info@rageintegro.biz</A></b>
+        <br/>
+</div>

@@ -1,0 +1,1653 @@
+ 
+ 
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ 
+    <!--CSS FILES-->
+    <link href="../css/global2.css" rel="stylesheet" type="text/css">
+    <link href="../css/rub.new.css" rel="stylesheet" type="text/css">
+    <!--/CSS FILES-->
+ 
+    <!--JS FILES-->
+    <script src='../jquery.js' type='text/javascript'></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/jquery.highlight.js"></script>
+    <!--/JS FILES-->
+ 
+    <!--JS Script-->
+    <script type="text/javascript">
+        // Tabs script
+        $(function() {
+            $("#tabs").tabs({
+                cookie: { expires: 7, name: "startTab" }
+            });
+        });
+ 
+        $('document').ready(function () {
+ 
+            var sBtn = "Искать";
+            var optText = $('#hide-opt').text();
+ 
+            if (sBtn != "") {
+                $('#stbl').hide();
+                $('#hide-opt').text(optText == "Скрыть параметры поиска" ? "Показать параметры поиска" : "Скрыть параметры поиска");
+            }
+ 
+            $('#hide-opt').click(function () {
+                var optTextc = $('#hide-opt').text();
+                $('#stbl').toggle();
+                $(this).text(optTextc == "Скрыть параметры поиска" ? "Показать параметры поиска" : "Скрыть параметры поиска");
+            });
+ 
+            $('#regions').mouseover(function () {
+                $('#regions-list').show();
+            });
+ 
+            $('#regions').mouseout(function () {
+                $('#regions-list').hide();
+            });
+ 
+            var rubID = "192";
+ 
+            var aText = "";
+ 
+            if (aText !== "") {
+                $('#jquery-highlight').each(function() {
+                    $('div#jquery-highlight').highlight(aText);
+                });
+            }
+ 
+            $('.a-rubs').each(function (index) {
+                if ($(this).attr('data') === rubID) {
+                    $(this).addClass('selected');
+                }
+            });
+ 
+            $('.in-rooms').each(function(index) {
+                var idVal = "#rooms" + $(this).attr('value') + "";
+ 
+                $(idVal).removeClass('rooms');
+                $(idVal).addClass('rooms-selected');
+            });
+ 
+            $("a.rooms").click(function() { // все ссылки с классом .rooms
+                var roomsID = ($(this).attr("value"));
+                if ($(this).hasClass('rooms-selected') == false) {
+                    $(this).removeClass('rooms');
+                    $(this).addClass('rooms-selected');
+                    $("#in-rooms" + roomsID + "").val(roomsID);
+                } else {
+                    $(this).removeClass('rooms-selected');
+                    $(this).addClass('rooms');
+                    $("#in-rooms" + roomsID + "").val('');
+                }
+                //$(this).parents("form").submit();
+                return false;
+            });
+ 
+            $("a.rooms-selected").click(function() { // все ссылки с классом после _GET .rooms-selected
+                var roomsID = ($(this).attr("value"));
+                if ($(this).hasClass('rooms-selected') == false) {
+                    $(this).removeClass('rooms');
+                    $(this).addClass('rooms-selected');
+                    $("#in-rooms" + roomsID + "").val(roomsID);
+                } else {
+                    $(this).removeClass('rooms-selected');
+                    $(this).addClass('rooms');
+                    $("#in-rooms" + roomsID + "").val('');
+                }
+                //$(this).parents("form").submit();
+                return false;
+            });
+ 
+            $('#plus-option').click(function () {
+                var text = $(this).text();
+                $(this).text(text == "больше опций" ? "меньше параметров" : "больше параметров");
+                $('.plus-in-opt').toggle();
+ 
+                return false;
+            });
+ 
+            $('.plus-in-val').each(function(index) {
+                if ($(this).attr('value') !== '') {
+                    $('#plus-option').text('меньше опций');
+                    $('.plus-in-opt').show();
+                }
+            });
+ 
+            $(function() {
+                $("a.poster").click(function() { // все ссылки с классом .poster
+                    $(".for_send_value").val($(this).attr("value"));
+                    $(this).parents("form").submit();
+                    return false;
+                });
+            });
+ 
+            var request = "#";
+            if (request == "#НН") {
+                $('#НН').css({"font-weight":"bold", "font-size":"16px", "text-decoration":"underline", "color":"#FF9000"});
+            }
+            $(request).css({"font-weight":"bold", "font-size":"16px", "text-decoration":"underline", "color":"#FF9000"});
+        });
+    </script>
+    <!--/JS Script-->
+ 
+    <title>
+        Земельные участки         |         Дома, дачи, земельные участки. Продажа | Недвижимость        |
+        Киев и область        |
+        online.aviso.ua
+    </title>
+</head>
+<body>
+ 
+<div id="content">
+<div id="top-banner">
+                
+	<iframe id='a6a109ba' name='a6a109ba' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=49&amp;target=_blank&amp;cb=1772127929' frameborder='0' scrolling='no' width='730' height='90'>
+		<a href='http://banner.ool.ua/www/delivery/ck.php?n=a56b3f37&amp;cb=1772127929' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=49&amp;cb=1772127929&amp;n=a56b3f37' border='0' alt='' /></a>
+	</iframe>
+</div>
+<hr>
+<div id="top">
+    <div class="cfix">
+        <div class="logo">
+            <a href="index.php">
+                <img src="../images/logo.jpg" alt="AVISO" title="AVISO"/>
+            </a>
+        </div>
+        <div class="city-name">
+            Киев и область            <span>(434018 объявлений)</span>
+        </div>
+        <div class="search-block">
+    <div id="tabs" style="height: 110px;">
+        <ul class="tabs">
+            <div id="tabs-header-text">Поиск по:</div>
+            <li><a href="#tabs-1">тексту</a></li>
+            <li><a href="#tabs-2">телефону</a></li>
+            <li><a href="#tabs-3">ID</a></li>
+        </ul>
+        <div style="clear: both;"></div>
+    </div>    </div>
+</div>
+<br>
+ 
+<div id="navigation">
+    <ul class="cfix">
+        <li class="clipboard">
+            <a href="http://adpay.aviso.ua" target="_blank" class="nav-1">
+                Подать объявление
+                <span class="n-bl"><!-- --></span>
+                <span class="n-br"><!-- --></span>
+            </a>
+        </li>
+        <li>
+            <a href="" class="nav-2">
+                Блокнот
+                <span id="clipboardCount">(-)</span>
+                <span class="n-bl"><!-- --></span>
+                <span class="n-br"><!-- --></span>
+            </a>
+        </li>
+        <li id="regions">
+            <a href="#" class="nav-3">
+                Выбрать регион
+            </a>
+ 
+            <div id="regions-list" style="display: none;">
+                <a href="/kiev" class="nav-list">Киев и область</a>
+                <a href="/odessa" class="nav-list">Одесса и область</a>
+                <a href="/dnepropetrovsk" class="nav-list">Днепропетровск и область</a>
+                <a href="/lviv" class="nav-list">Львов и область</a>
+                <a href="/zhitomir" class="nav-list">Житомир и область</a>
+                <a href="/rovno" class="nav-list">Ровно и область</a>
+            </div>
+        </li>
+        <li style="float: right; background: #EDEDED; border: 1px solid #CCCCCC; padding: 2px; color: #000; font-weight: normal">
+            <!-- Search block form .panes -->
+            <div class="panes">
+    <div id="tabs-1">
+        <form name="search-form" method="POST" action="searchtext.php">
+            <input type="hidden" name="rub" value="192"/>
+            <input type="hidden" name="rid" value="180"/>
+            <input type="hidden" name="redirect"
+                   value="http://online.aviso.ua/kiev/rubrics_new.php?rid=180&rub=192&page=&sbtn=&sortedby=&sortby=1&adistr=1&atext=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&fonly=on"/>
+ 
+            <!--
+ 
+            
+                <input type="hidden" name="rubs[]" value=""/>
+ 
+                
+            -->
+            <p>
+                Текст:&nbsp;
+                <input type="text" name="adtext" value="" style="width: 300px;"/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+    <div id="tabs-2">
+        <form name="search-form" method="POST" action="searchphone.php">
+            <input type="hidden" name="redirect" value="http://online.aviso.ua/kiev/rubrics_new.php?rid=180&rub=192&page=&sbtn=&sortedby=&sortby=1&adistr=1&atext=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&fonly=on"/>
+ 
+            <p align="center">
+                код:&nbsp;
+                <input type="text" name="adcode" maxlength="2" style="width: 20px;" value=""/>
+                &nbsp;номер:&nbsp;
+                <input type="text" name="adphone" maxlength="7" style="width: 70px;" value=""/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+    <div id="tabs-3">
+        <form name="search-form" method="POST" action="view.php">
+            <input type="hidden" name="arid" value=""/>
+ 
+            <p align="center">
+                ID:&nbsp;
+                <input type="text" name="adid" value=""/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+</div>
+</div>            <!-- /Search block form .panes -->
+        </li>
+    </ul>
+</div>
+<br>
+ 
+<div id="left-col">
+    <!-- bn and stats -->
+    <div style="position: absolute; top: 0px;">
+                        
+        <iframe id='a0f7b2a8' name='a0f7b2a8' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=42&amp;target=_blank&amp;cb=1170988312' frameborder='0' scrolling='no' width='240' height='350'><a href='http://banner.ool.ua/www/delivery/ck.php?n=ac3a9c6d&amp;cb=1170988312' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=42&amp;cb=1170988312&amp;n=ac3a9c6d' border='0' alt='' /></a></iframe>
+<iframe id='txAd1' name='txAd1' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=28' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd2' name='txAd2' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=35' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd3' name='txAd3' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=92' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>                <hr style="border: 1px solid #FF9933">                        <iframe id='a00be083' name='a00be083' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=51&amp;target=_blank&amp;cb=1170988312' frameborder='0' scrolling='no' width='240' height='90'><a href='http://banner.ool.ua/www/delivery/ck.php?n=ad53084a&amp;cb=1170988312' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=51&amp;cb=1170988312&amp;n=ad53084a' border='0' alt='' /></a></iframe>                        <hr style="border: 1px solid #FF9933">        <iframe id='aa2b7836' name='aa2b7836' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=43&amp;target=_blank&amp;cb=1170988312' frameborder='0' scrolling='no' width='240' height='350'><a href='http://banner.ool.ua/www/delivery/ck.php?n=ad4e7cb0&amp;cb=1170988312' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=43&amp;cb=1170988312&amp;n=ad4e7cb0' border='0' alt='' /></a></iframe>
+<iframe id='txAd4' name='txAd4' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=93' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd5' name='txAd5' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=111' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd6' name='txAd6' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=112' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe>    </div>
+    <!-- /bn and stats -->
+</div>
+ 
+<div id="right-col">
+<div id="choice-section">
+    <a style="text-decoration: none; position: absolute; left: 10px;" href="./" title="Перейти на главную страницу сайта, Киев и область">
+        <img src="../images/home_16.png" width="16px" height="16px">
+    </a>
+ 
+    <div style="position: relative; left: 20px;">
+        »
+        <a href="rubrics_new.php?rid=1">Недвижимость</a> » <a href="rubrics_new.php?rid=180">Дома, дачи, земельные участки. Продажа</a>                »
+                <span style="color: #FF9000;">Земельные участки</span>
+    </div>
+</div>
+<div id="content-ads">
+<div id="rubs">
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=191" data="191">
+        <span class='a-rubs-txt'>
+            Дома. Дачи. Коттеджи        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=192" data="192">
+        <span class='a-rubs-txt'>
+            Земельные участки        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=193" data="193">
+        <span class='a-rubs-txt'>
+            Прочие варианты        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=194" data="194">
+        <span >
+            Дома. Дачи. Земельные участки. Обменяю        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=195" data="195">
+        <span >
+            Дома. Дачи. Земельные участки. Куплю        </span>
+    </a>
+        <div style="clear: left;"></div>
+ 
+    
+    <div style="width: 100%; border: 1px solid #ccc;"></div>
+<br>
+<form class="rubs-filters" action="/kiev/rubrics_new.php" method="GET">
+<input type="hidden" name="rid" value="180">
+<input type="hidden" name="rub" value="192">
+<input type="hidden" name="page" value="">
+<input type="hidden" name="sbtn" value="Искать">
+<!--<input type="hidden" name="rooms1" value="">
+<input type="hidden" name="rooms2" value="">
+<input type="hidden" name="rooms3" value="">
+<input type="hidden" name="rooms4" value="">
+<input type="hidden" name="rooms5" value="">
+<input type="hidden" name="adistr" value="">
+<input type="hidden" name="apricemin" value="">
+<input type="hidden" name="apricemax" value="">
+<input type="hidden" name="aspacemin" value="">
+<input type="hidden" name="aspacemax" value="">
+<input type="hidden" name="aspacelivemin" value="">
+<input type="hidden" name="aspacelivemax" value="">
+<input type="hidden" name="aspacekitchmin" value="">
+<input type="hidden" name="aspacekitchmax" value="">
+<input type="hidden" name="aflrmin" value="">
+<input type="hidden" name="aflrmax" value="">
+<input type="hidden" name="aflrsmin" value="">
+<input type="hidden" name="aflrsmax" value="">-->
+<!--<input type="hidden" name="fonly" value="">-->
+<!--<input type="hidden" name="sortby" value="">-->
+<input type="hidden" name="sortedby" class="for_send_value" value=""/>
+ 
+<p class="search-result" align="center">
+    По вашемо запросу
+    найдено 33 объявления</p>
+<br>
+ 
+<div style="position: relative;">
+    <p id="sortby" align="center">
+        <a id="НН" class="poster" value="НН" href="#">
+            0..9
+        </a>&nbsp;&mdash;&nbsp;
+        <a id="А" class="poster" value="А" href="#">А</a>
+        -
+        <a id="Б" class="poster" value="Б" href="#">Б</a>
+        -
+        <a id="В" class="poster" value="В" href="#">В</a>
+        -
+        <a id="Г" class="poster" value="Г" href="#">Г</a>
+        -
+        <a id="Д" class="poster" value="Д" href="#">Д</a>
+        -
+        <a id="Е" class="poster" value="Е" href="#">Е</a>
+        -
+        <a id="Ё" class="poster" value="Ё" href="#">Ё</a>
+        -
+        <a id="Ж" class="poster" value="Ж" href="#">Ж</a>
+        -
+        <a id="З" class="poster" value="З" href="#">З</a>
+        -
+        <a id="И" class="poster" value="И" href="#">И/І</a>
+        -
+        <a id="Й" class="poster" value="Й" href="#">Й</a>
+        -
+        <a id="К" class="poster" value="К" href="#">К</a>
+        -
+        <a id="Л" class="poster" value="Л" href="#">Л</a>
+        -
+        <a id="М" class="poster" value="М" href="#">М</a>
+        -
+        <a id="Н" class="poster" value="Н" href="#">Н</a>
+        -
+        <a id="О" class="poster" value="О" href="#">О</a>
+        -
+        <a id="П" class="poster" value="П" href="#">П</a>
+        -
+        <a id="Р" class="poster" value="Р" href="#">Р</a>
+        -
+        <a id="С" class="poster" value="С" href="#">С</a>
+        -
+        <a id="Т" class="poster" value="Т" href="#">Т</a>
+        -
+        <a id="У" class="poster" value="У" href="#">У</a>
+        -
+        <a id="Ф" class="poster" value="Ф" href="#">Ф</a>
+        -
+        <a id="Х" class="poster" value="Х" href="#">Х</a>
+        -
+        <a id="Ц" class="poster" value="Ц" href="#">Ц</a>
+        -
+        <a id="Ч" class="poster" value="Ч" href="#">Ч</a>
+        -
+        <a id="Ш" class="poster" value="Ш" href="#">Ш</a>
+        -
+        <a id="Щ" class="poster" value="Щ" href="#">Щ</a>
+        -
+        <a id="Ъ" class="poster" value="Ъ" href="#">Ъ</a>
+        -
+        <a id="Ы" class="poster" value="Ы" href="#">Ы</a>
+        -
+        <a id="Ь" class="poster" value="Ь" href="#">Ь</a>
+        -
+        <a id="Э" class="poster" value="Э" href="#">Э</a>
+        -
+        <a id="Є" class="poster" value="Є" href="#">Є</a>
+        -
+        <a id="Ю" class="poster" value="Ю" href="#">Ю</a>
+        -
+        <a id="Я" class="poster" value="Я" href="#">Я</a>
+        &nbsp;&mdash;&nbsp;
+        <a class="poster" href="#" value="">
+            Сбросить фильтр
+        </a>
+    </p>
+    <br>
+ 
+    <p align="center">
+        <label for="sortby">Сортировать:</label>
+        <select name="sortby" onchange="javascript:this.form.submit();">
+                                <option value="1" selected>по дате - сначала новые</option>
+                                        <option value="2">по дате - сначала старые</option>
+                                        <option value="3">по цене - по возрастанию</option>
+                                        <option value="4">по цене - по убыванию</option>
+                                        <option value="5">по тексту - А-Я</option>
+                                        <option value="6">по тексту - Я-А</option>
+                            </select>
+    </p>
+    <br>
+</div>
+<br>
+ 
+<p align="center"><a id="hide-opt" href="#">Скрыть параметры поиска</a></p>
+<table width="100%" id="stbl">
+    <tr>
+        <td valign="top" width="50%">
+            <fieldset>
+                <legend>Район</legend>
+                <p class="form-element">
+                    <select name="adistr">
+                                                                            <option value="0">Не имеет значения</option>
+                                                                                                        <option value="1" selected>Киев. Голосеевский р-н</option>
+                                                                                                        <option value="2">Киев. Дарницкий р-н</option>
+                                                                                                        <option value="3">Киев. Деснянский р-н</option>
+                                                                                                        <option value="4">Киев. Днепровский р-н</option>
+                                                                                                        <option value="5">Киев. Оболонский р-н</option>
+                                                                                                        <option value="6">Киев. Печерский р-н</option>
+                                                                                                        <option value="7">Киев. Подольский р-н</option>
+                                                                                                        <option value="8">Киев. Святошинский р-н</option>
+                                                                                                        <option value="9">Киев. Соломенский р-н</option>
+                                                                                                        <option value="10">Киев. Шевченковский р-н</option>
+                                                                                                        <option value="14">Барышевский р-н</option>
+                                                                                                        <option value="15">Белоцерковский р-н</option>
+                                                                                                        <option value="16">Богуславский р-н</option>
+                                                                                                        <option value="17">Бориспольсиий р-н</option>
+                                                                                                        <option value="18">Бородянский р-н</option>
+                                                                                                        <option value="19">Броварской р-н</option>
+                                                                                                        <option value="20">Васильковский р-н</option>
+                                                                                                        <option value="21">Володарский р-н</option>
+                                                                                                        <option value="22">Вышгородский р-н</option>
+                                                                                                        <option value="23">Згуровский р-н</option>
+                                                                                                        <option value="24">Иванковский р-н</option>
+                                                                                                        <option value="25">Кагарлыкский р-н</option>
+                                                                                                        <option value="26">Киево-Святошинский р-н</option>
+                                                                                                        <option value="27">Макаровский р-н</option>
+                                                                                                        <option value="28">Мироновский р-н</option>
+                                                                                                        <option value="29">Обуховский р-н</option>
+                                                                                                        <option value="30">Переяслав-Хмельницкий р-н</option>
+                                                                                                        <option value="31">Полесский р-н</option>
+                                                                                                        <option value="32">Ракитнянский р-н</option>
+                                                                                                        <option value="33">Сквирский р-н</option>
+                                                                                                        <option value="34">Ставищенский р-н</option>
+                                                                                                        <option value="35">Таращанский р-н</option>
+                                                                                                        <option value="36">Тетиевский р-н</option>
+                                                                                                        <option value="37">Фастовский р-н</option>
+                                                                                                        <option value="38">Яготинский р-н</option>
+                                                                                                        <option value="12">Другие города</option>
+                                                                                                        <option value="13">За рубежом</option>
+                                                                        </select>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Поиск по тексту</legend>
+                <p class="form-element">
+                    <input style="width: 200px;" class="plus-in-val" type="text" name="atext" value="">
+                </p>
+            </fieldset>
+        </td>
+        <td valign="top">
+            <fieldset>
+                <legend>Цена, за объект</legend>
+                <p class="form-element">
+                    <input type="text" name="apricemin" maxlength="7" value=""> -
+                    <input type="text" name="apricemax" maxlength="7" value="">
+                    <select name="apricecur">
+                        <option value="5" selected>
+                            у.е.
+                        </option>
+                        <option value="4" >
+                            евро
+                        </option>
+                        <option value="3" >
+                            грн.
+                        </option>
+                    </select>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Площадь</legend>
+                <p class="form-element">
+                    <input type="text" name="aspacemin" maxlength="7" value=""> -
+                    <input type="text" name="aspacemax" maxlength="7" value="">
+                </p>
+            </fieldset>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="fonly" id="fonly" checked>
+            <label for="fonly">только с фото</label>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <p align="left"><input type="submit" id="sbtn" name="sbtn" value="Искать"></p>
+        </td>
+        <td></td>
+    </tr>
+</table>
+ 
+</form>
+    
+</div>
+<br>
+    <br>
+<p class="pagination" align="center">
+    <span class="pagination-txt"></span>&nbsp;Страниц:&nbsp;<b>1</b></p>
+    <br>
+ 
+<div id="ads-name">
+    <h3 id="ads-name-hot">Горячие предложения</h3>
+</div>
+<div id="ads">
+    <div class="ads-list">
+        <table border="0" width="100%">
+            <tr>
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://www.yasna.com.ua/index.html" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/178.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://www.yasna.com.ua/index.html" target="_blank">
+                                                        <b>Дачные участки под Ворзелем</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    Участки по 6 и 12 соток, электричество, лес, охрана. Тел: (44) 4941494, (44) 4941495, (98) 2148249, моб.
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    <b><span style="color:#1B38A5">Цена:&nbsp;</span>от 8000грн/сотка.</b>
+                                                </p>
+                                            </div>
+                                        </td >
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://fn.ua/view.php?ad_id=1450469" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/221.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://fn.ua/view.php?ad_id=1450469" target="_blank">
+                                                        <b>Оценка квартир,</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    помещений, домов для определения дохода при продаже. Оценка квартир от 350 грн. т. 235-04-74.
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    </b>
+                                                </p>
+                                            </div>
+                                        </td ></tr><tr>
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://fn.ua/view.php?ad_id=1470036" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/236.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://fn.ua/view.php?ad_id=1470036" target="_blank">
+                                                        <b>Участок, в клубном СПА-поселке</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    Участки в клубном SPA-поселке DreamLand. Площадь участков: 11 соток - цена участка - 44000у.е; 10 соток – цена участка - 40000у.е.; 2 участка по 6 соток – цена участка – 24000 у.е. Тел: (067) 5388453, (050) 7344566
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    </b>
+                                                </p>
+                                            </div>
+                                        </td >
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://zemservice.kiev.ua/services/geodeziya.html" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/196.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://zemservice.kiev.ua/services/geodeziya.html" target="_blank">
+                                                        <b>Васильков, 10 соток в лесу, под строительство.</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    В сосновом лесу, газ, свет, асфальт, документы готовы для продажи , рядом 2 больших озера. Также выполняем топосъемку и геодезию (вынос границ участка в натуру). Тел. 0976404391.
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    <b><span style="color:#1B38A5">Цена:&nbsp;</span>899у.е./ сотка.</b>
+                                                </p>
+                                            </div>
+                                        </td ></tr>        </table>
+    </div>
+</div>
+    <br>
+ 
+<div id="ads">
+            
+                                                    <div id="ads-name">
+                    <h3 id="ads-name-usual">
+                        Объявления
+                            <span style="position: absolute; right: 5px;">
+                                Всего:&nbsp;33                            </span>
+                    </h3>
+                </div>
+                    <div class="ads-list">
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3401937">
+                    <img src="../pics/1/003/401/937/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3401937">
+                    <b style="font-size: 16px;">Продам  участок под жилую застройку, 19000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Выдубичи- Ходосеевка. Ходосеевка. участок 6 соток, в центре села, возле церкви. газ, электричество и централизованная вода по улице. Рядом построены и живут круглый год. Транспорт рядом. Красивая местность, рядом ручей и холмистая местность. 19 500 у.е. т. 228-71-32; (063) 709-69-79; (095) 645-78-44.
+                 Тел: (63) 7096979
+                                <span class="price" style="color: red;">
+                            19 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-28 04:51:03</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3433997">
+                    <img src="../pics/1/003/433/997/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3433997">
+                    <b style="font-size: 16px;">Продам  участок под жилую застройку, 240000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. М.Рыльского. Продаем участок 10 соток рядом с парком Рыльского/Голосеево/ , небольшой наклон, дом под снос, шикарный зеленый уголок,удобный асфальтовый подъезд, солидные соседи. Цена 240 000 у.е.
+                 Тел: (50) 4488478
+                                <span class="price" style="color: red;">
+                            240 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-27 23:30:17</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3387783">
+                    <img src="../pics/1/003/387/783/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3387783">
+                    <b style="font-size: 16px;">Продам  участок под жилую застройку, 38000000.00 евро</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Хрещатик. Предлагаю земельный участок в Испании, Коста дель Асаар (Costa del Azahar), провинция Кастельон г. Alcoceber  площадью 125000м.кв.
+Побережье Средиземного моря. Курортный горд Alcoceber, находится между Валенсией и Барселоной, рядом аэропорт, ж/д вокзал, свой яхт клуб. 
+Инвестиционный проект предполагает строительство 
+200 аппартаментов,52 виллы,52 таунхаусов и отеля площадью 5491кв.метр.
+Стоимость 38000000 евро. Возможно долевое участие в проекте.
+Фото и план участке в приложении.
+А также виллы на любой вкус.http://villasdeelite.com/
+                 Тел: (63) 7983982
+                                <span class="price" style="color: red;">
+                            38 000 000&nbsp;евро                                            </span>
+                
+                                <span class="date">2011-12-27 03:31:16</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3415993">
+                    <img src="../pics/1/003/415/993/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3415993">
+                    <b style="font-size: 16px;">Видовый</b>
+                </a>
+                <br><br>
+ 
+                уникальный, участок, 0, 12 га, ул. Тимирязевская, напротив Ботан.Сада! До Центра 5мин! Есть домостроение, все коммуникации, 115000у.е./сотка. Тел: (44) 4941394, (67) 2348877, "Столичная недвижимость"
+                
+                                <span class="price" style="color: red;">
+                            115 000&nbsp;у.е.                                        <br>
+                    <small>за сотку</small>
+                                            </span>
+                
+                                <span class="date">2011-12-26 17:13:39</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3351968">
+                    <img src="../pics/1/003/351/968/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3351968">
+                    <b style="font-size: 16px;">Продам  участок под жилую застройку, 36000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Жуляны, Промениста. 8 соток, с.Жуляны,ул. Промениста (Заезд со стороны Теремки-2, ул. Трутенко, Вильямса, или со стороны Совок). Акт под застройку садового дома, но возможно изменить целевое назначение. Электр. столбы стоят по улице, все остальн. коммуникации в 200-250 м. Рядом есть постройки 2-х, 3-х эт. домов, на соседних улицах идет строительство домов коттеджного типа, очень перспективное место - коттеджный городок в Киеве. (097) 295 32 80; (097) 961 20 65
+                 Тел: (97) 2953280
+                                <span class="price" style="color: red;">
+                            36 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-25 10:00:52</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3396048">
+                    <img src="../pics/1/003/396/048/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3396048">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-22 15:54:13</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3334972">
+                    <img src="../pics/1/003/334/972/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3334972">
+                    <b style="font-size: 16px;">Продам  участок под жилую застройку, 14000.00 $/сот.</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Лысогорская 12. СРОЧНО !!! продам участок земли под застройку, к участку подведены все коммуникации . Живописное место рядом озеро, до центра города 20 минут. Документы готовы к продаже !!!
+                 Тел: (63) 2527039
+                                <span class="price" style="color: red;">
+                            14 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-21 13:45:19</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3371284">
+                    <img src="../pics/1/003/371/284/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3371284">
+                    <b style="font-size: 16px;">Видовый</b>
+                </a>
+                <br><br>
+ 
+                уникальный, участок, 0, 12 га, ул. Тимирязевская, напротив Ботан.Сада! До Центра 5мин! Есть домостроение, все коммуникации, 115000у.е./сотка. Тел: (44) 4941394, (67) 2348877, "Столичная недвижимость"
+                
+                                <span class="price" style="color: red;">
+                            115 000&nbsp;у.е.                                        <br>
+                    <small>за сотку</small>
+                                            </span>
+                
+                                <span class="date">2011-12-19 21:25:15</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3371288">
+                    <img src="../pics/1/003/371/288/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3371288">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-19 21:25:15</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3345795">
+                    <img src="../pics/1/003/345/795/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3345795">
+                    <b style="font-size: 16px;">Теремки-2</b>
+                </a>
+                <br><br>
+ 
+                Вільямса Академіка, участок, ділянка 8 соток землі під житлову забудову 3 озера, 116000у.о., торг, код 72351. Тел: (44) 4955959, (50) 4193844, Вячеслав Миколайович  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            116 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-15 14:30:26</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3300288">
+                    <img src="../pics/1/003/300/288/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3300288">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-12 17:52:56</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3291823">
+                    <img src="../pics/1/003/291/823/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3291823">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-08 15:50:06</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3291843">
+                    <img src="../pics/1/003/291/843/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3291843">
+                    <b style="font-size: 16px;">Теремки-2</b>
+                </a>
+                <br><br>
+ 
+                Вільямса, участок, ділянка 8 соток землі під житлову забудову 3 озера, 116000у.о., торг, код 72351. Тел: (44) 4955959, (50) 4193844, Вячеслав Миколайович  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            116 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-08 15:50:06</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3237643">
+                    <img src="../pics/1/003/237/643/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3237643">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-01 15:36:05</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3237660">
+                    <img src="../pics/1/003/237/660/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3237660">
+                    <b style="font-size: 16px;">Теремки-2</b>
+                </a>
+                <br><br>
+ 
+                Вільямса, участок, ділянка 8 соток землі під житлову забудову 3 озера, 116000у.о., торг, код 72351. Тел: (44) 4955959, (50) 4193844, Вячеслав Миколайович  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            116 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-01 15:36:05</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3208649">
+                    <img src="../pics/1/003/208/649/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3208649">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-28 15:08:28</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3181978">
+                    <img src="../pics/1/003/181/978/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3181978">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-24 17:35:16</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3154958">
+                    <img src="../pics/1/003/154/958/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3154958">
+                    <b style="font-size: 16px;">Видовый</b>
+                </a>
+                <br><br>
+ 
+                уникальный, участок, 0, 12 га, ул. Тимирязевская, напротив Ботан.Сада! До Центра 5мин! Есть домостроение, все коммуникации, 115000у.е./сотка. Тел: (44) 4941394, (67) 2348877, "Столичная недвижимость"
+                
+                                <span class="price" style="color: red;">
+                            115 000&nbsp;у.е.                                        <br>
+                    <small>за сотку</small>
+                                            </span>
+                
+                                <span class="date">2011-11-21 15:25:19</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3154963">
+                    <img src="../pics/1/003/154/963/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3154963">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-21 15:25:19</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3154985">
+                    <img src="../pics/1/003/154/985/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3154985">
+                    <b style="font-size: 16px;">Столичне шосе</b>
+                </a>
+                <br><br>
+ 
+                ділянка, фасад 1.3 га розчищеного лісу під забудову, Обухівська траса, с.Таценки, 700000у.о., код 53292. Тел: (44) 4955959, (50) 4443487, КравченкоОлена
+                
+                                <span class="price" style="color: red;">
+                            700 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-21 15:25:19</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3125935">
+                    <img src="../pics/1/003/125/935/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3125935">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-17 15:16:17</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3098053">
+                    <img src="../pics/1/003/098/053/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3098053">
+                    <b style="font-size: 16px;">Видовый</b>
+                </a>
+                <br><br>
+ 
+                уникальный, участок, 0, 12 га, ул. Тимирязевская, напротив Ботан.Сада! До Центра 5мин! Есть домостроение, все коммуникации, 115000у.е./сотка. Тел: (44) 4941394, (67) 2348877, "Столичная недвижимость"
+                
+                                <span class="price" style="color: red;">
+                            115 000&nbsp;у.е.                                        <br>
+                    <small>за сотку</small>
+                                            </span>
+                
+                                <span class="date">2011-11-14 13:37:06</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3098058">
+                    <img src="../pics/1/003/098/058/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3098058">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-14 13:37:06</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3072084">
+                    <img src="../pics/1/003/072/084/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3072084">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-10 16:22:34</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3040186">
+                    <img src="../pics/1/003/040/186/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3040186">
+                    <b style="font-size: 16px;">Видовый</b>
+                </a>
+                <br><br>
+ 
+                уникальный, участок, 0, 12 га, ул. Тимирязевская, напротив Ботан.Сада! До Центра 5мин! Есть домостроение, все коммуникации, 115000у.е./сотка. Тел: (44) 4941394, (67) 2348877, "Столичная недвижимость"
+                
+                                <span class="price" style="color: red;">
+                            115 000&nbsp;у.е.                                        <br>
+                    <small>за сотку</small>
+                                            </span>
+                
+                                <span class="date">2011-11-08 12:16:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3040191">
+                    <img src="../pics/1/003/040/191/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3040191">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-08 12:16:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3040208">
+                    <img src="../pics/1/003/040/208/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3040208">
+                    <b style="font-size: 16px;">Лысогорский пер</b>
+                </a>
+                <br><br>
+ 
+                участок, 10 соток под строительство жилого дома, коммуникации 200 метров, живописное место, лес, 48000у.е. Тел: (44) 3324410, (93) 8134750
+                
+                                <span class="price" style="color: red;">
+                            48 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-08 12:16:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2990667">
+                    <img src="../pics/1/002/990/667/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2990667">
+                    <b style="font-size: 16px;">Видовый</b>
+                </a>
+                <br><br>
+ 
+                уникальный, участок, 0, 12 га, ул. Тимирязевская, напротив Ботан.Сада! До Центра 5мин! Есть домостроение, все коммуникации, 115000у.е./сотка. Тел: (44) 4941394, (67) 2348877, "Столичная недвижимость"
+                
+                                <span class="price" style="color: red;">
+                            115 000&nbsp;у.е.                                        <br>
+                    <small>за сотку</small>
+                                            </span>
+                
+                                <span class="date">2011-11-07 14:46:16</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2990670">
+                    <img src="../pics/1/002/990/670/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2990670">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-07 14:46:16</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2990683">
+                    <img src="../pics/1/002/990/683/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2990683">
+                    <b style="font-size: 16px;">Лысогорский пер</b>
+                </a>
+                <br><br>
+ 
+                участок, 10 соток под строительство жилого дома, коммуникации 200 метров, живописное место, лес, 48000у.е. Тел: (44) 3324410, (93) 8134750
+                
+                                <span class="price" style="color: red;">
+                            48 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-07 14:46:16</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2962247">
+                    <img src="../pics/1/002/962/247/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2962247">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-03 15:20:05</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2937276">
+                    <img src="../pics/1/002/937/276/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2937276">
+                    <b style="font-size: 16px;">Глушкова просп</b>
+                </a>
+                <br><br>
+ 
+                участок. Одесская трасса. Фасад. 24 сотки. Напротив ТЦ "Новая Линия". 2 акта, частная собственность. Электричество, газ. 288тыс.у.е.Без%. Тел: (50) 1697773, Минчук Вадим
+                
+                                <span class="price" style="color: red;">
+                            288 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-10-31 15:17:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2937287">
+                    <img src="../pics/1/002/937/287/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2937287">
+                    <b style="font-size: 16px;">Лысогорский пер</b>
+                </a>
+                <br><br>
+ 
+                участок, 10 соток под строительство жилого дома, коммуникации 200 метров, живописное место, лес, 48000у.е. Тел: (44) 3324410, (93) 8134750
+                
+                                <span class="price" style="color: red;">
+                            48 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-10-31 15:17:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                </div>
+<br>
+    
+<p class="pagination" align="center">
+    <span class="pagination-txt"></span>&nbsp;Страниц:&nbsp;<b>1</b></p>
+    <br>
+<div id="footer">
+    <p class="copy">&copy;1997&ndash;2010, Pronto-Kyiv JV. All rights reserved.</p>
+	<p><a href="http://www.aviso.ua" target="_blank"><img src="/images/av-logo.gif" height="50" border="0"></a></p>
+    <p><a target="_blank" href="http://o.aviso.ua">Подать объявление</a> | <a href="http://www.aviso.ua/aviso/editions/" target="_blank">Газеты и Журналы</a> | <a href="http://www.aviso.ua/browse/" target="_blank">Просмотр</a> | <a href="http://www.aviso.ua/aviso/all-agree.asp" target="_blank">Условия</a> | <a href="http://www.aviso.ua/aviso/all-contacts.asp" target="_blank">Контакты</a><br /><a href="http://www.aviso.ua">www.aviso.ua</a> | <a target="_blank" href="http://fn.ua">fn.ua</a> | <a target="_blank" href="http://realt.aviso.ua">realt.aviso.ua</a> | <a target="_blank" href="http://auto.aviso.ua">auto.aviso.ua</a></p>
+ 
+    <br>
+    <!-- GOOGLE ANALYTICS -->
+    <script type="text/javascript">
+ 
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20007511-1']);
+        _gaq.push(['_trackPageview']);
+ 
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- /GOOGLE ANALYTICS -->
+ 
+    <!--bigmir)net TOP 100-->
+    <div style="position: absolute; right: 10px;">
+        <script type="text/javascript" language="javascript">
+            <!--
+            bmN=navigator,bmD=document,bmD.cookie='b=b',i=0,bs=[],bm={v:1371,s:1371,t:23,c:bmD.cookie?1:0,n:Math.round((Math.random()* 1000000)),w:0};
+            for(f=self;f!=f.parent;f=f.parent)bm.w++;
+            try{if(bmN.plugins&&bmN.mimeTypes.length&&(x=bmN.plugins['Shockwave Flash']))bm.m=parseInt(x.description.replace(/([a-zA-Z]|s)+/,''));
+                else for(f=3;f<20;f++)if(eval('new ActiveXObject("ShockwaveFlash.ShockwaveFlash.'+f+'")'))bm.m=f}catch(e){}
+            try{bm.y=bmN.javaEnabled()?1:0}catch(e){}
+            try{bmS=screen;bm.v^=bm.d=bmS.colorDepth||bmS.pixelDepth;bm.v^=bm.r=bmS.width}catch(e){}
+            r=bmD.referrer.slice(7);if(r&&r.split('/')[0]!=window.location.host){bm.f=escape(r);bm.v^=r.length}
+            bm.v^=window.location.href.length;for(x in bm)bs[i++]=x+bm[x];
+            bmD.write('<a href="http://www.bigmir.net/" target="_blank" onClick=\'img=new Image();img.src="http://www.bigmir.net/?cl=1371";\'><img src="http://c.bigmir.net/?'+bs.join('&')+'"  width="88" height="63" border="0" alt="bigmir)net TOP 100" title="bigmir)net TOP 100"></a>');
+            //--></script>
+    </div>
+    <!--bigmir)net TOP 100-->
+ 
+    <!-- I.UA counter -->
+    <div style="position: absolute; right: 110px;">
+        <a href="http://www.i.ua/" target="_blank" onclick="this.href='http://i.ua/r.php?57';" title="Rated by I.UA">
+            <script type="text/javascript" language="javascript">
+                <!--
+                iS='<img src="http://r.i.ua/s?u57&p65&n'+Math.random();
+                iD=document;iD.cookie="iua=1";if(iD.cookie)iS+='&c1';
+                iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
+                    +"&w"+screen.width+'&h'+screen.height
+                iT=iD.referrer.slice(7);iH=window.location.href.slice(7);
+                ((iI=iT.indexOf('/'))!=-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+                if(iT!=iH.substring(0,iI))iS+='&f'+escape(iD.referrer.slice(7))
+                iS+='&r'+escape(iH);
+                iD.write(iS+'" border="0" width="88" height="31" />');
+                //-->
+            </script>
+        </a>
+    </div>
+    <!-- End of I.UA counter -->
+</div></div>
+</div>
+</div>
+</body>
+</html>
+<font color="white">SELECT * FROM 1ads
+                      WHERE astatus > 0
+                      AND adrub=192 and addistr='1' and adphoto>'0' 
+                      ORDER BY
+                      IF(apremium,1,0) DESC,
+                      IF(apushup,1,0) DESC
+                      , adate desc
+                      LIMIT 0, 50</font>

@@ -1,0 +1,27 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <h1>Admin</h1>
+    <spring:url value="/admin/importaviso" var="form_url"/>
+    <form action="${form_url}" method="get">
+    <fieldset>
+        <div>
+            <input type="submit" value="Start Import Aviso Data" />
+        </div>
+    </fieldset>
+    </form>
+<!--
+    <spring:url value="/admin/importaviso" var="form_url2"/>
+    <form action="${form_url2}" method="post">
+    <fieldset>
+        <div>
+            <div id="execPath">
+                <input value="C:\Users\yury.ribitsky\Documents\private\projects\web\src\main\resources\test-reboot.bat" />
+            </div>
+
+            <input type="submit" value="reboot" />
+        </div>
+    </fieldset>
+    </form>
+-->
+</div>

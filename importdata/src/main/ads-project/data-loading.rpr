@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project validatePersistance="true" synchNamespaces="false" storeRelativePaths="true" storeRelativeDeploymentDirs="true" name="data-loading.rpr" defaultOutputMask="Textual" defaultInputMask="Textual" autoLoad="false" IOversion="3.1.0">
+    <path alias="My Rage Integro Projects">..</path>
+    <deploymentDescriptor name="Default">
+        <namespaceDescriptor package="nonamespace" antTarget="jar"/>
+        <namespaceDescriptor uri="urn:schemas-microsoft-com:office:spreadsheet" package="com.microsoft.schemas.office.spreadsheet" antTarget="jar"/>
+        <namespaceDescriptor uri="urn:schemas-microsoft-com:office:office" package="com.microsoft.schemas.office.office" antTarget="jar"/>
+        <namespaceDescriptor uri="urn:schemas-microsoft-com:office:excel" package="com.microsoft.schemas.office.excel" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt" package="biz.rageintegro.erealt" antTarget="jar"/>
+        <namespaceDescriptor uri="http://www.w3.org/1999/xhtml" package="org.w3.x1999.xhtml" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/aviso" package="biz.rageintegro.erealt.aviso" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/address" package="biz.rageintegro.erealt.address" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/address/model" package="biz.rageintegro.erealt.address.model" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/address/transform" package="biz.rageintegro.erealt.address.transform" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/address/oldmodel" package="biz.rageintegro.erealt.address.oldmodel" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/address/oldtransform" package="biz.rageintegro.erealt.address.oldtransform" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/address/model/settlement" package="biz.rageintegro.erealt.address.model.settlement" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/address/transform/settlement" package="biz.rageintegro.erealt.address.transform.settlement" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/address/transform/stl" package="biz.rageintegro.erealt.address.transform.stl" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/address/model/stl" package="biz.rageintegro.erealt.address.model.stl" antTarget="jar"/>
+        <namespaceDescriptor uri="http://rageintegro.biz/erealt/aviso2" package="biz.rageintegro.erealt.aviso2" antTarget="jar"/>
+        <classpath>file:/D:/MyDocuments/rageintegro/svn/erealt-roo/ads-home/Deployments/build/classes/</classpath>
+        <classpath>file:/D:/temp/ads-home/Deployments/build/classes/</classpath>
+        <directory>../../../../../../../../temp/ads-home/Deployments</directory>
+        <clean>false</clean>
+        <versioned>false</versioned>
+        <versionedTypeHierarchy>false</versionedTypeHierarchy>
+        <maxMemorySize>512m</maxMemorySize>
+        <typeClassSuffix>Class</typeClassSuffix>
+        <elementClassSuffix>Element</elementClassSuffix>
+        <attributeClassSuffix>Attribute</attributeClassSuffix>
+        <elementGroupClassSuffix>ElemGroup</elementGroupClassSuffix>
+        <attributeGroupClassSuffix>AttrGroup</attributeGroupClassSuffix>
+        <enumerationClassSuffix>Enum</enumerationClassSuffix>
+        <validationRuleClassSuffix>Rule</validationRuleClassSuffix>
+        <beanClasses>true</beanClasses>
+        <beanInterfaces>false</beanInterfaces>
+        <beanLocalSuffix>Local</beanLocalSuffix>
+        <beanLocalGroupSuffix>LocalGroup</beanLocalGroupSuffix>
+        <beanSubfieldLists>false</beanSubfieldLists>
+        <beanNamedValueMethods>false</beanNamedValueMethods>
+        <xmlMask>
+            <importAnnotations>true</importAnnotations>
+            <importECoreAnnotations>true</importECoreAnnotations>
+            <importAnnotationWhitespace>Preserve</importAnnotationWhitespace>
+            <importUsingSubGroup>true</importUsingSubGroup>
+            <importDtdViaCastor>false</importDtdViaCastor>
+            <exportAnnotations>true</exportAnnotations>
+            <exportECoreAnnotations>true</exportECoreAnnotations>
+            <exportDefaultOccurrences>false</exportDefaultOccurrences>
+            <exportFlattenDirectories>false</exportFlattenDirectories>
+            <exportInline>false</exportInline>
+            <exportInlineMinimal>false</exportInlineMinimal>
+            <appendVersionToFilename>false</appendVersionToFilename>
+            <replaceSpacesInFilename>false</replaceSpacesInFilename>
+        </xmlMask>
+        <htmlMask>
+            <javadocStyleDocumentation>false</javadocStyleDocumentation>
+            <sortByComponent>false</sortByComponent>
+            <useJavaScript>true</useJavaScript>
+            <printSuperTypes>true</printSuperTypes>
+            <printSubTypes>true</printSubTypes>
+            <printLegend>true</printLegend>
+            <printGlossary>true</printGlossary>
+            <printNamespacePrefixes>true</printNamespacePrefixes>
+        </htmlMask>
+        <javaClassMask>
+            <excludeIOPrimitiveFlags>false</excludeIOPrimitiveFlags>
+            <accessModifierLevel>Public</accessModifierLevel>
+            <includeTransientFields>false</includeTransientFields>
+            <importSimpleDataTypesAsAtributes>false</importSimpleDataTypesAsAtributes>
+        </javaClassMask>
+        <deployReferencedFiles>true</deployReferencedFiles>
+        <deployEnvironment>true</deployEnvironment>
+        <generateMainMethods>true</generateMainMethods>
+        <generateDeepCloneMethods>true</generateDeepCloneMethods>
+        <useCustomSerialization>true</useCustomSerialization>
+        <useCustomSerializationUnshared>false</useCustomSerializationUnshared>
+        <usePropertyFiles>false</usePropertyFiles>
+        <useLazyInitialization>true</useLazyInitialization>
+        <skipVerification>false</skipVerification>
+        <replacementString></replacementString>
+        <skipXPathVerification>false</skipXPathVerification>
+        <skipDefaultAndFixedValueInit>false</skipDefaultAndFixedValueInit>
+        <ignoreTargetPackage>false</ignoreTargetPackage>
+    </deploymentDescriptor>
+    <alias>[default]</alias>
+</project>

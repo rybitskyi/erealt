@@ -1,0 +1,60 @@
+<div xmlns:spring="http://www.springframework.org/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     id="body"
+     version="2.0">
+	<jsp:output omit-xml-declaration="yes"/>
+    <div id="_title" style="width: 100%">
+	    <spring:message code="security.login.title" var="title"/>
+	    <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_title', widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title}'}})); </script>
+	    <c:if test="${not empty param.login_error}">
+	      <div class="errors">
+	      	<p>
+	      		<spring:message code="security.login.unsuccessful"/>
+                  <p>
+                  <c:out value="Причина:"/>
+                  </p>
+				<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
+	      	</p>
+	      </div>
+	    </c:if>
+	     <c:if test="${empty param.login_error}">
+	    	<p>
+			<spring:message code="security.login.message"/>
+		    </p>
+	    </c:if>
+	    <spring:url value='/static/j_spring_security_check' var="form_url"/>
+		<form name="f" action="${form_url}" method="POST">
+            <div>
+	            <label for="j_username"><spring:message code="security.login.form.name"/></label>
+	            <input id="j_username" type='text' name='j_username' style="width:150px"/>
+	            <spring:message code="security.login.form.name.message" var="name_msg"/>
+	            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "j_username", widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "${name_msg}", required : true}})); </script>
+	        </div>
+	        <br/>
+	        <div>
+	            <label for="j_password"><spring:message code="security.login.form.password"/></label>
+	            <input id="j_password" type='password' name='j_password' style="width:150px" />
+	            <spring:message code="security.login.form.password.message" var="pwd_msg"/>
+	            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "j_password", widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "${pwd_msg}", required : true}})); </script>
+	        </div>
+	        <br/>
+            <div>
+                <c:url value="/register" var="register_url"/>
+                Нет учетной записи?  <a href="${register_url}">Зарегистрироваться</a>
+            </div>
+            <br/>
+            <div>
+                <c:url value="/register/recoverPassword" var="recover_password_url"/>
+                <a href="${recover_password_url}">Забыли пароль?</a>
+            </div>
+            <br/>
+            <div class="submit">
+	            <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
+	            <spring:message code="security.button.login" var="submit_label"/>
+	            <input id="proceed" type="submit" value="${submit_label}"/>
+	        </div>
+	    </form>
+	</div>
+</div>
+

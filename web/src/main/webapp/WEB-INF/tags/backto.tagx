@@ -1,0 +1,26 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <jsp:directive.attribute name="name" type="java.lang.String" required="true"
+                             description="name"/>
+    <jsp:directive.attribute name="label" type="java.lang.String" required="true"
+                             description="label"/>
+
+    <table class="noborder">
+        <tr>
+            <td class="noborder">
+                <spring:url value="/${name}" var="item_url">
+                    <spring:param name="page" value="${empty param.page ? 1 : param.page}" />
+                </spring:url>
+                <a href="${item_url}">
+                    <spring:message code="label.backTo"/><c:out value=" "/>
+                    <spring:message code="${label}"/>
+                </a>
+                <br/>
+                <br/>
+            </td>
+        </tr>
+    </table>
+</jsp:root>

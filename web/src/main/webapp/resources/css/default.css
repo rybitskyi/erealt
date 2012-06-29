@@ -1,0 +1,9 @@
+.noborder tr, td {
+    border-style: none !important;
+}
+
+.createLabel {
+    display: block;
+    width: 200px;
+}
+

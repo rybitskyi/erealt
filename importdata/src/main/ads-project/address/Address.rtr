@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transform version="0.0.4" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/address/transform" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="Address.rtr">
+    <input typeRef="#address" required="false" path="" modelRef="address.rdm" endID="0"/>
+    <localTransformRef refId="1" y="70" x="108" id="3"/>
+    <contextPath input="true" endID="0" contextRef="district" id="13"/>
+    <contextPath input="false" endID="1" contextRef="" id="14"/>
+    <translation outputPort="0" outputID="3" inputPort="0" inputID="13"/>
+    <translation outputPort="0" outputID="14" inputPort="0" inputID="3"/>
+    <nextId>20</nextId>
+    <output typeRef="district" required="false" path="" modelRef="../db.rdm" endID="0"/>
+    <output typeRef="region" required="false" path="" modelRef="../db.rdm" endID="1"/>
+    <output typeRef="street" required="false" path="" modelRef="../db.rdm" endID="2"/>
+    <localTransform id="1">
+        <transform version="0.0.4" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/address/transform" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="district">
+            <input typeRef="#address" required="false" path="district" modelRef="address.rdm" endID="0"/>
+            <constant constant="1" id="4"/>
+            <localTransformRef refId="6" y="55" x="185" id="8"/>
+            <javaMethodRef refId="16" y="116" x="193" id="15"/>
+            <contextPath input="false" endID="0" contextRef="version" id="5"/>
+            <contextPath input="false" endID="0" contextRef="" id="12"/>
+            <contextPath input="false" endID="0" contextRef="district" id="19"/>
+            <contextPath input="true" endID="0" contextRef="region" id="11"/>
+            <contextPath input="true" endID="0" contextRef="@name" id="18"/>
+            <translation outputPort="0" outputID="5" inputPort="0" inputID="4"/>
+            <translation outputPort="0" outputID="12" inputPort="0" inputID="8"/>
+            <translation outputPort="0" outputID="19" inputPort="0" inputID="15"/>
+            <translation outputPort="0" outputID="8" inputPort="0" inputID="11"/>
+            <translation outputPort="0" outputID="15" inputPort="0" inputID="18"/>
+            <nextId>0</nextId>
+            <output typeRef="region" required="false" path="" modelRef="../db.rdm" endID="0"/>
+            <localTransform id="6">
+                <transform version="0.0.4" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/address/transform" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="localRegion">
+                    <input typeRef="#district" required="false" path="region" modelRef="address.rdm" endID="0"/>
+                    <contextPath input="false" endID="0" contextRef="caption" id="10"/>
+                    <contextPath input="true" endID="0" contextRef="@name" id="9"/>
+                    <translation outputPort="0" outputID="10" inputPort="0" inputID="9"/>
+                    <nextId>0</nextId>
+                    <output typeRef="region" required="false" path="" modelRef="../db.rdm" endID="0"/>
+                </transform>
+            </localTransform>
+            <javaMethod id="16">
+                <libraryMethod>false</libraryMethod>
+                <methodName>getDistrictId</methodName>
+                <input type="#string" role="district"/>
+                <output type="##number_long"/>
+                <code>org.hibernate.Session session = (org.hibernate.Session) getObjectFactory();&#xD;
+return biz.rageintegro.importdata.aviso.AvisoUtils.getDistrictId(district, session);</code>
+            </javaMethod>
+        </transform>
+    </localTransform>
+</transform>

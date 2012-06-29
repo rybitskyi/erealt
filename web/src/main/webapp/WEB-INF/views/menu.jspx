@@ -1,0 +1,141 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags" id="menu" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <!--temporally commented
+                <td align="center">
+                    <spring:url
+                            value="/salenewflat"
+                            var="web_mvc_jsp_list_salenewflat_menu_item_url"/>
+                    <a href="${web_mvc_jsp_list_salenewflat_menu_item_url}">
+                        <spring:message code="menu.category.web_mvc_jsp_salenewflat_category.label"/>
+                    </a>
+                </td>
+    -->
+    <!--todo: use loop
+                <c:forEach var="item" items="items">
+
+                </c:forEach>
+    -->
+    <ul>
+        <li>
+            <spring:url
+                    value="/saleflat"
+                    var="web_mvc_jsp_list_saleflat_menu_item_url"/>
+            <c:choose>
+                <c:when test="${userContext.selectedMainMenu == 'saleflat'}">
+                    <c:set var="aClassName" value="selectedMenuItem"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="aClassName" value="notSelectedMenuItem"/>
+                </c:otherwise>
+            </c:choose>
+            <a class="${aClassName}" href="${web_mvc_jsp_list_saleflat_menu_item_url}">
+                <spring:message code="menu.category.web_mvc_jsp_saleflat_category.label"/>
+            </a>
+        </li>
+        <li>
+            <spring:url
+                    value="/salehouse"
+                    var="web_mvc_jsp_list_salehouse_menu_item_url"/>
+            <c:choose>
+                <c:when test="${userContext.selectedMainMenu == 'salehouse'}">
+                    <c:set var="aClassName" value="selectedMenuItem"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="aClassName" value="notSelectedMenuItem"/>
+                </c:otherwise>
+            </c:choose>
+            <a class="${aClassName}" href="${web_mvc_jsp_list_salehouse_menu_item_url}">
+                <spring:message code="menu.category.web_mvc_jsp_salehouse_category.label"/>
+            </a>
+        </li>
+        <li>
+            <spring:url
+                    value="/saleland"
+                    var="web_mvc_jsp_list_saleland_menu_item_url"/>
+            <c:choose>
+                <c:when test="${userContext.selectedMainMenu == 'saleland'}">
+                    <c:set var="aClassName" value="selectedMenuItem"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="aClassName" value="notSelectedMenuItem"/>
+                </c:otherwise>
+            </c:choose>
+            <a class="${aClassName}" href="${web_mvc_jsp_list_saleland_menu_item_url}">
+                <spring:message code="menu.category.web_mvc_jsp_saleland_category.label"/>
+            </a>
+        </li>
+        <li>
+            <spring:url
+                    value="/leaseflat"
+                    var="web_mvc_jsp_list_leaseflat_menu_item_url"/>
+            <c:choose>
+                <c:when test="${userContext.selectedMainMenu == 'leaseflat'}">
+                    <c:set var="aClassName" value="selectedMenuItem"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="aClassName" value="notSelectedMenuItem"/>
+                </c:otherwise>
+            </c:choose>
+            <a class="${aClassName}" href="${web_mvc_jsp_list_leaseflat_menu_item_url}">
+                <spring:message code="menu.category.web_mvc_jsp_leaseflat_category.label"/>
+            </a>
+        </li>
+        <li>
+            <spring:url
+                    value="/leasehouse"
+                    var="web_mvc_jsp_list_leasehouse_menu_item_url"/>
+            <c:choose>
+                <c:when test="${userContext.selectedMainMenu == 'leasehouse'}">
+                    <c:set var="aClassName" value="selectedMenuItem"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="aClassName" value="notSelectedMenuItem"/>
+                </c:otherwise>
+            </c:choose>
+            <a class="${aClassName}" href="${web_mvc_jsp_list_leasehouse_menu_item_url}">
+                <spring:message code="menu.category.web_mvc_jsp_leasehouse_category.label"/>
+            </a>
+        </li>
+<!--
+        <li>
+            <spring:url
+                    value="/press"
+                    var="press_item_url"/>
+            <c:choose>
+                <c:when test="${userContext.selectedMainMenu == 'press'}">
+                    <c:set var="aClassName" value="selectedMenuItem"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="aClassName" value="notSelectedMenuItem"/>
+                </c:otherwise>
+            </c:choose>
+            <a class="${aClassName}" href="${press_item_url}">
+                <spring:message code="label.press"/>
+            </a>
+        </li>
+-->
+<!--
+        <li>
+            <spring:url value="/static/images/new0.gif" var="new_image_url"/>
+            <c:choose>
+                <c:when test="${userContext.selectedMainMenu == 'services'}">
+                    <c:set var="aClassName" value="selectedMenuItem"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="aClassName" value="notSelectedMenuItem"/>
+                </c:otherwise>
+            </c:choose>
+            <spring:url
+                    value="/services"
+                    var="services_item_url"/>
+            <a class="${aClassName}" href="${services_item_url}">
+                <spring:message code="label.services"/>
+                <c:out value=" "/>
+                <img src="${new_image_url}"/>
+            </a>
+        </li>
+-->
+    </ul>
+</div>

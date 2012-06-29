@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+    <h:head>
+        <ui:insert name="header">
+            <ui:include src="header.xhtml"/>
+        </ui:insert>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <p:layout fullPage="true">
+            <p:layoutUnit id="northLayout" position="north" size="120">
+                <p:panel id="menu" cellspacing="0" cellpadding="0" styleClass="menu">
+                    <h:form id="menuForm">
+                        <ui:insert name="menu">
+                            <ui:include src="menu.xhtml"/>
+                        </ui:insert>
+                    </h:form>
+                </p:panel>
+
+            </p:layoutUnit>
+            <!--
+                        <p:layoutUnit position="south" size="50">
+                            <ui:insert name="footer">
+                                <ui:include src="footer.xhtml"/>
+                            </ui:insert>
+                        </p:layoutUnit>
+            -->
+            <!--
+                        <p:layoutUnit position="east" size="200">
+                            <h:outputText value="Right Content" />
+                        </p:layoutUnit>
+            -->
+            <p:layoutUnit position="center">
+                <h:panelGrid columns="1" columnClasses="menu,content">
+                    <h:panelGroup>
+                        <h:panelGrid cellspacing="0" cellpadding="0" styleClass="content">
+                            <ui:insert name="content"/>
+                        </h:panelGrid>
+                    </h:panelGroup>
+                </h:panelGrid>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</f:view>
+</html>

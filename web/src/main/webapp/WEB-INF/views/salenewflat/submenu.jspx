@@ -1,0 +1,88 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:roo="urn:jsptagdir:/WEB-INF/tags" id="submenu" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <roo:address skipStreet="true" useAllOption="true" region="${param.region}"/>
+    <form:form action="" method="GET">
+        <input value="${1}" name="page" type="hidden"/>
+        <table class="noborder">
+            <tr>
+                <td class="noborder">
+                    <div id="roo_saleNewFlat_district">
+                        <c:if test="${not empty districts}">
+                            <label for="_district_id"><spring:message code="field.label.district" />:</label>
+                            <select id="_district_id" name="district">
+                                <c:forEach items="${districts}" var="district_item">
+                                    <c:choose>
+                                        <c:when test="${saerchCriteria.district.id==district_item.id}">
+                                            <option value="${district_item.id}" selected="true">${district_item}</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${district_item.id}">${district_item}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                            </select>
+                        </c:if>
+                    </div>
+                </td>
+                <td class="noborder">
+                    <div id="roo_saleFlat_region">
+                        <c:if test="${not empty regions}">
+                            <label for="_region_id"><spring:message code="field.label.region" />:</label>
+                            <select id="_region_id" name="region">
+                                <option selected="true" value="-1"><spring:message code="label.allregions" /></option>
+                                <c:forEach items="${regions}" var="region_item">
+                                    <c:choose>
+                                        <c:when test="${param.region==region_item.id}">
+                                            <option value="${region_item.id}" selected="true">${region_item}</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${region_item.id}">${region_item}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                            </select>
+                            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_region_id', widgetType: 'dijit.form.FilteringSelect', widgetAttrs : {hasDownArrow : true}})); </script>
+                        </c:if>
+                    </div>
+                </td>
+                <td class="noborder">
+                    <div id="roo_saleFlat_roomCount">
+                        <label for="_roomCount_id"><spring:message code="field.label.roomCount" />:</label>
+                        <select id="_roomCount_id" name="roomCount">
+                            <option selected="true"/>
+                            <c:forEach items="${roomcounttype_enum}" var="roomCount_item">
+                                <c:choose>
+                                    <c:when test="${param.roomCount==roomCount_item}">
+                                        <option value="${roomCount_item}" selected="true">${roomCount_item.caption}</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value="${roomCount_item}">${roomCount_item.caption}</option>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+                        </select>
+                        <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : '_roomCount_id', widgetType: 'dijit.form.FilteringSelect', widgetAttrs : {hasDownArrow : true}})); </script>
+                        <br/>
+                    </div>
+                </td>
+                <td class="noborder-bottom">
+                    <div class="submit" id="roo_saleFlat_submit">
+                        <spring:message code="button.find" var="find_button"/>
+                        <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
+                        <input id="proceed" type="submit" value="${find_button}"/>
+                    </div>
+                </td>
+                <td class="noborder" align="right" width="100%">
+                    <spring:url value="/salenewflat/form" var="web_mvc_jsp_create_salenewflat_menu_item_url"/>
+                    <a href="${web_mvc_jsp_create_salenewflat_menu_item_url}">
+                        <spring:message code="label.salenewflat" var="label_salenewflat"/>
+                        <spring:message arguments="${label_salenewflat}" code="global.menu.new"/>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </form:form>
+</div>

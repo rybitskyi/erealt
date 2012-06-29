@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../templates/layout.xhtml">
+
+    <ui:define name="head">
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript">
+        </script>
+    </ui:define>
+
+    <ui:define name="content">
+        <p:tabView>
+            <p:tab title="Generic">
+                <p:panelGrid id="propertyData" style="margin-top:20px" styleClass="noborder">
+                    <p:row>
+                        <p:column colspan="3">
+                            <h:outputText value="#{propertyBean.entity.price}" style="font-weight: bold">
+                                <f:convertNumber currencySymbol="$" groupingUsed="true"
+                                                 maxFractionDigits="0" type="currency"/>
+                            </h:outputText>
+                            <h:outputText value=" "/>
+                            <h:outputText value="#{propertyBean.entity.fullAddressName}"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column rowspan="5">
+                            <p:graphicImage value="#{propertyBean.entity.photoUrl}"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputText value="#{messages.field_label_creationDate}:"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{propertyBean.entity.creationDate}">
+                                <f:convertDateTime type="date"/>
+                            </h:outputText>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputText value="#{messages.field_label_сlientName}:"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{propertyBean.entity.accessUser.caption}"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputText value="#{messages.field_label_telephone}:"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{propertyBean.entity.accessUser.allTelephones}"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <h:outputText value="#{messages.field_label_email}:"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{propertyBean.entity.accessUser.email}"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column colspan="3">
+                            <h:outputText value="#{propertyBean.entity.description}"/>
+                        </p:column>
+                    </p:row>
+
+                </p:panelGrid>
+
+            </p:tab>
+            <p:tab title="Photo">
+                <h:form id="photoDataForm">
+                    <p:galleria value="#{propertyBean.images}" var="image" peffectSpeed="0">
+                        <p:graphicImage value="#{image}"/>
+                    </p:galleria>
+
+                    <p:gmap center="41.381542, 2.122893" zoom="15" type="HYBRID"
+                            style="width:600px;height:400px"/>
+
+                </h:form>
+            </p:tab>
+        </p:tabView>
+    </ui:define>
+</ui:composition>
+</html>

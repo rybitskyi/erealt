@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://ws.domain.erealt.rageintegro.biz/" xmlns:ns1="http://erealt.com.ua/domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://erealt.com.ua/domain" schemaLocation="DomainServiceImplService_schema2.xsd"/>
+
+  <xs:complexType name="holder" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="value" type="xs:anyType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="streetListResponse">
+    <xs:sequence>
+      <xs:element name="list" type="ns1:street" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="roomCountType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ONE"/>
+      <xs:enumeration value="TWO"/>
+      <xs:enumeration value="THREE"/>
+      <xs:enumeration value="FOUR"/>
+      <xs:enumeration value="MORE_THAN_FOUR"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,45 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     class="objectdetails"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <div id="roo_leaseFlat_roomCount" class="box">
+        <label for="_roomCount_id"><spring:message code="field.label.roomCount"/>:</label>
+
+        <b>
+            <c:out value="${object.roomCount}"/>
+        </b>
+    </div>
+    <br/>
+
+    <div id="roo_leaseFlat_flatArea" class="box">
+        <label for="_flatArea_id"><spring:message code="field.label.flatArea"/>:</label>
+
+        <b>
+            <c:out value="${object.flatArea}"/>
+        </b>
+    </div>
+    <br/>
+    <br/>
+
+    <div id="roo_leaseFlat_flatFloor" class="box">
+        <label for="_flatFloor_id"><spring:message code="field.label.flatFloor"/>:</label>
+
+        <b>
+            <c:out value="${object.flatFloor}"/>
+        </b>
+    </div>
+    <br/>
+
+    <div id="roo_leaseFlat_buildFloor" class="box">
+        <label for="_buildFloor_id"><spring:message code="field.label.buildFloor"/>:</label>
+
+        <b>
+            <c:out value="${object.buildFloor}"/>
+        </b>
+    </div>
+    <br/>
+
+</div>

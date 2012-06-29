@@ -1,0 +1,58 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:roo="urn:jsptagdir:/WEB-INF/tags"
+     xmlns:spring="http://www.springframework.org/tags"
+     id="list"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="${pageDescription}" var="pageDescriptionValue"/>
+    <!-- google_ad_section_start -->
+    <h1>${pageDescriptionValue}</h1>
+    <!-- google_ad_section_end -->
+
+    <div>
+        <spring:message code="label.saleflat" var="entity_label"/>
+        <spring:message code="label.saleflats" var="entity_label_plural"/>
+        <spring:message arguments="${entity_label_plural}" code="entity.list.all" var="title_msg"/>
+        <div>
+            <table class="noborder">
+                <tr class="noborder">
+                    <td class="noborder">
+                        <spring:url value="/saleflat/form" var="web_mvc_jsp_create_saleflat_menu_item_url"/>
+                        <a id="addAnnouncement" href="${web_mvc_jsp_create_saleflat_menu_item_url}">
+                            <spring:message code="label.saleflat" var="label_saleflat"/>
+                            <spring:message arguments="${label_saleflat}" code="global.menu.new"/>
+                        </a>
+                    </td>
+                    <td class="noborder" align="right">
+                        <roo:pagination action="/saleflat" maxPages="${maxPages}" page="${param.page}" size="${param.size}"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <c:if test="${not empty objects}">
+            <table class="list_table">
+                <roo:list list="${objects}"/>
+                <tr class="footer">
+                    <td colspan="10">
+                        <span class="new">
+                            <spring:url value="/saleflat/form" var="create_url"/>
+                            <a href="${create_url}">
+                                <spring:url value="/static/images/add.png" var="create_img_url"/>
+                                <spring:message arguments="${entity_label}" code="global.menu.new" var="add_message"/>
+                                <img alt="${add_message}" src="${create_img_url}" title="${add_message}"/>
+                            </a>
+                        </span>
+                        <c:if test="${not empty maxPages}">
+                            <roo:pagination action="/saleflat" maxPages="${maxPages}" page="${param.page}" size="${param.size}"/>
+                        </c:if>
+                    </td>
+                </tr>
+            </table>
+        </c:if>
+        <c:if test="${empty objects}">
+            <spring:message arguments="${entity_label_plural}" code="entity.not.found"/>
+        </c:if>
+    </div>
+</div>

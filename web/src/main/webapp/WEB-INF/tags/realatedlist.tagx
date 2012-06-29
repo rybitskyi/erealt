@@ -1,0 +1,76 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:spring="http://www.springframework.org/tags"
+          version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <jsp:directive.attribute name="list" type="java.util.List" required="true"
+                             description="Object list"/>
+
+    <c:if test="${not empty relatedObjects}">
+        <script type="text/javascript">dojo.require('dijit.TitlePane');</script>
+        <div id="related_list_title_div" class="list">
+            <spring:message code="page.relatedlist.title" var="title_msg"/>
+            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : 'related_list_title_div',
+                widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title_msg}'}}));
+            </script>
+            <table class="noborder">
+                <c:forEach items="${list}" var="object">
+                    <c:set var="dTypeName" value="${fn:toLowerCase(object.class.simpleName)}"/>
+                    <c:set var="dTypeLabel" value="menu.category.web_mvc_jsp_${dTypeName}_category.label"/>
+                    <spring:url value="/property/${object.extId}" var="show_form_url"/>
+                    <spring:message code="label.${dTypeName}" var="entity_label"/>
+                    <tbody>
+                    <tr class="list">
+                        <td class="list">
+                            <a href="${show_form_url}">
+                                <c:out value=" ${object.street}"/>
+                                <c:if test="${object.streetObjectNo != null and fn:length(object.streetObjectNo) > 0}">
+                                    <c:out value=", ${object.streetObjectNo}"/>
+                                </c:if>
+                                <c:out value=", ${object.region}"/>
+                                <c:out value=", ${object.district}"/>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="noborder">
+                        <td class="noborder">
+                            <c:if test="${not empty object.photoUrl}">
+                                <spring:url value="${object.thumbnailPhotoUrl}"
+                                            var="photo_image_url"/>
+                                <a class="bordered_img" href="${show_form_url}">
+                                    <img src="${photo_image_url}"/>
+                                </a>
+                            </c:if>
+                            <div class="homes_you_might_like_info">
+                                <p>
+                                    <b>
+                                        <c:choose>
+                                            <c:when test="${object.price > 0}">
+                                                <fmt:formatNumber type="number" value="${object.price}"/>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <spring:message code="label.contractPrice"/>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </b>
+                                </p>
+                                <c:forEach var="entry" items="${object.quickInfo}">
+                                    <p>
+                                        <c:out value="${entry.key}"/>
+                                        <spring:message code="${entry.value}"/>
+                                    </p>
+                                </c:forEach>
+                                <p>
+                                    <spring:message code="${dTypeLabel}"/>
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </c:forEach>
+            </table>
+        </div>
+    </c:if>
+</jsp:root>

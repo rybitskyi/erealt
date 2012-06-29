@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transform version="0.0.55" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="streets-row.rtr">
+    <input typeRef="#Row" required="false" path="" modelRef="streets.rdm" endID="0"/>
+    <localTransformRef refId="1" y="38" x="80" id="3"/>
+    <contextPath input="false" endID="0" contextRef="" id="7"/>
+    <contextPath input="true" endID="0" contextRef="" id="134"/>
+    <translation outputPort="0" outputID="7" inputPort="0" inputID="3"/>
+    <translation outputPort="0" outputID="3" inputPort="0" inputID="134"/>
+    <nextId>192</nextId>
+    <output typeRef="street" required="false" path="" modelRef="db.rdm" endID="0"/>
+    <localTransform id="1">
+        <transform version="0.0.55" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="row">
+            <input typeRef="#Root" required="false" path="Row" modelRef="streets.rdm" endID="0"/>
+            <transformMethod type="#string" name="IF" y="108" x="297" id="10"/>
+            <transformMethod name="INDEXOF" y="89" x="94" id="11"/>
+            <constant constant="(" id="12"/>
+            <transformMethod name="GREATERTHAN" y="174" x="182" id="13"/>
+            <constant constant="-1" id="14"/>
+            <transformMethod name="TRIM" y="68" x="500" id="15"/>
+            <transformMethod name="INDEXOF" y="242" x="72" id="17"/>
+            <constant constant="(" id="18"/>
+            <constant constant=")" id="19"/>
+            <transformMethod name="SUBSTRING" y="338" x="385" id="20"/>
+            <constant constant="(" id="22"/>
+            <transformMethod name="TRIM" y="218" x="336" id="23"/>
+            <transformMethod name="ADD" y="241" x="181" id="24"/>
+            <constant constant="1" id="25"/>
+            <transformMethod type="#number_int" name="CAST" y="287" x="258" id="26"/>
+            <constant constant="," id="62"/>
+            <transformMethod type="#string" name="IF" y="46" x="413" id="128"/>
+            <transformMethod name="EXISTS" y="32" x="172" id="129"/>
+            <transformMethod name="CONCAT" y="126" x="447" id="131"/>
+            <transformMethod name="CONCAT" y="177" x="377" id="132"/>
+            <constant constant=" " id="133"/>
+            <contextPath input="false" endID="0" contextRef="caption" id="5"/>
+            <contextPath input="true" endID="0" contextRef="Column" id="4"/>
+            <contextPath input="true" endID="0" contextRef="Column2" id="130"/>
+            <constant constant="1" id="142"/>
+            <contextPath input="false" endID="0" contextRef="version" id="110"/>
+            <localTransformRef refId="164" y="207" x="601" id="163"/>
+            <javaMethodRef refId="187" y="253" x="442" id="186"/>
+            <contextPath input="false" endID="0" contextRef="street_regions" id="188"/>
+            <contextPath input="true" endID="0" contextRef="Column3" id="191"/>
+            <translation outputPort="1" outputID="11" inputPort="0" inputID="12"/>
+            <translation outputPort="0" outputID="13" inputPort="0" inputID="11"/>
+            <translation outputPort="1" outputID="13" inputPort="0" inputID="14"/>
+            <translation outputPort="0" outputID="10" inputPort="0" inputID="13"/>
+            <translation outputPort="1" outputID="17" inputPort="0" inputID="19"/>
+            <translation outputPort="2" outputID="20" inputPort="0" inputID="17"/>
+            <translation outputPort="0" outputID="23" inputPort="0" inputID="20"/>
+            <translation outputPort="1" outputID="10" inputPort="0" inputID="23"/>
+            <translation outputPort="1" outputID="24" inputPort="0" inputID="25"/>
+            <translation outputPort="0" outputID="24" inputPort="0" inputID="11"/>
+            <translation outputPort="0" outputID="26" inputPort="0" inputID="24"/>
+            <translation outputPort="1" outputID="20" inputPort="0" inputID="26"/>
+            <translation outputPort="0" outputID="128" inputPort="0" inputID="129"/>
+            <translation outputPort="2" outputID="128" inputPort="0" inputID="10"/>
+            <translation outputPort="0" outputID="15" inputPort="0" inputID="128"/>
+            <translation outputPort="0" outputID="131" inputPort="0" inputID="10"/>
+            <translation outputPort="1" outputID="131" inputPort="0" inputID="132"/>
+            <translation outputPort="0" outputID="132" inputPort="0" inputID="133"/>
+            <translation outputPort="1" outputID="128" inputPort="0" inputID="131"/>
+            <translation outputPort="0" outputID="5" inputPort="0" inputID="15"/>
+            <translation outputPort="0" outputID="11" inputPort="0" inputID="4"/>
+            <translation outputPort="2" outputID="10" inputPort="0" inputID="4"/>
+            <translation outputPort="0" outputID="17" inputPort="0" inputID="4"/>
+            <translation outputPort="0" outputID="20" inputPort="0" inputID="4"/>
+            <translation outputPort="0" outputID="129" inputPort="0" inputID="130"/>
+            <translation outputPort="1" outputID="132" inputPort="0" inputID="130"/>
+            <translation outputPort="0" outputID="110" inputPort="0" inputID="142"/>
+            <translation outputPort="0" outputID="163" inputPort="0" inputID="186"/>
+            <translation outputPort="0" outputID="188" inputPort="0" inputID="163"/>
+            <translation outputPort="0" outputID="186" inputPort="0" inputID="191"/>
+            <nextId>0</nextId>
+            <output typeRef="street" required="false" path="" modelRef="db.rdm" endID="0"/>
+            <localTransform id="164">
+                <transform version="0.0.55" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="street_regions">
+                    <input typeRef="StreetRegionList" required="false" path="" modelRef="streets-utils.rdm" endID="0"/>
+                    <constant constant="," id="166"/>
+                    <localTransformRef refId="168" y="137" x="182" id="167"/>
+                    <contextPath input="true" endID="0" contextRef="row" id="184"/>
+                    <contextPath input="false" endID="0" contextRef="" id="185"/>
+                    <translation outputPort="0" outputID="167" inputPort="0" inputID="184"/>
+                    <translation outputPort="0" outputID="185" inputPort="0" inputID="167"/>
+                    <nextId>0</nextId>
+                    <output typeRef="street" required="false" path="street_regions" modelRef="db.rdm" endID="0"/>
+                    <localTransform id="168">
+                        <transform version="0.0.55" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="local">
+                            <input typeRef="StreetRegionList" required="false" path="row" modelRef="streets-utils.rdm" endID="0"/>
+                            <transformMethod name="CHARFOR" y="70" x="88" id="170"/>
+                            <transformMethod name="REPLACECHAR" y="64" x="211" id="171"/>
+                            <constant constant="160" id="172"/>
+                            <constant constant=" " id="173"/>
+                            <constant constant="160" id="174"/>
+                            <constant constant=" " id="175"/>
+                            <transformMethod name="TRIM" y="87" x="318" id="176"/>
+                            <transformMethod type="#number_long" name="FROMSTRING" y="70" x="500" id="177"/>
+                            <hashtableRef refId="179" y="73" x="405" id="178"/>
+                            <contextPath input="false" endID="0" contextRef="regions" id="180"/>
+                            <contextPath input="false" endID="0" contextRef="street" id="181"/>
+                            <contextPath input="true" endID="0" contextRef="regionName" id="182"/>
+                            <contextPath input="true" endID="0" contextRef="streetId" id="183"/>
+                            <translation outputPort="0" outputID="170" inputPort="0" inputID="174"/>
+                            <translation outputPort="1" outputID="171" inputPort="0" inputID="170"/>
+                            <translation outputPort="2" outputID="171" inputPort="0" inputID="175"/>
+                            <translation outputPort="0" outputID="176" inputPort="0" inputID="171"/>
+                            <translation outputPort="0" outputID="178" inputPort="0" inputID="176"/>
+                            <translation outputPort="0" outputID="177" inputPort="0" inputID="178"/>
+                            <translation outputPort="0" outputID="180" inputPort="0" inputID="177"/>
+                            <translation outputPort="0" outputID="171" inputPort="0" inputID="182"/>
+                            <translation outputPort="0" outputID="181" inputPort="0" inputID="183"/>
+                            <nextId>0</nextId>
+                            <output typeRef="street_regions" required="false" path="" modelRef="db.rdm" endID="0"/>
+                            <hashtable id="179">
+<name>region</name>
+<makePublic>false</makePublic>
+<defaultValue>-1</defaultValue>
+<entry value="3" key="Голосеевский"/>
+<entry value="4" key="Дарницкий"/>
+<entry value="7" key="Деснянский"/>
+<entry value="8" key="Днепровский"/>
+<entry value="9" key="Оболонский"/>
+<entry value="10" key="Печерский"/>
+<entry value="11" key="Подольский"/>
+<entry value="12" key="Святошинский"/>
+<entry value="13" key="Соломенский"/>
+<entry value="14" key="Шевченковский"/>
+                            </hashtable>
+                        </transform>
+                    </localTransform>
+                </transform>
+            </localTransform>
+            <javaMethod id="187">
+                <libraryMethod>false</libraryMethod>
+                <methodName>createStreeRegions</methodName>
+                <input type="#string" role="arg0"/>
+                <output type="StreetRegionList" path="" model="streets-utils.rdm"/>
+                <code>StreetRegionList result = new StreetRegionList();&#xD;
+String[] arr = arg0.split(&quot;,&quot;);&#xD;
+for (int i = 0; i &lt; arr.length; i++) {&#xD;
+StreetRegionList.Row item = new StreetRegionList.Row();&#xD;
+item.setRegionName(arr[i]);&#xD;
+result.addRow(item);&#xD;
+}&#xD;
+return result;</code>
+            </javaMethod>
+        </transform>
+    </localTransform>
+</transform>

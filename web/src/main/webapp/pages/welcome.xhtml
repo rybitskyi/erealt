@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../templates/layout.xhtml">
+    <ui:define name="content">
+        <p:dataGrid var="obj" value="#{welcomeBean.actualObjects}" columns="3"
+                    rows="15" id="actualObjects">
+            <p:column>
+                <p:panel style="text-align:center">
+                    <f:facet name="header">
+                        <a href="#{request.contextPath}/property/#{obj.extId}"
+                           title="#{messages.label_viewDetails}">
+                            <h:outputText value="#{obj.fullAddressName}"/>
+                        </a>
+                    </f:facet>
+
+                    <h:panelGrid columns="1" style="width:100%">
+                        <h:outputText value="#{obj.price}">
+                            <f:convertNumber currencySymbol="$" groupingUsed="true"
+                                             maxFractionDigits="0" type="currency"/>
+                        </h:outputText>
+
+                        <h:panelGroup>
+                            <a href="#{request.contextPath}/property/#{obj.extId}"
+                               title="#{messages.label_viewDetails}">
+                                <p:graphicImage value="#{obj.thumbnailPhotoUrl}"/>
+                            </a>
+                        </h:panelGroup>
+
+                        <ui:repeat var="entry" value="#{obj.quickInfoList}" varStatus="status">
+                            <h:outputText value="#{entry.value}"/>
+                            <ui:param name="key" value="#{entry.key}"/>
+                            <h:outputText value="#{messages[key]}"/>
+                            <h:outputText value=", " rendered="#{not status.last}"/>
+                        </ui:repeat>
+
+                        <h:outputText value="#{obj.accessUser.telephone}"/>
+                        <ui:param name="dtypekey" value="menu_#{obj.systemName}_label"/>
+                        <h:panelGroup>
+                            <a href="#{request.contextPath}/#{obj.systemName}">
+                                <h:outputText value="#{messages[dtypekey]}"/>
+                            </a>
+                        </h:panelGroup>
+
+                        <h:panelGroup>
+                            <a href="#{request.contextPath}/property/#{obj.extId}"
+                               title="#{messages.label_viewDetails}">
+                                <p:graphicImage value="/static/images/details.png"/>
+                            </a>
+                        </h:panelGroup>
+                    </h:panelGrid>
+                </p:panel>
+            </p:column>
+        </p:dataGrid>
+    </ui:define>
+</ui:composition>
+</html>

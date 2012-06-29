@@ -1,0 +1,1560 @@
+ 
+ 
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ 
+    <!--CSS FILES-->
+    <link href="../css/global2.css" rel="stylesheet" type="text/css">
+    <link href="../css/rub.new.css" rel="stylesheet" type="text/css">
+    <!--/CSS FILES-->
+ 
+    <!--JS FILES-->
+    <script src='../jquery.js' type='text/javascript'></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/jquery.highlight.js"></script>
+    <!--/JS FILES-->
+ 
+    <!--JS Script-->
+    <script type="text/javascript">
+        // Tabs script
+        $(function() {
+            $("#tabs").tabs({
+                cookie: { expires: 7, name: "startTab" }
+            });
+        });
+ 
+        $('document').ready(function () {
+ 
+            var sBtn = "Искать";
+            var optText = $('#hide-opt').text();
+ 
+            if (sBtn != "") {
+                $('#stbl').hide();
+                $('#hide-opt').text(optText == "Скрыть параметры поиска" ? "Показать параметры поиска" : "Скрыть параметры поиска");
+            }
+ 
+            $('#hide-opt').click(function () {
+                var optTextc = $('#hide-opt').text();
+                $('#stbl').toggle();
+                $(this).text(optTextc == "Скрыть параметры поиска" ? "Показать параметры поиска" : "Скрыть параметры поиска");
+            });
+ 
+            $('#regions').mouseover(function () {
+                $('#regions-list').show();
+            });
+ 
+            $('#regions').mouseout(function () {
+                $('#regions-list').hide();
+            });
+ 
+            var rubID = "191";
+ 
+            var aText = "";
+ 
+            if (aText !== "") {
+                $('#jquery-highlight').each(function() {
+                    $('div#jquery-highlight').highlight(aText);
+                });
+            }
+ 
+            $('.a-rubs').each(function (index) {
+                if ($(this).attr('data') === rubID) {
+                    $(this).addClass('selected');
+                }
+            });
+ 
+            $('.in-rooms').each(function(index) {
+                var idVal = "#rooms" + $(this).attr('value') + "";
+ 
+                $(idVal).removeClass('rooms');
+                $(idVal).addClass('rooms-selected');
+            });
+ 
+            $("a.rooms").click(function() { // все ссылки с классом .rooms
+                var roomsID = ($(this).attr("value"));
+                if ($(this).hasClass('rooms-selected') == false) {
+                    $(this).removeClass('rooms');
+                    $(this).addClass('rooms-selected');
+                    $("#in-rooms" + roomsID + "").val(roomsID);
+                } else {
+                    $(this).removeClass('rooms-selected');
+                    $(this).addClass('rooms');
+                    $("#in-rooms" + roomsID + "").val('');
+                }
+                //$(this).parents("form").submit();
+                return false;
+            });
+ 
+            $("a.rooms-selected").click(function() { // все ссылки с классом после _GET .rooms-selected
+                var roomsID = ($(this).attr("value"));
+                if ($(this).hasClass('rooms-selected') == false) {
+                    $(this).removeClass('rooms');
+                    $(this).addClass('rooms-selected');
+                    $("#in-rooms" + roomsID + "").val(roomsID);
+                } else {
+                    $(this).removeClass('rooms-selected');
+                    $(this).addClass('rooms');
+                    $("#in-rooms" + roomsID + "").val('');
+                }
+                //$(this).parents("form").submit();
+                return false;
+            });
+ 
+            $('#plus-option').click(function () {
+                var text = $(this).text();
+                $(this).text(text == "больше опций" ? "меньше параметров" : "больше параметров");
+                $('.plus-in-opt').toggle();
+ 
+                return false;
+            });
+ 
+            $('.plus-in-val').each(function(index) {
+                if ($(this).attr('value') !== '') {
+                    $('#plus-option').text('меньше опций');
+                    $('.plus-in-opt').show();
+                }
+            });
+ 
+            $(function() {
+                $("a.poster").click(function() { // все ссылки с классом .poster
+                    $(".for_send_value").val($(this).attr("value"));
+                    $(this).parents("form").submit();
+                    return false;
+                });
+            });
+ 
+            var request = "#";
+            if (request == "#НН") {
+                $('#НН').css({"font-weight":"bold", "font-size":"16px", "text-decoration":"underline", "color":"#FF9000"});
+            }
+            $(request).css({"font-weight":"bold", "font-size":"16px", "text-decoration":"underline", "color":"#FF9000"});
+        });
+    </script>
+    <!--/JS Script-->
+ 
+    <title>
+        Дома. Дачи. Коттеджи         |         Дома, дачи, земельные участки. Продажа | Недвижимость        |
+        Киев и область        |
+        online.aviso.ua
+    </title>
+</head>
+<body>
+ 
+<div id="content">
+<div id="top-banner">
+                
+	<iframe id='a62ea52d' name='a62ea52d' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=48&amp;target=_blank&amp;cb=2125886061' frameborder='0' scrolling='no' width='730' height='90'>
+		<a href='http://banner.ool.ua/www/delivery/ck.php?n=a6f4a6cf&amp;cb=2125886061' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=48&amp;cb=2125886061&amp;n=a6f4a6cf' border='0' alt='' /></a>
+	</iframe></div>
+<hr>
+<div id="top">
+    <div class="cfix">
+        <div class="logo">
+            <a href="index.php">
+                <img src="../images/logo.jpg" alt="AVISO" title="AVISO"/>
+            </a>
+        </div>
+        <div class="city-name">
+            Киев и область            <span>(434018 объявлений)</span>
+        </div>
+        <div class="search-block">
+    <div id="tabs" style="height: 110px;">
+        <ul class="tabs">
+            <div id="tabs-header-text">Поиск по:</div>
+            <li><a href="#tabs-1">тексту</a></li>
+            <li><a href="#tabs-2">телефону</a></li>
+            <li><a href="#tabs-3">ID</a></li>
+        </ul>
+        <div style="clear: both;"></div>
+    </div>    </div>
+</div>
+<br>
+ 
+<div id="navigation">
+    <ul class="cfix">
+        <li class="clipboard">
+            <a href="http://adpay.aviso.ua" target="_blank" class="nav-1">
+                Подать объявление
+                <span class="n-bl"><!-- --></span>
+                <span class="n-br"><!-- --></span>
+            </a>
+        </li>
+        <li>
+            <a href="" class="nav-2">
+                Блокнот
+                <span id="clipboardCount">(-)</span>
+                <span class="n-bl"><!-- --></span>
+                <span class="n-br"><!-- --></span>
+            </a>
+        </li>
+        <li id="regions">
+            <a href="#" class="nav-3">
+                Выбрать регион
+            </a>
+ 
+            <div id="regions-list" style="display: none;">
+                <a href="/kiev" class="nav-list">Киев и область</a>
+                <a href="/odessa" class="nav-list">Одесса и область</a>
+                <a href="/dnepropetrovsk" class="nav-list">Днепропетровск и область</a>
+                <a href="/lviv" class="nav-list">Львов и область</a>
+                <a href="/zhitomir" class="nav-list">Житомир и область</a>
+                <a href="/rovno" class="nav-list">Ровно и область</a>
+            </div>
+        </li>
+        <li style="float: right; background: #EDEDED; border: 1px solid #CCCCCC; padding: 2px; color: #000; font-weight: normal">
+            <!-- Search block form .panes -->
+            <div class="panes">
+    <div id="tabs-1">
+        <form name="search-form" method="POST" action="searchtext.php">
+            <input type="hidden" name="rub" value="191"/>
+            <input type="hidden" name="rid" value="180"/>
+            <input type="hidden" name="redirect"
+                   value="http://online.aviso.ua/kiev/rubrics_new.php?rid=180&rub=191&page=&sbtn=&sortedby=&sortby=5&adistr=1&atext=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&fonly=on&sbtn=%D0%98%D1%81%D0%BA%D0%B0%D1%82%D1%8C"/>
+ 
+            <!--
+ 
+            
+                <input type="hidden" name="rubs[]" value=""/>
+ 
+                
+            -->
+            <p>
+                Текст:&nbsp;
+                <input type="text" name="adtext" value="" style="width: 300px;"/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+    <div id="tabs-2">
+        <form name="search-form" method="POST" action="searchphone.php">
+            <input type="hidden" name="redirect" value="http://online.aviso.ua/kiev/rubrics_new.php?rid=180&rub=191&page=&sbtn=&sortedby=&sortby=5&adistr=1&atext=&apricemin=&apricemax=&apricecur=5&aspacemin=&aspacemax=&fonly=on&sbtn=%D0%98%D1%81%D0%BA%D0%B0%D1%82%D1%8C"/>
+ 
+            <p align="center">
+                код:&nbsp;
+                <input type="text" name="adcode" maxlength="2" style="width: 20px;" value=""/>
+                &nbsp;номер:&nbsp;
+                <input type="text" name="adphone" maxlength="7" style="width: 70px;" value=""/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+    <div id="tabs-3">
+        <form name="search-form" method="POST" action="view.php">
+            <input type="hidden" name="arid" value=""/>
+ 
+            <p align="center">
+                ID:&nbsp;
+                <input type="text" name="adid" value=""/>
+                &nbsp;
+                <input type="submit" name="submit" value="Найти"/>
+            </p>
+        </form>
+    </div>
+</div>
+</div>            <!-- /Search block form .panes -->
+        </li>
+    </ul>
+</div>
+<br>
+ 
+<div id="left-col">
+    <!-- bn and stats -->
+    <div style="position: absolute; top: 0px;">
+                        
+        
+	<iframe id='adb3fb75' name='adb3fb75' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=46&amp;target=_blank&amp;cb=346396007' frameborder='0' scrolling='no' width='240' height='350'>
+		<a href='http://banner.ool.ua/www/delivery/ck.php?n=a40c5526&amp;cb=346396007' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=46&amp;cb=346396007&amp;n=a40c5526' border='0' alt='' /></a>
+	</iframe>
+<iframe id='txAd1' name='txAd1' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=28' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd2' name='txAd2' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=35' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd3' name='txAd3' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=92' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>                <hr style="border: 1px solid #FF9933">                        <iframe id='ae26e463' name='ae26e463' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=50&amp;target=_blank&amp;cb=346396007' frameborder='0' scrolling='no' width='240' height='90'><a href='http://banner.ool.ua/www/delivery/ck.php?n=a8b49fb0&amp;cb=346396007' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=50&amp;cb=346396007&amp;n=a8b49fb0' border='0' alt='' /></a></iframe>                        <hr style="border: 1px solid #FF9933">        
+	<iframe id='a889f38f' name='a889f38f' src='http://banner.ool.ua/www/delivery/afr.php?zoneid=47&amp;target=_blank&amp;cb=346396007' frameborder='0' scrolling='no' width='240' height='350'>
+		<a href='http://banner.ool.ua/www/delivery/ck.php?n=abcbfb1c&amp;cb=346396007' target='_blank'><img src='http://banner.ool.ua/www/delivery/avw.php?zoneid=47&amp;cb=346396007&amp;n=abcbfb1c' border='0' alt='' /></a>
+	</iframe>
+<iframe id='txAd4' name='txAd4' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=93' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd5' name='txAd5' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=111' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe><br><br>
+<iframe id='txAd6' name='txAd6' src='http://bnet.aviso.ua/www/delivery/afr.php?zoneid=112' framespacing='0' frameborder='no' scrolling='no' width='240' height='73' allowtransparency='true'></iframe>    </div>
+    <!-- /bn and stats -->
+</div>
+ 
+<div id="right-col">
+<div id="choice-section">
+    <a style="text-decoration: none; position: absolute; left: 10px;" href="./" title="Перейти на главную страницу сайта, Киев и область">
+        <img src="../images/home_16.png" width="16px" height="16px">
+    </a>
+ 
+    <div style="position: relative; left: 20px;">
+        »
+        <a href="rubrics_new.php?rid=1">Недвижимость</a> » <a href="rubrics_new.php?rid=180">Дома, дачи, земельные участки. Продажа</a>                »
+                <span style="color: #FF9000;">Дома. Дачи. Коттеджи</span>
+    </div>
+</div>
+<div id="content-ads">
+<div id="rubs">
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=191" data="191">
+        <span class='a-rubs-txt'>
+            Дома. Дачи. Коттеджи        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=192" data="192">
+        <span class='a-rubs-txt'>
+            Земельные участки        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=193" data="193">
+        <span class='a-rubs-txt'>
+            Прочие варианты        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=194" data="194">
+        <span >
+            Дома. Дачи. Земельные участки. Обменяю        </span>
+    </a>
+    
+        <a class="a-rubs" href="/kiev/rubrics_new.php?rid=180&rub=195" data="195">
+        <span >
+            Дома. Дачи. Земельные участки. Куплю        </span>
+    </a>
+        <div style="clear: left;"></div>
+ 
+    
+    <div style="width: 100%; border: 1px solid #ccc;"></div>
+<br>
+<form class="rubs-filters" action="/kiev/rubrics_new.php" method="GET">
+<input type="hidden" name="rid" value="180">
+<input type="hidden" name="rub" value="191">
+<input type="hidden" name="page" value="">
+<input type="hidden" name="sbtn" value="Искать">
+<!--<input type="hidden" name="rooms1" value="">
+<input type="hidden" name="rooms2" value="">
+<input type="hidden" name="rooms3" value="">
+<input type="hidden" name="rooms4" value="">
+<input type="hidden" name="rooms5" value="">
+<input type="hidden" name="adistr" value="">
+<input type="hidden" name="apricemin" value="">
+<input type="hidden" name="apricemax" value="">
+<input type="hidden" name="aspacemin" value="">
+<input type="hidden" name="aspacemax" value="">
+<input type="hidden" name="aspacelivemin" value="">
+<input type="hidden" name="aspacelivemax" value="">
+<input type="hidden" name="aspacekitchmin" value="">
+<input type="hidden" name="aspacekitchmax" value="">
+<input type="hidden" name="aflrmin" value="">
+<input type="hidden" name="aflrmax" value="">
+<input type="hidden" name="aflrsmin" value="">
+<input type="hidden" name="aflrsmax" value="">-->
+<!--<input type="hidden" name="fonly" value="">-->
+<!--<input type="hidden" name="sortby" value="">-->
+<input type="hidden" name="sortedby" class="for_send_value" value=""/>
+ 
+<p class="search-result" align="center">
+    По вашемо запросу
+    найдено 30 объявлений</p>
+<br>
+ 
+<div style="position: relative;">
+    <p id="sortby" align="center">
+        <a id="НН" class="poster" value="НН" href="#">
+            0..9
+        </a>&nbsp;&mdash;&nbsp;
+        <a id="А" class="poster" value="А" href="#">А</a>
+        -
+        <a id="Б" class="poster" value="Б" href="#">Б</a>
+        -
+        <a id="В" class="poster" value="В" href="#">В</a>
+        -
+        <a id="Г" class="poster" value="Г" href="#">Г</a>
+        -
+        <a id="Д" class="poster" value="Д" href="#">Д</a>
+        -
+        <a id="Е" class="poster" value="Е" href="#">Е</a>
+        -
+        <a id="Ё" class="poster" value="Ё" href="#">Ё</a>
+        -
+        <a id="Ж" class="poster" value="Ж" href="#">Ж</a>
+        -
+        <a id="З" class="poster" value="З" href="#">З</a>
+        -
+        <a id="И" class="poster" value="И" href="#">И/І</a>
+        -
+        <a id="Й" class="poster" value="Й" href="#">Й</a>
+        -
+        <a id="К" class="poster" value="К" href="#">К</a>
+        -
+        <a id="Л" class="poster" value="Л" href="#">Л</a>
+        -
+        <a id="М" class="poster" value="М" href="#">М</a>
+        -
+        <a id="Н" class="poster" value="Н" href="#">Н</a>
+        -
+        <a id="О" class="poster" value="О" href="#">О</a>
+        -
+        <a id="П" class="poster" value="П" href="#">П</a>
+        -
+        <a id="Р" class="poster" value="Р" href="#">Р</a>
+        -
+        <a id="С" class="poster" value="С" href="#">С</a>
+        -
+        <a id="Т" class="poster" value="Т" href="#">Т</a>
+        -
+        <a id="У" class="poster" value="У" href="#">У</a>
+        -
+        <a id="Ф" class="poster" value="Ф" href="#">Ф</a>
+        -
+        <a id="Х" class="poster" value="Х" href="#">Х</a>
+        -
+        <a id="Ц" class="poster" value="Ц" href="#">Ц</a>
+        -
+        <a id="Ч" class="poster" value="Ч" href="#">Ч</a>
+        -
+        <a id="Ш" class="poster" value="Ш" href="#">Ш</a>
+        -
+        <a id="Щ" class="poster" value="Щ" href="#">Щ</a>
+        -
+        <a id="Ъ" class="poster" value="Ъ" href="#">Ъ</a>
+        -
+        <a id="Ы" class="poster" value="Ы" href="#">Ы</a>
+        -
+        <a id="Ь" class="poster" value="Ь" href="#">Ь</a>
+        -
+        <a id="Э" class="poster" value="Э" href="#">Э</a>
+        -
+        <a id="Є" class="poster" value="Є" href="#">Є</a>
+        -
+        <a id="Ю" class="poster" value="Ю" href="#">Ю</a>
+        -
+        <a id="Я" class="poster" value="Я" href="#">Я</a>
+        &nbsp;&mdash;&nbsp;
+        <a class="poster" href="#" value="">
+            Сбросить фильтр
+        </a>
+    </p>
+    <br>
+ 
+    <p align="center">
+        <label for="sortby">Сортировать:</label>
+        <select name="sortby" onchange="javascript:this.form.submit();">
+                                <option value="1" selected>по дате - сначала новые</option>
+                                        <option value="2">по дате - сначала старые</option>
+                                        <option value="3">по цене - по возрастанию</option>
+                                        <option value="4">по цене - по убыванию</option>
+                                        <option value="5">по тексту - А-Я</option>
+                                        <option value="6">по тексту - Я-А</option>
+                            </select>
+    </p>
+    <br>
+</div>
+<br>
+ 
+<p align="center"><a id="hide-opt" href="#">Скрыть параметры поиска</a></p>
+<table width="100%" id="stbl">
+    <tr>
+        <td valign="top" width="50%">
+            <fieldset>
+                <legend>Район</legend>
+                <p class="form-element">
+                    <select name="adistr">
+                                                                            <option value="0">Не имеет значения</option>
+                                                                                                        <option value="1" selected>Киев. Голосеевский р-н</option>
+                                                                                                        <option value="2">Киев. Дарницкий р-н</option>
+                                                                                                        <option value="3">Киев. Деснянский р-н</option>
+                                                                                                        <option value="4">Киев. Днепровский р-н</option>
+                                                                                                        <option value="5">Киев. Оболонский р-н</option>
+                                                                                                        <option value="6">Киев. Печерский р-н</option>
+                                                                                                        <option value="7">Киев. Подольский р-н</option>
+                                                                                                        <option value="8">Киев. Святошинский р-н</option>
+                                                                                                        <option value="9">Киев. Соломенский р-н</option>
+                                                                                                        <option value="10">Киев. Шевченковский р-н</option>
+                                                                                                        <option value="14">Барышевский р-н</option>
+                                                                                                        <option value="15">Белоцерковский р-н</option>
+                                                                                                        <option value="16">Богуславский р-н</option>
+                                                                                                        <option value="17">Бориспольсиий р-н</option>
+                                                                                                        <option value="18">Бородянский р-н</option>
+                                                                                                        <option value="19">Броварской р-н</option>
+                                                                                                        <option value="20">Васильковский р-н</option>
+                                                                                                        <option value="21">Володарский р-н</option>
+                                                                                                        <option value="22">Вышгородский р-н</option>
+                                                                                                        <option value="23">Згуровский р-н</option>
+                                                                                                        <option value="24">Иванковский р-н</option>
+                                                                                                        <option value="25">Кагарлыкский р-н</option>
+                                                                                                        <option value="26">Киево-Святошинский р-н</option>
+                                                                                                        <option value="27">Макаровский р-н</option>
+                                                                                                        <option value="28">Мироновский р-н</option>
+                                                                                                        <option value="29">Обуховский р-н</option>
+                                                                                                        <option value="30">Переяслав-Хмельницкий р-н</option>
+                                                                                                        <option value="31">Полесский р-н</option>
+                                                                                                        <option value="32">Ракитнянский р-н</option>
+                                                                                                        <option value="33">Сквирский р-н</option>
+                                                                                                        <option value="34">Ставищенский р-н</option>
+                                                                                                        <option value="35">Таращанский р-н</option>
+                                                                                                        <option value="36">Тетиевский р-н</option>
+                                                                                                        <option value="37">Фастовский р-н</option>
+                                                                                                        <option value="38">Яготинский р-н</option>
+                                                                                                        <option value="12">Другие города</option>
+                                                                                                        <option value="13">За рубежом</option>
+                                                                        </select>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Поиск по тексту</legend>
+                <p class="form-element">
+                    <input style="width: 200px;" class="plus-in-val" type="text" name="atext" value="">
+                </p>
+            </fieldset>
+        </td>
+        <td valign="top">
+            <fieldset>
+                <legend>Цена, за объект</legend>
+                <p class="form-element">
+                    <input type="text" name="apricemin" maxlength="7" value=""> -
+                    <input type="text" name="apricemax" maxlength="7" value="">
+                    <select name="apricecur">
+                        <option value="5" selected>
+                            у.е.
+                        </option>
+                        <option value="4" >
+                            евро
+                        </option>
+                        <option value="3" >
+                            грн.
+                        </option>
+                    </select>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Площадь общая, м2</legend>
+                <p class="form-element">
+                    <input type="text" name="aspacemin" maxlength="7" value=""> -
+                    <input type="text" name="aspacemax" maxlength="7" value="">
+                </p>
+            </fieldset>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="fonly" id="fonly" checked>
+            <label for="fonly">только с фото</label>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <p align="left"><input type="submit" id="sbtn" name="sbtn" value="Искать"></p>
+        </td>
+        <td></td>
+    </tr>
+</table>
+ 
+</form>
+    
+</div>
+<br>
+    <br>
+<p class="pagination" align="center">
+    <span class="pagination-txt"></span>&nbsp;Страниц:&nbsp;<b>1</b></p>
+    <br>
+ 
+<div id="ads-name">
+    <h3 id="ads-name-hot">Горячие предложения</h3>
+</div>
+<div id="ads">
+    <div class="ads-list">
+        <table border="0" width="100%">
+            <tr>
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://fn.ua/view.php?ad_id=1450469" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/220.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://fn.ua/view.php?ad_id=1450469" target="_blank">
+                                                        <b>Оценка квартир,</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    помещений, домов для определения дохода при продаже. Оценка квартир от 350 грн. т. 235-04-74.
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    </b>
+                                                </p>
+                                            </div>
+                                        </td >
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://sunbeam.com.ua/" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/123.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://sunbeam.com.ua/" target="_blank">
+                                                        <b>Коттеджи на берегу реки</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    Коттеджи-дуплексы в КГ "Солнечный луч" - 362 м2, 3 этажа, земельный участок, панорамные окна на реку, автономное отопление, солнечная батарея. Цена договорная.             
+тел:     (044) 5856969
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    </b>
+                                                </p>
+                                            </div>
+                                        </td ></tr><tr>
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://www.sunbeam.com.ua" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/213.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://www.sunbeam.com.ua" target="_blank">
+                                                        <b>Акция на коттедж в Конча-Заспе</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    3-этажный коттедж площадью 365 м2 по цене 499 тыс. Евро. Коттедж находится в КГ "Солнечный луч" на береговой линии. Акционная цена действует до 31 декабря 2011 года. Тел: (044) 5856969
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    <b><span style="color:#1B38A5">Цена:&nbsp;</span>499 000 евро.</b>
+                                                </p>
+                                            </div>
+                                        </td >
+					<td data="4" height="121px" width="50%" style="border: 1px solid #A0AEBD; padding: 5px; background-color: #CFDDE9;">
+                                            <div class="foto-hot-ads" style="width: 120px;height: 115px;float: left;margin-left: 10px;margin-right: 10px;">
+                                                <a href="http://www.sunbeam.com.ua" target="_blank">
+                                                    <img height="90px" width="120" border="0" src="../photo/120.jpg" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="info-hot-ads" style="height: 115px;">
+                                                <h3 class="title-hot-ads" style="height: 15px; overflow: hidden;">
+                                                    <a href="http://www.sunbeam.com.ua" target="_blank">
+                                                        <b>Таунхаус на берегу реки</b>
+                                                    </a>
+                                                </h3>
+                                                <br>
+                                                <p class="text-hot-ads" style="height: 59px; overflow: hidden;">
+                                                    Таунхаусы в КГ "Солнечный луч" (Конча-Заспа). 216 м2, земельный участок. Домовладения передаются покупателю в состоянии «под чистовую отделку». Тел: (044) 5856969
+                                                </p>
+                                                <br>
+                                                <p class="price-hot-ads" style="color: #E53F39">
+                                                    <b><span style="color:#1B38A5">Цена:&nbsp;</span>1 800у.е. за кв.м.</b>
+                                                </p>
+                                            </div>
+                                        </td ></tr>        </table>
+    </div>
+</div>
+    <br>
+ 
+<div id="ads">
+            
+                                                    <div id="ads-name">
+                    <h3 id="ads-name-usual">
+                        Объявления
+                            <span style="position: absolute; right: 5px;">
+                                Всего:&nbsp;30                            </span>
+                    </h3>
+                </div>
+                    <div class="ads-list">
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3388113">
+                    <img src="../pics/1/003/388/113/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3388113">
+                    <b style="font-size: 16px;">Продам  дом, 500000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Большая Окружная. Продам! Еврокотедж в Голосеевский р-он., до Одесской пл. 1км, Теремки-2. Два трехэтажных дома общей площадью 520 кв. м. Внутренняя отделка в классическом стиле. Полы с подогревом. 1-й – 270 кв.м, 3 спальни, 3 с/у, два камина, терассы, балконы на 2 и 3 этажах; 2-й -- 250 кв.м .в котором находится сауна, терасса 20м, гараж на 4 автомобиля . Участок 8 сот. ладшафтный дизайн. Асфальтированный подъезд. Развитая инфраструктура (ТРЦ «Магеллан», \ МЕТРО\ , \ АРАКС\ ). Цена: 500000 у.е.. 0503835381 0630788913 Юлия
+                 Тел: (63) 0788913
+                                <span class="price" style="color: red;">
+                            500 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-28 07:10:40</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3401882">
+                    <img src="../pics/1/003/401/882/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3401882">
+                    <b style="font-size: 16px;">Продам  дом, 525000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Лесная. Продаж 2х поверхового будинку, площа-344,0 кв.м, 7кімн., ділянка 30,0 сот; ремонт, тепла підлога, газове опалення, супутникове телебачення, 4 санвузли, телефон, камін, трв яні газони, фруктовий сад, дренажна система, полив, свердловина 45м, парковка на 4 авто, гараж на 2 авто, поруч ліс, відстань від Києва 15 км;Зацікавленним покупцям можливий торг. C-93684; Ціна: 525 000 USD
+                 Тел: (50) 4439838
+                                <span class="price" style="color: red;">
+                            525 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-28 04:01:11</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3433699">
+                    <img src="../pics/1/003/433/699/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3433699">
+                    <b style="font-size: 16px;">Продам  коттедж, 525000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Лесная. Продаж 2х поверхового будинку, площа-344,0 кв.м, 7кімн., ділянка 30,0 сот; ремонт, тепла підлога, газове опалення, супутникове телебачення, 4 санвузли, телефон, камін, трв яні газони, фруктовий сад, дренажна система, полив, свердловина 45м, парковка на 4 авто, гараж на 2 авто, поруч ліс, відстань від Києва 15 км;Зацікавленним покупцям можливий торг. C-93684; Ціна: 525 000 USD
+                 Тел: (50) 4439838
+                                <span class="price" style="color: red;">
+                            525 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-28 04:00:28</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3433915">
+                    <img src="../pics/1/003/433/915/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3433915">
+                    <b style="font-size: 16px;">Продам  дом, 110000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Первомайская,. Продам. Дом Червоный хутор, ул.Первомайская, 130 кв.м, частично сделан ремонт. Угловой участок 5 соток с госактом. Цена 110000у.е. 325930, 7011751, 0682546431(1156)
+                 Тел: (48) 7150210
+                                <span class="price" style="color: red;">
+                            110 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-27 16:40:45</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3401486">
+                    <img src="../pics/1/003/401/486/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3401486">
+                    <b style="font-size: 16px;">Продам  дом, 140000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Мышеловка. Продаем коттедж 90 кв.м. двухэтажный красного кирпича : гостиная+кухня+спальня , все горкоммуникации в доме, участок 8 соток с садом. Частная собственность на дом и землю, статус – садовый кооператив.Уютный зеленый уголок Мышеловка в Голосеево.Цена 140 000 у.е.
+                 Тел: (50) 4488478
+                                <span class="price" style="color: red;">
+                            140 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-27 07:20:08</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3409024">
+                    <img src="../pics/1/003/409/024/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3409024">
+                    <b style="font-size: 16px;">Чапаївка</b>
+                </a>
+                <br><br>
+ 
+                Бродівська вул., 72/48/11.8, цегляний, гаряча вода, телефон, асфальт, поряд котеджі, 13.5 сот., можливе збільшення до 23 сот., без комісійних, винагорода посередникам, 140000у.о. Тел: (44) 2271708, (96) 1626872, моб.
+                
+                                <span class="price" style="color: red;">
+                            140 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-26 17:13:39</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3401871">
+                    <img src="../pics/1/003/401/871/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3401871">
+                    <b style="font-size: 16px;">Продам  коттедж, 525000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Лесная. Продаж 2х поверхового будинку, площа-344,0 кв.м, 7кімн., ділянка 30,0 сот; ремонт, тепла підлога, газове опалення, супутникове телебачення, 4 санвузли, телефон, камін, трв яні газони, фруктовий сад, дренажна система, полив, свердловина 45м, парковка на 4 авто, гараж на 2 авто, поруч ліс, відстань від Києва 15 км;Зацікавленним покупцям можливий торг. C-93684; Ціна: 525 000 USD
+                 Тел: (50) 4439838
+                                <span class="price" style="color: red;">
+                            525 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-26 15:00:06</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3352213">
+                    <img src="../pics/1/003/352/213/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3352213">
+                    <b style="font-size: 16px;">Продам  дом, 950000.00 $</b>
+                </a>
+                <br><br>
+ 
+                Расположение: Киев, Голосеевский,  ул. Голосеевская. Без комиссии. Продам дом 555кв.м., 3 уровня, красный кирпич, свободная планировка, высота потолков 3, 5м., гараж на 2 авто, крыша натуральная черепица, панорамные немецкие окна Shuko (стеклопакеты с тонированным стеклом и аргоном), зал 100кв.м., 4 спальни со своими гардеробными и ванными комнатами, мансардный этаж 155кв.м. Участок 9 соток, акт, все городские коммуникации заведены в дом. Документы готовы. Участок позволяет организовать парковку на 5 машин и сделать зону отдыха. Торг
+                 Тел: (63) 2336886
+                                <span class="price" style="color: red;">
+                            950 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-25 10:30:14</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3290162">
+                    <img src="../pics/1/003/290/162/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3290162">
+                    <b style="font-size: 16px;">Чапаївка</b>
+                </a>
+                <br><br>
+ 
+                Бродівська вул., 72/48/11.8, цегляний, гаряча вода, телефон, асфальт, поряд котеджі, 13.5 сот., можливе збільшення до 23 сот., без комісійних, винагорода посередникам, 140000у.о. Тел: (44) 2271708, (96) 1626872, моб.
+                
+                                <span class="price" style="color: red;">
+                            140 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-22 15:54:13</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3363462">
+                    <img src="../pics/1/003/363/462/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3363462">
+                    <b style="font-size: 16px;">Гвардейская ул</b>
+                </a>
+                <br><br>
+ 
+                коттедж, 400кв.м с частичной отделкой. 4 уровня. 2-е к/столовые, каминный зал, 5 комнат.7соток. Гараж на 2 авто. 490 000у.е. АН АЛЬФАБРОК. (код н196). Тел: (66) 7565806  ALFABROK.ua
+                
+                                <span class="price" style="color: red;">
+                            490 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-19 21:25:15</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3297834">
+                    <img src="../pics/1/003/297/834/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3297834">
+                    <b style="font-size: 16px;">Гвардейская ул</b>
+                </a>
+                <br><br>
+ 
+                коттедж, 400кв.м с частичной отделкой. 4 уровня. 2-е к/столовые, каминный зал, 5 комнат.7соток. Гараж на 2 авто. 490 000у.е. АН АЛЬФАБРОК. (код н196). Тел: (66) 7565806  ALFABROK.ua
+                
+                                <span class="price" style="color: red;">
+                            490 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-12 17:52:56</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3297862">
+                    <img src="../pics/1/003/297/862/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3297862">
+                    <b style="font-size: 16px;">Чапаївка</b>
+                </a>
+                <br><br>
+ 
+                Бродівська вул., 72/48/11.8, цегляний, гаряча вода, телефон, асфальт, поряд котеджі, 13.5 сот., можливе збільшення до 23 сот., без комісійних, винагорода посередникам, 140000у.о. Тел: (44) 2271708, (96) 1626872, моб.
+                
+                                <span class="price" style="color: red;">
+                            140 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-12 17:52:56</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3290144">
+                    <img src="../pics/1/003/290/144/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3290144">
+                    <b style="font-size: 16px;">Байковая Гора</b>
+                </a>
+                <br><br>
+ 
+                Волжская ул., дом, 2010г, 250 м2, готовность 100%, евроремонт в классическом стиле, с новой мебелью, со всеми городскими коммуникациями. Участок 5, 6 сотки. Цена 950 000 у.е. Тел: (67) 4084842
+                
+                                <span class="price" style="color: red;">
+                            950 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-08 15:50:06</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3180028">
+                    <img src="../pics/1/003/180/028/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3180028">
+                    <b style="font-size: 16px;">Чапаївка</b>
+                </a>
+                <br><br>
+ 
+                Бродівська вул., 72/48/11.8, цегляний, гаряча вода, телефон, асфальт, поряд котеджі, 13.5 сот., можливе збільшення до 23 сот., без комісійних, винагорода посередникам, 140000у.о. Тел: (44) 2271708, (96) 1626872, моб.
+                
+                                <span class="price" style="color: red;">
+                            140 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3256256">
+                    <img src="../pics/1/003/256/256/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3256256">
+                    <b style="font-size: 16px;">Гвардейская ул</b>
+                </a>
+                <br><br>
+ 
+                коттедж, 400кв.м с частичной отделкой. 4 уровня. 2-е к/столовые, каминный зал, 5 комнат.7соток. Гараж на 2 авто. 490 000у.е. АН АЛЬФАБРОК. (код н196). Тел: (66) 7565806  ALFABROK.ua
+                
+                                <span class="price" style="color: red;">
+                            490 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3256267">
+                    <img src="../pics/1/003/256/267/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3256267">
+                    <b style="font-size: 16px;">Малокитаївська</b>
+                </a>
+                <br><br>
+ 
+                дом, "Добрий шлях", поруч просп.Науки. Будинок 545 кв.м з оздобленням і шикарним краєвидом міста, 700000у.о., код 74252. Тел: (44) 4955959, (50) 4443487, Кравченко Олена  , АН "Благовіст"
+                
+                                <span class="price" style="color: red;">
+                            700 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-12-05 14:29:51</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3199864">
+                    <img src="../pics/1/003/199/864/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3199864">
+                    <b style="font-size: 16px;">Гвардейская ул</b>
+                </a>
+                <br><br>
+ 
+                коттедж, 400кв.м с частичной отделкой. 4 уровня. 2-е к/столовые, каминный зал, 5 комнат.7соток. Гараж на 2 авто. 490 000у.е. АН АЛЬФАБРОК. (код н196). Тел: (66) 7565806  ALFABROK.ua
+                
+                                <span class="price" style="color: red;">
+                            490 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-28 15:08:28</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3146158">
+                    <img src="../pics/1/003/146/158/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3146158">
+                    <b style="font-size: 16px;">Гвардейская ул</b>
+                </a>
+                <br><br>
+ 
+                коттедж, 400кв.м с частичной отделкой. 4 уровня. 2-е к/столовый, каминный зал, 5 комнат.7соток. Гараж на 2 авто. 490 000у.е. АН АЛЬФАБРОК. (код н196). Тел: (44) 3315020, (66) 7565806  ALFABROK.ua
+                
+                                <span class="price" style="color: red;">
+                            490 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-21 15:25:19</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3146188">
+                    <img src="../pics/1/003/146/188/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3146188">
+                    <b style="font-size: 16px;">Чапаївка</b>
+                </a>
+                <br><br>
+ 
+                Бродівська вул., 72/48/11.8, цегляний, гаряча вода, телефон, асфальт, поряд котеджі, 13.5 сот., можливе збільшення до 23 сот., без комісійних, винагорода посередникам, 140000у.о. Тел: (44) 2271708, (96) 1626872, моб.
+                
+                                <span class="price" style="color: red;">
+                            140 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-21 15:25:19</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2958298">
+                    <img src="../pics/1/002/958/298/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2958298">
+                    <b style="font-size: 16px;">Чапаївка</b>
+                </a>
+                <br><br>
+ 
+                Бродівська вул., 72/48/11.8, цегляний, гаряча вода, телефон, асфальт, поряд котеджі, 13.5 сот., можливе збільшення до 23 сот., без комісійних, винагорода посередникам, 140000у.о. Тел: (44) 2271708, (96) 1626872, моб.
+                
+                                <span class="price" style="color: red;">
+                            140 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-17 15:16:17</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3124145">
+                    <img src="../pics/1/003/124/145/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3124145">
+                    <b style="font-size: 16px;">Байковая Гора</b>
+                </a>
+                <br><br>
+ 
+                Волжская ул., дом, 2010г, 250 м2, готовность 100%, евроремонт в классическом стиле, с новой мебелью, со всеми городскими коммуникациями. Участок 5, 6 сотки. Цена 950 000 у.е. Тел: (67) 4084842
+                
+                                <span class="price" style="color: red;">
+                            950 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-17 15:16:17</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3089685">
+                    <img src="../pics/1/003/089/685/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3089685">
+                    <b style="font-size: 16px;">Байковая Гора</b>
+                </a>
+                <br><br>
+ 
+                Волжская ул., дом, 2010г, 250 м2, готовность 100%, евроремонт в классическом стиле, с новой мебелью, со всеми городскими коммуникациями. Участок 5, 6 сотки. Цена 950 000 у.е. Тел: (67) 4084842
+                
+                                <span class="price" style="color: red;">
+                            950 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-14 13:37:06</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3089693">
+                    <img src="../pics/1/003/089/693/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3089693">
+                    <b style="font-size: 16px;">Гвардейская ул</b>
+                </a>
+                <br><br>
+ 
+                коттедж, 400кв.м с частичной отделкой. 4 уровня. 2-е к/столовый, каминный зал, 5 комнат.7соток. Гараж на 2 авто. 490 000у.е. АН АЛЬФАБРОК. (код н196). Тел: (44) 3315020, (66) 7565806  ALFABROK.ua
+                
+                                <span class="price" style="color: red;">
+                            490 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-14 13:37:06</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3028130">
+                    <img src="../pics/1/003/028/130/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3028130">
+                    <b style="font-size: 16px;">Байковая Гора</b>
+                </a>
+                <br><br>
+ 
+                Волжская ул., дом, 2010г, 250 м2, готовность 100%, евроремонт в классическом стиле, с новой мебелью, со всеми городскими коммуникациями. Участок 5, 6 сотки. Цена 950 000 у.е. Тел: (67) 4084842
+                
+                                <span class="price" style="color: red;">
+                            950 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-08 12:16:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3028136">
+                    <img src="../pics/1/003/028/136/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3028136">
+                    <b style="font-size: 16px;">Гвардейская ул</b>
+                </a>
+                <br><br>
+ 
+                коттедж, 400кв.м с частичной отделкой. 4 уровня. 2-е к/столовый, каминный зал, 5 комнат.7соток. Гараж на 2 авто. 490 000у.е. АН АЛЬФАБРОК. (код н196). Тел: (44) 3315020, (66) 7565806  ALFABROK.ua
+                
+                                <span class="price" style="color: red;">
+                            490 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-08 12:16:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=3028180">
+                    <img src="../pics/1/003/028/180/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=3028180">
+                    <b style="font-size: 16px;">Чапаївка</b>
+                </a>
+                <br><br>
+ 
+                Бродівська вул., 72/48/11.8, цегляний, гаряча вода, телефон, асфальт, поряд котеджі, 13.5 сот., можливе збільшення до 23 сот., без комісійних, винагорода посередникам, 140000у.о. Тел: (44) 2271708, (96) 1626872, моб.
+                
+                                <span class="price" style="color: red;">
+                            140 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-08 12:16:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2981265">
+                    <img src="../pics/1/002/981/265/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2981265">
+                    <b style="font-size: 16px;">Байковая Гора</b>
+                </a>
+                <br><br>
+ 
+                Волжская ул., дом, 2010г, 250 м2, готовность 100%, евроремонт в классическом стиле, с новой мебелью, со всеми городскими коммуникациями. Участок 5, 6 сотки. Цена 950 000 у.е. Тел: (67) 4084842
+                
+                                <span class="price" style="color: red;">
+                            950 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-07 14:46:16</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2981270">
+                    <img src="../pics/1/002/981/270/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2981270">
+                    <b style="font-size: 16px;">Гвардейская ул</b>
+                </a>
+                <br><br>
+ 
+                коттедж, 400кв.м с частичной отделкой. 4 уровня. 2-е к/столовый, каминный зал, 5 комнат.7соток. Гараж на 2 авто. 490 000у.е. АН АЛЬФАБРОК. (код н196). Тел: (44) 3315020, (66) 7565806  ALFABROK.ua
+                
+                                <span class="price" style="color: red;">
+                            490 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-11-07 14:46:16</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2930592">
+                    <img src="../pics/1/002/930/592/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2930592">
+                    <b style="font-size: 16px;">Гвардейская ул</b>
+                </a>
+                <br><br>
+ 
+                коттедж, 400кв.м с частичной отделкой. 4 уровня. 2-е к/столовый, каминный зал, 5 комнат.7соток. Гараж на 2 авто. 490 000у.е. АН АЛЬФАБРОК. (код н196). Тел: (44) 3315020, (66) 7565806  ALFABROK.ua
+                
+                                <span class="price" style="color: red;">
+                            490 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-10-31 15:17:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                
+                    
+            <div id="jquery-highlight" class="ads-usual">
+ 
+                
+                <a class="photo" href="view.php?adid=2930595">
+                    <img src="../pics/1/002/930/595/thumb/1.jpg" alt="" title=""/>
+                </a>
+ 
+                
+                <a href="view.php?adid=2930595">
+                    <b style="font-size: 16px;">Голосеевская ул</b>
+                </a>
+                <br><br>
+ 
+                дом, 555 кв.м Без комиссии! 3 уровня, панорамный вид, введен в эксплуатацию, участок 9 соток, все коммуникации, 950000у.е., торг. Тел: (44) 4944882, (44) 2336886, Алексей
+                
+                                <span class="price" style="color: red;">
+                            950 000&nbsp;у.е.                                            </span>
+                
+                                <span class="date">2011-10-31 15:17:59</span>
+ 
+                <div class="clear"></div>
+            </div>
+            <div class="ads-divider"></div>
+ 
+            
+                                </div>
+<br>
+    
+<p class="pagination" align="center">
+    <span class="pagination-txt"></span>&nbsp;Страниц:&nbsp;<b>1</b></p>
+    <br>
+<div id="footer">
+    <p class="copy">&copy;1997&ndash;2010, Pronto-Kyiv JV. All rights reserved.</p>
+	<p><a href="http://www.aviso.ua" target="_blank"><img src="/images/av-logo.gif" height="50" border="0"></a></p>
+    <p><a target="_blank" href="http://o.aviso.ua">Подать объявление</a> | <a href="http://www.aviso.ua/aviso/editions/" target="_blank">Газеты и Журналы</a> | <a href="http://www.aviso.ua/browse/" target="_blank">Просмотр</a> | <a href="http://www.aviso.ua/aviso/all-agree.asp" target="_blank">Условия</a> | <a href="http://www.aviso.ua/aviso/all-contacts.asp" target="_blank">Контакты</a><br /><a href="http://www.aviso.ua">www.aviso.ua</a> | <a target="_blank" href="http://fn.ua">fn.ua</a> | <a target="_blank" href="http://realt.aviso.ua">realt.aviso.ua</a> | <a target="_blank" href="http://auto.aviso.ua">auto.aviso.ua</a></p>
+ 
+    <br>
+    <!-- GOOGLE ANALYTICS -->
+    <script type="text/javascript">
+ 
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20007511-1']);
+        _gaq.push(['_trackPageview']);
+ 
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- /GOOGLE ANALYTICS -->
+ 
+    <!--bigmir)net TOP 100-->
+    <div style="position: absolute; right: 10px;">
+        <script type="text/javascript" language="javascript">
+            <!--
+            bmN=navigator,bmD=document,bmD.cookie='b=b',i=0,bs=[],bm={v:1371,s:1371,t:23,c:bmD.cookie?1:0,n:Math.round((Math.random()* 1000000)),w:0};
+            for(f=self;f!=f.parent;f=f.parent)bm.w++;
+            try{if(bmN.plugins&&bmN.mimeTypes.length&&(x=bmN.plugins['Shockwave Flash']))bm.m=parseInt(x.description.replace(/([a-zA-Z]|s)+/,''));
+                else for(f=3;f<20;f++)if(eval('new ActiveXObject("ShockwaveFlash.ShockwaveFlash.'+f+'")'))bm.m=f}catch(e){}
+            try{bm.y=bmN.javaEnabled()?1:0}catch(e){}
+            try{bmS=screen;bm.v^=bm.d=bmS.colorDepth||bmS.pixelDepth;bm.v^=bm.r=bmS.width}catch(e){}
+            r=bmD.referrer.slice(7);if(r&&r.split('/')[0]!=window.location.host){bm.f=escape(r);bm.v^=r.length}
+            bm.v^=window.location.href.length;for(x in bm)bs[i++]=x+bm[x];
+            bmD.write('<a href="http://www.bigmir.net/" target="_blank" onClick=\'img=new Image();img.src="http://www.bigmir.net/?cl=1371";\'><img src="http://c.bigmir.net/?'+bs.join('&')+'"  width="88" height="63" border="0" alt="bigmir)net TOP 100" title="bigmir)net TOP 100"></a>');
+            //--></script>
+    </div>
+    <!--bigmir)net TOP 100-->
+ 
+    <!-- I.UA counter -->
+    <div style="position: absolute; right: 110px;">
+        <a href="http://www.i.ua/" target="_blank" onclick="this.href='http://i.ua/r.php?57';" title="Rated by I.UA">
+            <script type="text/javascript" language="javascript">
+                <!--
+                iS='<img src="http://r.i.ua/s?u57&p65&n'+Math.random();
+                iD=document;iD.cookie="iua=1";if(iD.cookie)iS+='&c1';
+                iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
+                    +"&w"+screen.width+'&h'+screen.height
+                iT=iD.referrer.slice(7);iH=window.location.href.slice(7);
+                ((iI=iT.indexOf('/'))!=-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+                if(iT!=iH.substring(0,iI))iS+='&f'+escape(iD.referrer.slice(7))
+                iS+='&r'+escape(iH);
+                iD.write(iS+'" border="0" width="88" height="31" />');
+                //-->
+            </script>
+        </a>
+    </div>
+    <!-- End of I.UA counter -->
+</div></div>
+</div>
+</div>
+</body>
+</html>
+<font color="white">SELECT * FROM 1ads
+                      WHERE astatus > 0
+                      AND adrub=191 and addistr='1' and adphoto>'0' 
+                      ORDER BY
+                      IF(apremium,1,0) DESC,
+                      IF(apushup,1,0) DESC
+                      , adate desc
+                      LIMIT 0, 50</font>

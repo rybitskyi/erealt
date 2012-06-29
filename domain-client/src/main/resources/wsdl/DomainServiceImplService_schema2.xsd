@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://erealt.com.ua/domain" xmlns:ns1="http://ws.domain.erealt.rageintegro.biz/" xmlns:tns="http://erealt.com.ua/domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://ws.domain.erealt.rageintegro.biz/" schemaLocation="DomainServiceImplService_schema1.xsd"/>
+
+  <xs:complexType name="leaseFlat">
+    <xs:complexContent>
+      <xs:extension base="tns:flat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="flat" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractObject">
+        <xs:sequence>
+          <xs:element name="roomCount" type="ns1:roomCountType" minOccurs="0"/>
+          <xs:element name="flatArea" type="xs:string" minOccurs="0"/>
+          <xs:element name="flatFloor" type="xs:int" minOccurs="0"/>
+          <xs:element name="buildFloor" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="abstractObject" abstract="true">
+    <xs:sequence>
+      <xs:element name="creationDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="district" type="tns:district" minOccurs="0"/>
+      <xs:element name="region" type="tns:region" minOccurs="0"/>
+      <xs:element name="street" type="tns:street" minOccurs="0"/>
+      <xs:element name="streetObjectNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="price" type="xs:int" minOccurs="0"/>
+      <xs:element name="clientName" type="xs:string" minOccurs="0"/>
+      <xs:element name="telephone" type="xs:string" minOccurs="0"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="photoExt" type="xs:string" minOccurs="0"/>
+      <xs:element name="eid" type="xs:string" minOccurs="0"/>
+      <xs:element name="img" type="xs:string" minOccurs="0"/>
+      <xs:element name="photo" type="xs:string" minOccurs="0"/>
+      <xs:element name="accessUser" type="tns:accessUser" minOccurs="0"/>
+      <xs:element name="source" type="xs:string" minOccurs="0"/>
+      <xs:element name="web" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="version" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="district">
+    <xs:sequence>
+      <xs:element name="caption" type="xs:string" minOccurs="0"/>
+      <xs:element name="caption2" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="version" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="region">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="caption" type="xs:string" minOccurs="0"/>
+      <xs:element name="caption2" type="xs:string" minOccurs="0"/>
+      <xs:element name="district" type="tns:district" minOccurs="0"/>
+      <xs:element name="version" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="street">
+    <xs:sequence>
+      <xs:element name="caption" type="xs:string" minOccurs="0"/>
+      <xs:element name="regions" type="tns:region" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="deprecated" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="version" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="accessUser">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="caption" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+      <xs:element name="telephone" type="xs:string" minOccurs="0"/>
+      <xs:element name="phone" type="tns:phone" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="publicEmail" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="version" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="phone">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="phoneNumber" type="xs:int" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="version" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="leaseHouse">
+    <xs:complexContent>
+      <xs:extension base="tns:house">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="house" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:land">
+        <xs:sequence>
+          <xs:element name="houseArea" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="land" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractObject">
+        <xs:sequence>
+          <xs:element name="plottage" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="saleHouse">
+    <xs:complexContent>
+      <xs:extension base="tns:house">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="saleLand">
+    <xs:complexContent>
+      <xs:extension base="tns:land">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="saleFlat">
+    <xs:complexContent>
+      <xs:extension base="tns:flat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+    <definition name="default" template="/WEB-INF/layouts/default.jspx">
+        <put-attribute name="header" value="/WEB-INF/views/header.jspx"/>
+        <put-attribute name="menu" value="/WEB-INF/views/menu.jspx"/>
+        <put-attribute name="footer" value="/WEB-INF/views/footer.jspx"/>
+    </definition>
+
+    <definition name="list" extends="default">
+        <put-attribute name="rightpanel">
+            <definition template="/WEB-INF/layouts/listRightPanel.jspx">
+                <put-attribute name="memberSubmenu" value="/WEB-INF/views/member/member-submenu.jspx" />
+                <put-attribute name="createObjects" value="/WEB-INF/views/submenu/createObjects.jspx" />
+                <!--<put-attribute name="news" value="/WEB-INF/views/news/recentlist.jspx" />-->
+            </definition>
+        </put-attribute>
+    </definition>
+
+    <definition name="listPanel" template="/WEB-INF/layouts/listPanel.jspx"/>
+
+    <definition name="show" extends="default">
+        <put-attribute name="rightpanel" value="/WEB-INF/views/property/rightpanel.jspx"/>
+    </definition>
+    <definition name="showProperty" template="/WEB-INF/views/property/show.jspx"/>
+
+    <definition name="create" extends="default">
+        <put-attribute name="rightpanel">
+            <definition template="/WEB-INF/layouts/createRightPanel.jspx">
+                <put-attribute name="memberSubmenu" value="/WEB-INF/views/member/member-submenu.jspx" />
+                <put-attribute name="createObjects" value="/WEB-INF/views/submenu/createObjects.jspx" />
+            </definition>
+        </put-attribute>
+    </definition>
+</tiles-definitions>

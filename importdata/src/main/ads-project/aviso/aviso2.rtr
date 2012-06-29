@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transform version="0.0.293" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/aviso" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="aviso2.rtr">
+    <input typeRef="#root" required="false" path="" modelRef="aviso.rdm" endID="0"/>
+    <constant constant="//head/title" id="756"/>
+    <transformMethod name="TOSTRING" y="153" x="83" id="786"/>
+    <transformMethod name="TOSTRING" y="345" x="147" id="794"/>
+    <constant constant="2" id="795"/>
+    <transformMethod type="#number_long" name="FROMSTRING" y="323" x="261" id="796"/>
+    <hashtableRef refId="781" y="248" x="106" id="782"/>
+    <javaMethodRef refId="790" y="297" x="406" id="789"/>
+    <contextPath input="true" endID="0" contextRef="@adistr" id="787"/>
+    <contextPath input="false" endID="0" contextRef="@regionId" id="851"/>
+    <contextPath input="true" endID="0" contextRef="" id="852"/>
+    <contextPath input="false" endID="0" contextRef="" id="853"/>
+    <translation outputPort="0" outputID="782" inputPort="0" inputID="786"/>
+    <translation outputPort="0" outputID="789" inputPort="0" inputID="782"/>
+    <translation outputPort="0" outputID="794" inputPort="0" inputID="795"/>
+    <translation outputPort="0" outputID="796" inputPort="0" inputID="794"/>
+    <translation outputPort="1" outputID="789" inputPort="0" inputID="796"/>
+    <translation outputPort="0" outputID="786" inputPort="0" inputID="787"/>
+    <translation outputPort="0" outputID="851" inputPort="0" inputID="789"/>
+    <translation outputPort="0" outputID="853" inputPort="0" inputID="852"/>
+    <nextId>856</nextId>
+    <output typeRef="#root" required="false" path="" modelRef="aviso.rdm" endID="0"/>
+    <hashtable id="781">
+        <name>region</name>
+        <makePublic>false</makePublic>
+        <defaultValue>0</defaultValue>
+        <entry value="Голосеевский" key="1"/>
+        <entry value="Шевченковский" key="10"/>
+        <entry value="Дарницкий" key="2"/>
+        <entry value="Деснянский" key="3"/>
+        <entry value="Днепровский" key="4"/>
+        <entry value="Оболонский" key="5"/>
+        <entry value="Печерский" key="6"/>
+        <entry value="Подольский" key="7"/>
+        <entry value="Святошинский" key="8"/>
+        <entry value="Соломенский" key="9"/>
+    </hashtable>
+    <javaMethod id="790">
+        <libraryMethod>false</libraryMethod>
+        <methodName>getRegion</methodName>
+        <input type="#string" role="str"/>
+        <input type="#number_long" role="district"/>
+        <output type="#number_long"/>
+        <code>org.hibernate.Session session = (org.hibernate.Session) getObjectFactory();&#xD;
+return biz.rageintegro.importdata.aviso.AvisoUtils.getRegionId(str, district, session);</code>
+    </javaMethod>
+</transform>

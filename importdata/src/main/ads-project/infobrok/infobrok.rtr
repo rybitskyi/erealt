@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transform version="0.0.117" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="infobrok.rtr">
+    <input typeRef="root" required="false" path="" modelRef="infobrok.rdm" endID="0"/>
+    <localTransformRef refId="1" y="92" x="139" id="3"/>
+    <filterRef refId="125" y="110" x="277" id="127"/>
+    <contextPath input="false" endID="0" contextRef="" id="5"/>
+    <contextPath input="true" endID="0" contextRef="b" id="189"/>
+    <translation outputPort="0" outputID="127" inputPort="0" inputID="3"/>
+    <translation outputPort="0" outputID="5" inputPort="0" inputID="127"/>
+    <translation outputPort="0" outputID="3" inputPort="0" inputID="189"/>
+    <nextId>269</nextId>
+    <output typeRef="abstract_object" required="false" path="" modelRef="../abstract_object.rdm" endID="0"/>
+    <localTransform id="1">
+        <transform version="0.0.117" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="row">
+            <input typeRef="root" required="false" path="b" modelRef="infobrok.rdm" endID="0"/>
+            <transformMethod name="SPLIT" y="58" x="66" id="6"/>
+            <constant constant=";" id="8"/>
+            <transformMethod name="INSTANCE" y="107" x="164" id="10"/>
+            <constant constant="1" id="11"/>
+            <transformMethod name="INSTANCE" y="472" x="79" id="21"/>
+            <constant constant="4" id="22"/>
+            <transformMethod name="SPLIT" y="497" x="194" id="23"/>
+            <constant constant=":" id="24"/>
+            <constant constant=":" id="25"/>
+            <transformMethod name="INSTANCE" y="475" x="320" id="26"/>
+            <constant constant="1" id="27"/>
+            <transformMethod name="FIRST" y="29" x="159" id="29"/>
+            <transformMethod name="SPLIT" y="37" x="255" id="30"/>
+            <constant constant=":" id="31"/>
+            <transformMethod name="INSTANCE" y="57" x="340" id="32"/>
+            <constant constant="1" id="33"/>
+            <constant constant="2" id="34"/>
+            <transformMethod type="#number_int" name="FROMSTRING" y="110" x="636" id="35"/>
+            <transformMethod name="TRIM" y="67" x="435" id="37"/>
+            <transformMethod name="REPLACEALL" y="484" x="445" id="44"/>
+            <constant constant="\s" id="45"/>
+            <constant constant="&quot;&quot;" id="46"/>
+            <transformMethod name="INSTANCE" y="378" x="75" id="47"/>
+            <constant constant="3" id="48"/>
+            <transformMethod name="REPLACEFIRST" y="429" x="190" id="50"/>
+            <constant constant="&quot;Этаж&quot;" id="51"/>
+            <constant constant="&quot; &quot;" id="52"/>
+            <constant constant="Этаж" id="54"/>
+            <constant constant="&quot;&quot;" id="55"/>
+            <transformMethod name="SPLIT" y="403" x="343" id="56"/>
+            <constant constant="/" id="57"/>
+            <transformMethod name="FIRST" y="358" x="453" id="58"/>
+            <transformMethod name="INSTANCE" y="410" x="455" id="59"/>
+            <constant constant="1" id="60"/>
+            <transformMethod name="TRIM" y="361" x="559" id="61"/>
+            <transformMethod name="TRIM" y="415" x="544" id="62"/>
+            <transformMethod type="#number_int" name="FROMSTRING" y="356" x="664" id="63"/>
+            <transformMethod type="#number_int" name="FROMSTRING" y="418" x="643" id="64"/>
+            <transformMethod name="INSTANCE" y="548" x="76" id="69"/>
+            <constant constant="5" id="70"/>
+            <transformMethod name="SPLIT" y="541" x="317" id="71"/>
+            <constant constant="&quot;::&quot;" id="72"/>
+            <transformMethod name="INSTANCE" y="550" x="436" id="73"/>
+            <constant constant="3" id="74"/>
+            <transformMethod name="INSTANCE" y="627" x="432" id="75"/>
+            <constant constant="4" id="76"/>
+            <transformMethod name="INSTANCE" y="675" x="323" id="78"/>
+            <constant constant="5" id="79"/>
+            <transformMethod name="REPLACEALL" y="612" x="183" id="87"/>
+            <constant constant="&quot;Участок:|Тел.:|Текст объявления:|Дата:&quot;" id="88"/>
+            <constant constant="&quot;::&quot;" id="89"/>
+            <transformMethod name="TRIM" y="677" x="432" id="91"/>
+            <transformMethod name="DATEFROMSTRING" y="575" x="570" id="92"/>
+            <constant constant="&quot;yyyy-MM-dd&quot;" id="93"/>
+            <transformMethod type="#date_sql_timestamp" name="CONVERTDATE" y="620" x="632" id="95"/>
+            <transformMethod name="INSTANCE" y="297" x="90" id="99"/>
+            <constant constant="2" id="100"/>
+            <transformMethod name="TRIM" y="298" x="240" id="101"/>
+            <transformMethod name="SPLIT" y="302" x="328" id="111"/>
+            <constant constant="/" id="112"/>
+            <transformMethod name="EXISTS" y="294" x="454" id="115"/>
+            <transformMethod name="FIRST" y="247" x="372" id="120"/>
+            <transformMethod type="#number_long" name="FROMSTRING" y="180" x="583" id="121"/>
+            <constant constant="2" id="123"/>
+            <transformMethod name="SPLIT" y="688" x="537" id="135"/>
+            <constant constant="," id="136"/>
+            <transformMethod name="LAST" y="732" x="576" id="137"/>
+            <transformMethod name="TRIM" y="676" x="616" id="138"/>
+            <transformMethod name="STARTSWITH" y="704" x="715" id="139"/>
+            <constant constant="(" id="140"/>
+            <transformMethod type="#string" name="IF" y="643" x="763" id="141"/>
+            <constant constant="&quot;Неизвестный&quot;" id="144"/>
+            <transformMethod name="SUBSTRING" y="456" x="703" id="145"/>
+            <constant constant="0" id="146"/>
+            <transformMethod name="LENGTH" y="575" x="693" id="147"/>
+            <transformMethod name="LENGTH" y="494" x="531" id="149"/>
+            <transformMethod type="#string" name="IF" y="559" x="787" id="151"/>
+            <transformMethod name="SUBTRACT" y="407" x="589" id="152"/>
+            <transformMethod name="ADD" y="517" x="637" id="156"/>
+            <constant constant="2" id="157"/>
+            <transformMethod type="#number_int" name="CAST" y="521" x="713" id="158"/>
+            <transformMethod name="SUBSTRING" y="466" x="651" id="159"/>
+            <constant constant="0" id="160"/>
+            <constant constant="254" id="161"/>
+            <transformMethod name="SUBSTRING" y="470" x="823" id="162"/>
+            <constant constant="0" id="163"/>
+            <constant constant="99" id="164"/>
+            <transformMethod name="MATCHES" y="36" x="549" id="165"/>
+            <constant constant="\d" id="166"/>
+            <transformMethod type="#string" name="IF" y="55" x="643" id="167"/>
+            <constant constant="&quot;SaleFlat&quot;" id="168"/>
+            <constant constant="1" id="172"/>
+            <transformMethod type="#number_long" name="IF" y="264" x="626" id="181"/>
+            <constant constant="null" id="182"/>
+            <transformMethod name="REPLACEWHITESPACE" y="358" x="161" id="202"/>
+            <hashtableRef refId="119" y="250" x="464" id="118"/>
+            <hashtableRef refId="170" y="93" x="537" id="171"/>
+            <javaMethodRef refId="178" y="341" x="572" id="179"/>
+            <javaMethodRef refId="206" y="355" x="303" id="207"/>
+            <javaMethodRef refId="243" y="140" x="371" id="244"/>
+            <contextPath input="false" endID="0" contextRef="room_count" id="36"/>
+            <contextPath input="false" endID="0" contextRef="flat_area" id="28"/>
+            <contextPath input="false" endID="0" contextRef="flat_floor" id="65"/>
+            <contextPath input="false" endID="0" contextRef="build_floor" id="66"/>
+            <contextPath input="false" endID="0" contextRef="creation_date" id="96"/>
+            <contextPath input="false" endID="0" contextRef="region" id="122"/>
+            <contextPath input="false" endID="0" contextRef="district" id="124"/>
+            <contextPath input="false" endID="0" contextRef="client_name" id="143"/>
+            <contextPath input="false" endID="0" contextRef="description" id="86"/>
+            <contextPath input="false" endID="0" contextRef="telephone" id="77"/>
+            <contextPath input="false" endID="0" contextRef="dtype" id="169"/>
+            <contextPath input="false" endID="0" contextRef="version" id="173"/>
+            <contextPath input="false" endID="0" contextRef="street" id="102"/>
+            <contextPath input="false" endID="0" contextRef="price" id="20"/>
+            <contextPath input="true" endID="0" contextRef="" id="7"/>
+            <translation outputPort="1" outputID="6" inputPort="0" inputID="8"/>
+            <translation outputPort="0" outputID="10" inputPort="0" inputID="6"/>
+            <translation outputPort="1" outputID="10" inputPort="0" inputID="11"/>
+            <translation outputPort="1" outputID="21" inputPort="0" inputID="22"/>
+            <translation outputPort="0" outputID="21" inputPort="0" inputID="6"/>
+            <translation outputPort="0" outputID="23" inputPort="0" inputID="21"/>
+            <translation outputPort="1" outputID="23" inputPort="0" inputID="25"/>
+            <translation outputPort="0" outputID="26" inputPort="0" inputID="23"/>
+            <translation outputPort="1" outputID="26" inputPort="0" inputID="27"/>
+            <translation outputPort="0" outputID="29" inputPort="0" inputID="6"/>
+            <translation outputPort="0" outputID="30" inputPort="0" inputID="29"/>
+            <translation outputPort="1" outputID="30" inputPort="0" inputID="31"/>
+            <translation outputPort="0" outputID="32" inputPort="0" inputID="30"/>
+            <translation outputPort="1" outputID="32" inputPort="0" inputID="34"/>
+            <translation outputPort="0" outputID="37" inputPort="0" inputID="32"/>
+            <translation outputPort="0" outputID="35" inputPort="0" inputID="37"/>
+            <translation outputPort="0" outputID="44" inputPort="0" inputID="26"/>
+            <translation outputPort="1" outputID="44" inputPort="0" inputID="45"/>
+            <translation outputPort="2" outputID="44" inputPort="0" inputID="46"/>
+            <translation outputPort="0" outputID="47" inputPort="0" inputID="6"/>
+            <translation outputPort="1" outputID="47" inputPort="0" inputID="48"/>
+            <translation outputPort="0" outputID="50" inputPort="0" inputID="47"/>
+            <translation outputPort="1" outputID="50" inputPort="0" inputID="51"/>
+            <translation outputPort="2" outputID="50" inputPort="0" inputID="52"/>
+            <translation outputPort="0" outputID="56" inputPort="0" inputID="50"/>
+            <translation outputPort="1" outputID="56" inputPort="0" inputID="57"/>
+            <translation outputPort="0" outputID="58" inputPort="0" inputID="56"/>
+            <translation outputPort="0" outputID="59" inputPort="0" inputID="56"/>
+            <translation outputPort="1" outputID="59" inputPort="0" inputID="60"/>
+            <translation outputPort="0" outputID="61" inputPort="0" inputID="58"/>
+            <translation outputPort="0" outputID="62" inputPort="0" inputID="59"/>
+            <translation outputPort="0" outputID="64" inputPort="0" inputID="62"/>
+            <translation outputPort="0" outputID="63" inputPort="0" inputID="61"/>
+            <translation outputPort="0" outputID="69" inputPort="0" inputID="6"/>
+            <translation outputPort="1" outputID="69" inputPort="0" inputID="70"/>
+            <translation outputPort="1" outputID="71" inputPort="0" inputID="72"/>
+            <translation outputPort="1" outputID="73" inputPort="0" inputID="74"/>
+            <translation outputPort="0" outputID="73" inputPort="0" inputID="71"/>
+            <translation outputPort="1" outputID="75" inputPort="0" inputID="76"/>
+            <translation outputPort="0" outputID="75" inputPort="0" inputID="71"/>
+            <translation outputPort="0" outputID="78" inputPort="0" inputID="71"/>
+            <translation outputPort="1" outputID="78" inputPort="0" inputID="79"/>
+            <translation outputPort="0" outputID="87" inputPort="0" inputID="69"/>
+            <translation outputPort="1" outputID="87" inputPort="0" inputID="88"/>
+            <translation outputPort="2" outputID="87" inputPort="0" inputID="89"/>
+            <translation outputPort="0" outputID="71" inputPort="0" inputID="87"/>
+            <translation outputPort="0" outputID="91" inputPort="0" inputID="78"/>
+            <translation outputPort="1" outputID="92" inputPort="0" inputID="93"/>
+            <translation outputPort="0" outputID="92" inputPort="0" inputID="91"/>
+            <translation outputPort="0" outputID="95" inputPort="0" inputID="92"/>
+            <translation outputPort="0" outputID="99" inputPort="0" inputID="6"/>
+            <translation outputPort="1" outputID="99" inputPort="0" inputID="100"/>
+            <translation outputPort="0" outputID="101" inputPort="0" inputID="99"/>
+            <translation outputPort="1" outputID="111" inputPort="0" inputID="112"/>
+            <translation outputPort="0" outputID="111" inputPort="0" inputID="101"/>
+            <translation outputPort="0" outputID="120" inputPort="0" inputID="111"/>
+            <translation outputPort="0" outputID="115" inputPort="0" inputID="120"/>
+            <translation outputPort="0" outputID="118" inputPort="0" inputID="120"/>
+            <translation outputPort="0" outputID="121" inputPort="0" inputID="118"/>
+            <translation outputPort="0" outputID="135" inputPort="0" inputID="75"/>
+            <translation outputPort="1" outputID="135" inputPort="0" inputID="136"/>
+            <translation outputPort="0" outputID="137" inputPort="0" inputID="135"/>
+            <translation outputPort="0" outputID="138" inputPort="0" inputID="137"/>
+            <translation outputPort="0" outputID="139" inputPort="0" inputID="138"/>
+            <translation outputPort="1" outputID="139" inputPort="0" inputID="140"/>
+            <translation outputPort="0" outputID="141" inputPort="0" inputID="139"/>
+            <translation outputPort="1" outputID="141" inputPort="0" inputID="144"/>
+            <translation outputPort="2" outputID="141" inputPort="0" inputID="138"/>
+            <translation outputPort="1" outputID="145" inputPort="0" inputID="146"/>
+            <translation outputPort="0" outputID="147" inputPort="0" inputID="138"/>
+            <translation outputPort="0" outputID="145" inputPort="0" inputID="75"/>
+            <translation outputPort="0" outputID="149" inputPort="0" inputID="75"/>
+            <translation outputPort="0" outputID="151" inputPort="0" inputID="139"/>
+            <translation outputPort="1" outputID="151" inputPort="0" inputID="75"/>
+            <translation outputPort="2" outputID="151" inputPort="0" inputID="145"/>
+            <translation outputPort="0" outputID="152" inputPort="0" inputID="149"/>
+            <translation outputPort="0" outputID="156" inputPort="0" inputID="147"/>
+            <translation outputPort="1" outputID="156" inputPort="0" inputID="157"/>
+            <translation outputPort="0" outputID="158" inputPort="0" inputID="156"/>
+            <translation outputPort="1" outputID="152" inputPort="0" inputID="158"/>
+            <translation outputPort="2" outputID="145" inputPort="0" inputID="152"/>
+            <translation outputPort="0" outputID="159" inputPort="0" inputID="73"/>
+            <translation outputPort="1" outputID="159" inputPort="0" inputID="160"/>
+            <translation outputPort="2" outputID="159" inputPort="0" inputID="161"/>
+            <translation outputPort="0" outputID="162" inputPort="0" inputID="151"/>
+            <translation outputPort="1" outputID="162" inputPort="0" inputID="163"/>
+            <translation outputPort="2" outputID="162" inputPort="0" inputID="164"/>
+            <translation outputPort="1" outputID="165" inputPort="0" inputID="166"/>
+            <translation outputPort="0" outputID="165" inputPort="0" inputID="37"/>
+            <translation outputPort="0" outputID="167" inputPort="0" inputID="165"/>
+            <translation outputPort="1" outputID="167" inputPort="0" inputID="168"/>
+            <translation outputPort="0" outputID="171" inputPort="0" inputID="37"/>
+            <translation outputPort="2" outputID="167" inputPort="0" inputID="171"/>
+            <translation outputPort="0" outputID="179" inputPort="0" inputID="121"/>
+            <translation outputPort="0" outputID="181" inputPort="0" inputID="115"/>
+            <translation outputPort="1" outputID="181" inputPort="0" inputID="179"/>
+            <translation outputPort="2" outputID="181" inputPort="0" inputID="182"/>
+            <translation outputPort="0" outputID="202" inputPort="0" inputID="99"/>
+            <translation outputPort="0" outputID="207" inputPort="0" inputID="202"/>
+            <translation outputPort="1" outputID="179" inputPort="0" inputID="207"/>
+            <translation outputPort="0" outputID="244" inputPort="0" inputID="10"/>
+            <translation outputPort="0" outputID="36" inputPort="0" inputID="35"/>
+            <translation outputPort="0" outputID="28" inputPort="0" inputID="44"/>
+            <translation outputPort="0" outputID="65" inputPort="0" inputID="63"/>
+            <translation outputPort="0" outputID="66" inputPort="0" inputID="64"/>
+            <translation outputPort="0" outputID="96" inputPort="0" inputID="95"/>
+            <translation outputPort="0" outputID="122" inputPort="0" inputID="121"/>
+            <translation outputPort="0" outputID="124" inputPort="0" inputID="123"/>
+            <translation outputPort="0" outputID="143" inputPort="0" inputID="141"/>
+            <translation outputPort="0" outputID="86" inputPort="0" inputID="159"/>
+            <translation outputPort="0" outputID="77" inputPort="0" inputID="162"/>
+            <translation outputPort="0" outputID="169" inputPort="0" inputID="167"/>
+            <translation outputPort="0" outputID="173" inputPort="0" inputID="172"/>
+            <translation outputPort="0" outputID="102" inputPort="0" inputID="181"/>
+            <translation outputPort="0" outputID="20" inputPort="0" inputID="244"/>
+            <translation outputPort="0" outputID="6" inputPort="0" inputID="7"/>
+            <nextId>0</nextId>
+            <output typeRef="abstract_object" required="false" path="" modelRef="../abstract_object.rdm" endID="0"/>
+            <hashtable id="119">
+                <name>short-region</name>
+                <makePublic>false</makePublic>
+                <defaultValue>-1</defaultValue>
+                <entry value="3" key="Гол"/>
+                <entry value="4" key="Дар"/>
+                <entry value="7" key="Дес"/>
+                <entry value="8" key="Дне"/>
+                <entry value="9" key="Обо"/>
+                <entry value="10" key="Печ"/>
+                <entry value="11" key="Под"/>
+                <entry value="12" key="Свя"/>
+                <entry value="13" key="Сол"/>
+                <entry value="14" key="Шев"/>
+            </hashtable>
+            <hashtable id="170">
+                <name>dtype</name>
+                <makePublic>false</makePublic>
+                <defaultValue>unknown</defaultValue>
+                <entry value="SaleHouse" key="дом"/>
+                <entry value="SaleLand" key="земли"/>
+                <entry value="SaleLand" key="уч"/>
+            </hashtable>
+            <javaMethod id="178">
+                <libraryMethod>false</libraryMethod>
+                <methodName>getStreetId</methodName>
+                <input type="#number_long" role="regionId"/>
+                <input type="#string" role="street"/>
+                <output type="##number_long"/>
+                <code>org.hibernate.Session session = (org.hibernate.Session) getObjectFactory();&#xD;
+if (session != null) {&#xD;
+String SQL_QUERY = &#xD;
+&quot;SELECT s.id from street s, street_regions sr &quot; +&#xD;
+&quot; where sr.street=s.id and sr.regions=&quot; +regionId +  &quot;and s.caption='&quot; + street + &quot;'&quot;; &#xD;
+java.util.List l = session.createSQLQuery(SQL_QUERY).list();&#xD;
+if (l.size() == 0) {&#xD;
+return null;&#xD;
+}&#xD;
+else {&#xD;
+java.math.BigInteger val = (java.math.BigInteger) l.get(0);&#xD;
+            return new Long(val.toString());&#xD;
+}&#xD;
+}&#xD;
+else {&#xD;
+return new Long(-111);&#xD;
+}</code>
+            </javaMethod>
+            <javaMethod id="206">
+                <libraryMethod>false</libraryMethod>
+                <methodName>streetName</methodName>
+                <input type="#string" role="arg0"/>
+                <output type="#string"/>
+                <code>arg0 = arg0.replaceAll(&quot;\u20D0&quot;, &quot;&quot;).trim();&#xD;
+String[] arr = arg0.split(&quot; &quot;);&#xD;
+if (arr.length &lt;= 1) {&#xD;
+return &quot;unknown&quot;;&#xD;
+}&#xD;
+else {&#xD;
+StringBuffer sb = new StringBuffer();&#xD;
+    for (int i = 1; i &lt; arr.length;i++) {&#xD;
+        sb.append(arr[i]).append(&quot; &quot;);        &#xD;
+    }&#xD;
+    return sb.toString().trim();    &#xD;
+}&#xD;
+</code>
+            </javaMethod>
+            <javaMethod id="243">
+                <libraryMethod>false</libraryMethod>
+                <methodName>getPrice</methodName>
+                <input type="#string" role="str"/>
+                <output type="#number_int"/>
+                <code>        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(&quot;\d+&quot;);&#xD;
+        java.util.regex.Matcher matcher = pattern.matcher(str);&#xD;
+&#xD;
+        String result = &quot;0&quot;;&#xD;
+        if (matcher.find()) {&#xD;
+            result = matcher.group();&#xD;
+        }&#xD;
+&#xD;
+        return Integer.parseInt(result);&#xD;
+</code>
+            </javaMethod>
+        </transform>
+    </localTransform>
+    <filter id="125">
+        <filter name="KyivOnly">
+            <input typeRef="abstract_object" required="false" path="" modelRef="../abstract_object.rdm" endID="0"/>
+            <transformMethod name="GREATERTHAN" y="117" x="148" id="130"/>
+            <constant constant="-1" id="131"/>
+            <transformMethod name="AND" y="151" x="279" id="174"/>
+            <transformMethod name="NOTEQUALS" y="236" x="140" id="175"/>
+            <constant constant="unknown" id="176"/>
+            <contextPath input="false" endID="1" contextRef="any" id="129"/>
+            <contextPath input="false" endID="0" contextRef="boolean" id="133"/>
+            <contextPath input="true" endID="0" contextRef="" id="128"/>
+            <contextPath input="true" endID="0" contextRef="region" id="134"/>
+            <contextPath input="true" endID="0" contextRef="dtype" id="177"/>
+            <translation outputPort="1" outputID="130" inputPort="0" inputID="131"/>
+            <translation outputPort="0" outputID="174" inputPort="0" inputID="130"/>
+            <translation outputPort="1" outputID="175" inputPort="0" inputID="176"/>
+            <translation outputPort="1" outputID="174" inputPort="0" inputID="175"/>
+            <translation outputPort="0" outputID="133" inputPort="0" inputID="174"/>
+            <translation outputPort="0" outputID="129" inputPort="0" inputID="128"/>
+            <translation outputPort="0" outputID="130" inputPort="0" inputID="134"/>
+            <translation outputPort="0" outputID="175" inputPort="0" inputID="177"/>
+            <nextId>0</nextId>
+        </filter>
+    </filter>
+</transform>

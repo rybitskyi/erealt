@@ -1,0 +1,12 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form" id="submenu" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/design" var="design_url" />
+    <a href="${design_url}">
+        <spring:message code="label.backTo"/><c:out value=" "/>
+        <spring:message code="label.design"/>
+    </a>
+    <br/>
+
+</div>

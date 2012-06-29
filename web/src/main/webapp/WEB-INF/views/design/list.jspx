@@ -1,0 +1,65 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:roo="urn:jsptagdir:/WEB-INF/tags"
+     xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <script type="text/javascript">dojo.require('dijit.TitlePane');</script>
+    <spring:url value="/static/images/new0.gif" var="new_image_url"/>
+    <spring:url value="/static/images/video.gif" var="video_image_url"/>
+    <div id="design_title_div">
+        <spring:message code="label.design" var="title_msg"/>
+        <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId :
+                'design_title_div',
+            widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title_msg}'}}));
+        </script>
+        <table class="noborder">
+            <!--3-->
+            <tr class="nocolor">
+                <td class="noborder">
+                    <h4 width="40px">
+                        <spring:url var="img3" value="/static/images/design/3/1.jpg"/>
+                        <img src="${img3}" width="100px"/>
+                    </h4>
+                </td>
+                <td class="noborder" width="100%">
+                    <h4>
+                        <spring:url value="/design/3" var="url3"/>
+                        <a href="${url3}">Декоративная штукатурка</a>
+                        <img src="${video_image_url}"/>
+                        <img src="${new_image_url}"/>
+                    </h4>
+                </td>
+            </tr>
+            <!--2-->
+            <tr class="nocolor">
+                <td class="noborder">
+                    <h4 width="40px">
+                        <spring:url var="img2" value="/static/images/design/2/1-small.jpg"/>
+                        <img src="${img2}"/>
+                    </h4>
+                </td>
+                <td class="noborder" width="100%">
+                    <h4>
+                        <spring:url value="/design/2" var="url2"/>
+                        <a href="${url2}">Выбирай: коттеджный городок или село</a>
+                    </h4>
+                </td>
+            </tr>
+            <!--1-->
+            <tr class="nocolor">
+                <td class="noborder">
+                    <h4 width="40px">
+                        <spring:url var="img1" value="/static/images/design/1/1-small.gif"/>
+                        <img src="${img1}"/>
+                    </h4>
+                </td>
+                <td class="noborder" width="100%">
+                    <h4>
+                        <spring:url value="/design/1" var="url1"/>
+                        <a href="${url1}">Художественный паркет</a>
+                    </h4>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

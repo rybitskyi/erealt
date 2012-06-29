@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transform version="0.0.292" validateOutputs="false" validateInputs="false" targetNamespace="http://rageintegro.biz/erealt/aviso" readOnly="false" processingOrder="Outputs" encrypted="false" IOversion="3.1.0" name="aviso3.rtr">
+    <input typeRef="#root" required="false" path="" modelRef="aviso.rdm" endID="0"/>
+    <constant constant="//head/title" id="756"/>
+    <globalTransformRef ref="aviso.rtr" y="75" x="325" id="852"/>
+    <globalTransformRef ref="aviso2.rtr" y="70" x="103" id="853"/>
+    <contextPath input="true" endID="0" contextRef="" id="854"/>
+    <contextPath input="false" endID="0" contextRef="" id="855"/>
+    <translation outputPort="0" outputID="853" inputPort="0" inputID="854"/>
+    <translation outputPort="0" outputID="852" inputPort="0" inputID="853"/>
+    <translation outputPort="0" outputID="855" inputPort="0" inputID="852"/>
+    <nextId>856</nextId>
+    <output typeRef="abstract_object" required="false" path="" modelRef="../abstract_object.rdm" endID="0"/>
+    <globalTransform id="0">
+        <transformRef>aviso.rtr</transformRef>
+    </globalTransform>
+    <globalTransform id="0">
+        <transformRef>aviso2.rtr</transformRef>
+    </globalTransform>
+</transform>

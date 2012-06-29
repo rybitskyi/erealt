@@ -1,0 +1,21 @@
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     class="widget"
+     version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <div id="member-submenu_title_div">
+        <spring:message code="member.cabinet.title" var="title_msg"/>
+        <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : 'member-submenu_title_div',
+            widgetType : 'dijit.TitlePane', widgetAttrs : {title: '${title_msg}'}}));
+        </script>
+        <spring:url var="myobjects" value="/member/myobjects"/>
+        <a href="${myobjects}">
+            <spring:message code="member.cabinet.myobjects"/>
+        </a>
+        <br/><br/>
+        <spring:url var="settings" value="/member/settings"/>
+        <a href="${settings}">
+            <spring:message code="member.cabinet.settings"/>
+        </a>
+    </div>
+</div>
